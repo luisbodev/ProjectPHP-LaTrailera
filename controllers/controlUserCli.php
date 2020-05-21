@@ -30,7 +30,7 @@
             $r=$obUser->validarSoloUsuario($_REQUEST["usuarioCli"]);
         }
         
-
+        
         if($r==1) {
             echo "Te damos la bienvenida: ";
             echo $user;
