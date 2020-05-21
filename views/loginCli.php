@@ -38,8 +38,7 @@
                     </div>
                     <div class="col-md-3">
                         <input type="submit" name="btnValidarEmpleado" value="continuar"  class="btn btn-success">
-                    </div>
-
+                    </div>                
                 </div>
             </div>
         </form>        
