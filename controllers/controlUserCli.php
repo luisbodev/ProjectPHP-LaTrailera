@@ -4,10 +4,10 @@
     $obUser=new UsuarioCliModel();
 
     if(isset($_REQUEST["validar"])) {
-        $r=$obUser->validarUsuario($_REQUEST["login"], $_REQUEST["password"]);
+        $r=$obUser->validarUsuario($_REQUEST["usuarioCli"], $_REQUEST["passwordCli"]);
         if($r==1) {
             session_start();
-            $_SESSION["s1"]=$_REQUEST["login"];//Identificador de la seción
+            $_SESSION["s1"]=$_REQUEST["usuarioCli"];//Identificador de la seción
             header("Location:controlEmpleado.php");
         }
         else

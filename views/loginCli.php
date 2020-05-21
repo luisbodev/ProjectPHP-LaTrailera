@@ -11,29 +11,29 @@
 </head>
 <body>
     <header>
-        <h3>Login</h3>
+        <h3></h3>
     </header>
     
     <section>
         <form action="#" method="POST">
-        <div class="container">
-            <div class="row">
-                
+            <div class="container">
+                <div class="row">
+                    
+                        <div class="col-md-3">
+                            <label for="usuarioCli" class="control-label">Usuario</label> <input type="text" name="usuarioCli" class="form-control">
+                        </div>
+                        <div class="col-md-3">            
+                            <label for="paswordCli" class="control-laberl">Contreseña</label><input type="password" name="passwordCli"  class="form-control">                       
+                        </div>
+                    
+                </div>
+                <br>
+                <div class="row">
                     <div class="col-md-3">
-                        <label for="login" class="control-label">Usuario</label> <input type="text" name="login" class="form-control">
+                        <input type="submit" name="validar" class="btn btn-success">
                     </div>
-                    <div class="col-md-3">            
-                        <label for="pasword" class="control-laberl">Contreseña</label><input type="password" name="password"  class="form-control">                       
-                    </div>
-                
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-3">
-                    <input type="submit" name="validar" class="btn btn-success">
                 </div>
             </div>
-        </div>
         </form>        
     </section>
     <footer></footer>
