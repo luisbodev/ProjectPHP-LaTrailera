@@ -2,6 +2,6 @@
     define("SERVER", "localhost");
     define("USER", "root");
     define("PASSWORD","");
-    define("BASE","esmpresa2");
+    define("BASE","bdTrailera");
     define("CHAR","utf-8");
 ?>
