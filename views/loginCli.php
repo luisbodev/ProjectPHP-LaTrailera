@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-    <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="dependencias/jquery.js"></script>
+    <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
     <title>Ventana de Logeo</title>
 </head>
 <body>
