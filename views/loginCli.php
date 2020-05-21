@@ -17,21 +17,29 @@
     <section>
         <form action="#" method="POST">
             <div class="container">
-                <div class="row">
-                    
+                <div class="row">                    
                         <div class="col-md-3">
-                            <label for="usuarioCli" class="control-label">Usuario</label> <input type="text" name="usuarioCli" class="form-control">
+                            <label for="usuarioCli" class="control-label">Usuario</label> <input type="text" name="usuarioCli" value="<?php if(isset($_REQUEST['usuarioCli'])){echo $_REQUEST['usuarioCli'];}?>"class="form-control">
                         </div>
                         <div class="col-md-3">            
-                            <label for="paswordCli" class="control-laberl">Contreseña</label><input type="password" name="passwordCli"  class="form-control">                       
+                            <label for="paswordCli" class="control-laberl">Contreseña Cliente</label><input type="password" name="passwordCli"   class="form-control">                       
                         </div>
-                    
+                        <div class="col-md-3">            
+                            <label for="paswordEmp" class="control-laberl">Contreseña Empleado</label><input type="password" name="passwordEmp"  class="form-control">                       
+                        </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-md-3">
-                        <input type="submit" name="validar" class="btn btn-success">
+                        <input type="submit" name="btnUsuario" value="continuar" class="btn btn-success">
                     </div>
+                    <div class="col-md-3">
+                        <input type="submit" name="btnValidarCliente" value="continuar"  class="btn btn-success">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="submit" name="btnValidarEmpleado" value="continuar"  class="btn btn-success">
+                    </div>
+
                 </div>
             </div>
         </form>        
