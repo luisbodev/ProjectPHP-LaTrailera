@@ -21,11 +21,11 @@
         
         
         
-        if($r==1) {
+        if($r==1 && !($rest=="emp")) {
             header("Location:controlLoginCliente.php");
 
         }
-        else if($r==1 && $rest=="emp") {
+        else if($r==1 && $rest=="emp"){
             header("Location:controlLoginEmpleado.php");
         }
        
