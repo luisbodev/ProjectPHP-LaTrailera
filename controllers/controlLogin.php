@@ -13,18 +13,19 @@
             $num=(strlen($user)-3);
             $rest = substr($user, 0, -($num));
         }
-        if($rest=="Emp"){
+        if($rest=="emp"){
             $r=$obUser->validarSoloUsuarioEmpleado($_REQUEST["usuarioCli"]);
         } else {
             $r=$obUser->validarSoloUsuario($_REQUEST["usuarioCli"]);
         }
         
         
+        
         if($r==1) {
             header("Location:controlLoginCliente.php");
 
         }
-        else {
+        else if($r==1 && $rest=="emp") {
             header("Location:controlLoginEmpleado.php");
         }
        
