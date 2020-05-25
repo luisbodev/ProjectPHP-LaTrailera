@@ -2,6 +2,9 @@
 
 require '../db/conexion.php';
 
+
+
+
 class UsuarioCliModel extends Conexion {
     
     function __construct() {
@@ -35,6 +38,27 @@ class UsuarioCliModel extends Conexion {
         }
 
         return 0;
+    }
+
+    
+
+    
+
+    function tomarRol($usuarioCli,$passwordEmp){
+        //$res=$this->con->query("select rol from usuarioEmp");
+        $res=$this->con->prepare("select * from usuarioEmp where usuarioEmp=? and password=? and rol=?");
+        $res->bind_param('sss',$a,$b,$c);
+        $a=$usuarioCli;
+        $b=sha1($passwordEmp);//passwor encriptado.
+        $c="Admin";
+
+        $res->execute();
+        while($res->fetch()) {
+            return 1;//Significa que si es admin
+        }
+
+        return 0;
+        
     }
 
     function validarSoloUsuarioEmpleado($usuarioCli) {
