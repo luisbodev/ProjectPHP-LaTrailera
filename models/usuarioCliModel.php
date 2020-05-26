@@ -57,7 +57,7 @@ class UsuarioCliModel extends Conexion {
             return 1;//Significa que si es admin
         }
 
-        return 0;
+        return 0;//Es usuario común (empleado)
         
     }
 
