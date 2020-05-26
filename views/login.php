@@ -8,12 +8,11 @@
     <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
     <title>Iniciar Sesión - La Trailera</title>
 </head>
 <body>
-    <header>
-        <h3></h3>
-    </header>
+    <header></header>
     
     <section >
         <div class="flex h-screen justify-center items-center">
