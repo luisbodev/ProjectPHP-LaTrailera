@@ -138,7 +138,7 @@
                             <th scope="col" class="text-center">NIT</th>
                             <th scope="col" class="text-center">ID Usuario</th>
                             <th scope="col" class="text-center">Usuario</th>
-                            <th scope="col" class="text-center">Contraseña</th>
+                            <!--<th scope="col" class="text-center">Contraseña</th>-->
                             <th scope="col" class="text-center">Acción</th>
                         </tr>
                     </thead>
@@ -170,7 +170,7 @@
                                         <td>$nit</td>
                                         <td>$idUsuarioEmp</td>
                                         <td>$usuarioEmp</td>
-                                        <td>$password</td>
+                                        
                                         <td>
                                             <button onclick=$('#idEmpleado').val('$idEmpleado');$('#nombre').val('$nombre');$('#apellido').val('$apellido');$('#sexo').val('$sexo');$('#direccion').val('$direccion');$('#cargo').val('$cargo');$('#dui').val('$dui');$('#nit').val('$nit');$('#idUsuarioEmp').val('$idUsuarioEmp');$('#usuarioEmp').val('$usuarioEmp');$('#password').val('$password');$('#hiddenPass').val('$password') class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded'>Editar</button>
                                         </td>
