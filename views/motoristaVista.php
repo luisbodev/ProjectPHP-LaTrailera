@@ -34,7 +34,7 @@
     <section>
         <div class="container">
             <div class="column col-md-5">
-                <form action="#" id="f" ><div id="d1"></div>
+                <form action="#" id="f" method="POST" ><div id="d1"></div>
                     ID<input type="text" name="idMotorista" id="idMotorista" class="form-control" readonly="true"><br>
                     Nombre<input type="text" name="nombre" id="nombre" class="form-control"><br>
                     Apellido<input type="text" name="apellido" id="apellido" class="form-control"><br>
