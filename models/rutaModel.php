@@ -30,9 +30,9 @@
 
 		function insertarRuta($e){
 			try{
-				$para=$this->con->prepare("insert into ruta(idRuta,kilometraje,puntoPartida,puntoLlegada,idMotorista) values(?,?,?,?,?)");
-				$para->bind_param('sssss',$a,$b,$c,$d,$f);
-				$a='';
+				$para=$this->con->prepare("insert into ruta(kilometraje,puntoPartida,puntoLlegada,idMotorista) values(?,?,?,?)");
+				$para->bind_param('ssss',$b,$c,$d,$f);
+				
 				$b=$e->getKilometraje();
 				$c=$e->getPuntoPartida();
 				$d=$e->getPuntoLlegada();

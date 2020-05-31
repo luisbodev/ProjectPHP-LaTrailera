@@ -26,9 +26,9 @@
                 $num=(strlen($e->getUsuarioEmp())-3);
                 $rest = substr($e->getUsuarioEmp(), 0, -($num));//emp
 
-                $res=$this->con->prepare("insert into usuarioEmp(idUsuarioEmp,usuarioEmp,password,rol) values(?,?,?,?)");
-                $res->bind_param('ssss',$j,$k,$l,$m);
-                $j='';
+                $res=$this->con->prepare("insert into usuarioEmp(usuarioEmp,password,rol) values(?,?,?)");
+                $res->bind_param('sss',$k,$l,$m);
+                
                 if($rest!="emp")
                 $k="emp".$e->getUsuarioEmp();
                 else
@@ -39,12 +39,13 @@
                 $res->execute();
 
                 
+                
+                
+                
 
-
-
-                $para=$this->con->prepare("insert into empleado(idEmpleado,nombre,apellido,sexo,direccion,cargo,dui,nit,idUsuarioEmp) values(?,?,?,?,?,?,?,?,(select idUsuarioEmp from usuarioemp order by idUsuarioEmp DESC limit 1))");
-                $para->bind_param('ssssssss',$a,$b,$c,$d,$o,$f,$g,$h);
-                $a='';
+                $para=$this->con->prepare("insert into empleado(nombre,apellido,sexo,direccion,cargo,dui,nit,idUsuarioEmp) values(?,?,?,?,?,?,?,(select idUsuarioEmp from usuarioemp order by idUsuarioEmp DESC limit 1))");
+                $para->bind_param('sssssss',$b,$c,$d,$o,$f,$g,$h);
+                
                 $b=$e->getNombre();
                 $c=$e->getApellido();
                 $d=$e->getSexo();
@@ -52,8 +53,10 @@
                 $f=$e->getCargo();
                 $g=$e->getDui();
                 $h=$e->getNit();
-
+            
                 $para->execute();
+                
+                
             }catch(Exception $ex) {
                 return $ex;
             }finally {
