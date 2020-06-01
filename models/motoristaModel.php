@@ -22,9 +22,9 @@
 
 		function insertarMotorista($e){
 			try{
-				$para=$this->con->prepare("insert into motorista(idMotorista,nombre,apellido,direccion,dui,nit,numLicencia) values(?,?,?,?,?,?,?)");
-				$para->bind_param('sssssss',$a,$b,$c,$d,$ee,$f,$g);
-				$a='';
+				$para=$this->con->prepare("insert into motorista(nombre,apellido,direccion,dui,nit,numLicencia) values(?,?,?,?,?,?)");
+				$para->bind_param('ssssss',$b,$c,$d,$ee,$f,$g);
+				
 				$b=$e->getNombre();
 				$c=$e->getApellido();
 				$d=$e->getDireccion();

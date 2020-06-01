@@ -22,9 +22,9 @@
 
 		function insertarVehiculo($e){
 			try{
-				$para=$this->con->prepare("insert into vehiculo(idVehiculo,marca,placa,modelo,tazaCombustible,capacidadCombustible) values(?,?,?,?,?,?)");
-				$para->bind_param('ssssss',$a,$b,$c,$d,$ee,$f);
-				$a='';
+				$para=$this->con->prepare("insert into vehiculo(marca,placa,modelo,tazaCombustible,capacidadCombustible) values(?,?,?,?,?)");
+				$para->bind_param('sssss',$b,$c,$d,$ee,$f);
+				
 				$b=$e->getMarca();
 				$c=$e->getPlaca();
 				$d=$e->getModelo();

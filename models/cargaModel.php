@@ -23,9 +23,9 @@
 
 		function insertarCarga($e){
 			try{
-				$para=$this->con->prepare("insert into carga(idCarga,descripcion,peso) values(?,?,?)");
-				$para->bind_param('sss',$a,$b,$c);
-				$a='';
+				$para=$this->con->prepare("insert into carga(descripcion,peso) values(?,?)");
+				$para->bind_param('ss',$b,$c);
+				
 				$b=$e->getDescripcion();
 				$c=$e->getPeso();
 				$para->execute();
