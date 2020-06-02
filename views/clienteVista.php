@@ -9,6 +9,7 @@
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
+    <script src="validaciones/validacionCliente.js"></script>
     <script>
         $(document).ready(function(){
             $('#eliminar').click(function(){
@@ -53,7 +54,7 @@
         
         <div class="container">               
             
-                <form action="#" method="POST" id="f" class="px-16 py-4 border-4 border-gray-600 rounded-lg" >
+                <form action="#" method="POST" id="f" class="px-16 py-4 border-4 border-gray-600 rounded-lg" onsubmit="return validar(this);">
                 <div id="d1"></div>
                     <div class="row">
                         <div class="col-md-6">
@@ -79,13 +80,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                                <label for="nit" class="font-bold text-1xl">NIT</label><input type="text" name="nit" id="nit" class="form-control" required>
+                                <label for="nit" class="font-bold text-1xl">NIT</label><input type="text" name="nit" id="nit" class="form-control" required placeholder="0000-000000-000-0" >
                         </div>
                         <div class="col-md-6">
                             <label for="numContacto" class="font-bold text-1xl">Numero de Contacto</label><input type="text" name="numContacto" id="numContacto" class="form-control" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="correo" class="font-bold text-1xl">Correo</label><input type="text" name="correo" id="correo" class="form-control" required>
+                            <label for="correo" class="font-bold text-1xl">Correo</label><input type="text" name="correo" id="correo" class="form-control" required placeholder="@dominio.com" >
                         </div>
                     </div>
                     <div class="row">
