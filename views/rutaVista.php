@@ -80,7 +80,7 @@
         <div class="row">
 
           <div class="col-md-2">
-             <input type="button" value="      Agregar Ruta     " id="btnMark" onclick="var param=0; agregarPunto(param);" class="btn btn-success">
+             <input type="button" value="      Agregar Ruta     " id="btnMark" onclick="initMap(); $('#my_lat').val(' ');$('#my_lng').val('');$('#your_lat').val('');$('#your_lng').val('');" class="btn btn-success">
           </div>
 
           <div class="col-md-2">
@@ -99,7 +99,7 @@
 
         <div class="row">
           <div class="col-md-2">
-          <input type="button" value="Ver Ruta en el Mapa" id="btnDibujarRuta" class="btn btn-info">
+          <input type="button" value="Ver Ruta en el Mapa" id="btnDibujarRuta" disabled="disabled" class="btn btn-info">
           </div>
           <div class="col-md-2">
             <input type="text" placeholder="Longitud" name="my_lng" id="my_lng" class="form-control" readonly>
@@ -109,7 +109,7 @@
             <input type="text" class="form-control" name="your_lng" id="your_lng" placeholder="Longitud" readonly>
           </div>
           <div  class="col-md-2">
-          IdMotorista<select name="idMotorista" id="idMotorista" class="form-control">
+          Motorista<select name="idMotorista" id="idMotorista" class="form-control">
                         <option></option>
                         <?php 
                         foreach ($motor as $m) {
@@ -187,7 +187,7 @@
                             
 
                             echo "<tr><td>$idRuta</td><td>$kilometraje</td><td>$latPuntoA</td><td>$lngPuntoA</td><td>$latPuntoB</td><td>$lngPuntoB</td><td>$idMotorista</td><td>
-                            <button class='btn btn-warning boton' id='btn' onclick=$('#idRuta').val('$idRuta');$('#kilometraje').val('$kilometraje');$('#my_lat').val('$latPuntoA');$('#my_lng').val('$lngPuntoA');$('#your_lat').val('$latPuntoB');$('#your_lng').val('$lngPuntoB');$('#idMotorista').val('$idMotorista')>Editar</button></td></tr>";
+                            <button class='btn btn-warning' id='b3".$count."' onclick=$('#idRuta').val('$idRuta');$('#kilometraje').val('$kilometraje');$('#my_lat').val('$latPuntoA');$('#my_lng').val('$lngPuntoA');$('#your_lat').val('$latPuntoB');$('#your_lng').val('$lngPuntoB');$('#idMotorista').val('$idMotorista');ruta();>Editar</button></td></tr>";
                             //juarezgaaaaaaaaaaaaaaaaaaaaaaa
 
                            
