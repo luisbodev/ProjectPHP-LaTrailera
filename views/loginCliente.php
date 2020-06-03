@@ -9,6 +9,7 @@
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Iniciar Sesión - La Trailera</title>
+
 </head>
 <body>
     <header>
@@ -31,7 +32,7 @@
                         </div>
                         <div>
                             <label for="usuarioCli" class="font-bold text-1xl">Usuario:</label> <br>
-                            <input type="text" name="usuarioCli" class="bg-white focus:outline-none focus:shadow-outline border border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" value="<?php if(isset($_REQUEST['usuarioCli'])){echo $_REQUEST['usuarioCli'];}?>">
+                            <input type="text" name="usuarioCli" id="usuarioCliente" class="bg-white focus:outline-none focus:shadow-outline border border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold">
 
                             <label for="passwordCli" class="font-bold text-1xl">Contreseña:</label> <br>
                             <input type="password" name="passwordCli" class="bg-white focus:outline-none focus:shadow-outline border border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" >
@@ -50,6 +51,10 @@
                
     </section>
     <footer></footer>
+    
+    <script type="text/javascript">
+        document.getElementById('usuarioCliente').value = localStorage.getItem("user");
+    </script>
     
 </body>
 </html>
