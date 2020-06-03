@@ -53,7 +53,7 @@
     <footer></footer>
     
     <script type="text/javascript">
-        document.getElementById('usuarioCliente').value = localStorage.getItem("user");
+        document.getElementById('usuarioCliente').value = sessionStorage.getItem("user");
     </script>
     
 </body>
