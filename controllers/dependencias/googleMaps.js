@@ -26,9 +26,10 @@ function initMap() {
     var onChangeHandler = function() {
         calculateAndDisplayRoute(directionsService, directionsRenderer);
     };
-    document.getElementById('btnDibujarRuta').addEventListener('click', onChangeHandler);
+
+    /*document.getElementById('btnDibujarRuta').addEventListener('click', onChangeHandler);
     //document.getElementById('btn').addEventListener('click', onChangeHandler);
-    document.getElementById('b33').addEventListener('click', onChangeHandler);
+    document.getElementById('b33').addEventListener('click', onChangeHandler);*/
 
     //document.getElementById('').addEventListener('click', onChangeHandler);
 

@@ -84,12 +84,12 @@
           </div>
 
           <div class="col-md-2">
-            <input type="text" placeholder="Latitud" name="my_lat"  id="my_lat" class="form-control" readonly="true">
+            <input type="text" required placeholder="Latitud" name="my_lat"  id="my_lat" class="form-control" readonly="true">
           </div>
 
 
           <div class="col-md-2">
-            <input type="text"  class="form-control" name="your_lat" id="your_lat" placeholder="Latitud"readonly>
+            <input type="text" required  class="form-control" name="your_lat" id="your_lat" placeholder="Latitud"readonly>
           </div>
 
           <div class="col-md-2">
@@ -99,17 +99,17 @@
 
         <div class="row">
           <div class="col-md-2">
-          <input type="button" value="Ver Ruta en el Mapa" id="btnDibujarRuta" disabled="disabled" class="btn btn-info">
+            <!--<input type="button" value="Ver Ruta en el Mapa" id="btnDibujarRuta" disabled="disabled" class="btn btn-info">-->
           </div>
           <div class="col-md-2">
-            <input type="text" placeholder="Longitud" name="my_lng" id="my_lng" class="form-control" readonly>
+            <input type="text" required placeholder="Longitud" name="my_lng" id="my_lng" class="form-control" readonly>
           </div>
           <!--<div class="col-md-2" ></div>-->
           <div class="col-md-2">
-            <input type="text" class="form-control" name="your_lng" id="your_lng" placeholder="Longitud" readonly>
+            <input type="text"  class="form-control" name="your_lng" id="your_lng" placeholder="Longitud" required readonly>
           </div>
           <div  class="col-md-2">
-          Motorista<select name="idMotorista" id="idMotorista" class="form-control">
+          Motorista<select name="idMotorista" required id="idMotorista" class="form-control">
                         <option></option>
                         <?php 
                         foreach ($motor as $m) {
@@ -129,14 +129,14 @@
           <div class="col-md-2">
               <!--<input type="button" value="obtener kms" class="btn btn-success" onclick="obtenerKmts()">-->
               Kilometraje
-              <input type="text" class="form-control" id="kilometraje"  placeholder="Kilometraje" readonly>     
+              <input type="text" class="form-control" id="kilometraje" required placeholder="Kilometraje" readonly>     
           </div>
           <div class="col-md-2">
-          ID<input type="text" name="idRuta" id="idRuta" class="form-control" readonly="true">
+          ID<input type="text" name="idRuta" id="idRuta" class="form-control"  readonly="true">
           </div>
           <div class="col-md-2">
              <input type="hidden" id="tiempo">
-             <input type="hidden" id="kilometrajeReal" name="kilometraje">
+             <input type="hidden" id="kilometrajeReal" required name="kilometraje">
              
              
           </div>
