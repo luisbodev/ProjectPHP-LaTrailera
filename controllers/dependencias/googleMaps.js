@@ -1,6 +1,7 @@
-$("#btnMark").on("click", function() {
+/*$("#btnMark").on("click", function() {
     $(this).attr('disabled', true);
-});
+});*/
+
 
 
 var map;
@@ -27,7 +28,57 @@ function initMap() {
     };
     document.getElementById('btnDibujarRuta').addEventListener('click', onChangeHandler);
     //document.getElementById('btn').addEventListener('click', onChangeHandler);
-    document.getElementsByClassName('boton').addEventListener('click', onChangeHandler);
+    document.getElementById('b33').addEventListener('click', onChangeHandler);
+
+    //document.getElementById('').addEventListener('click', onChangeHandler);
+
+
+
+    map.addListener('click', function(e) {
+
+        if (contador == 0) {
+            deleteMarkers();
+
+            $('#oculto').val(e.latLng); //Impreme la latitud y la logitud en formato: (lat, lang)
+            var cadenita = $('#oculto').val();
+
+            var latIncompleta = (cadenita.split(" ")); //Separamos la logitud y la latitud
+
+            var final = (latIncompleta[0].length) - 1; //Encontramos la logitud del el string guardado en [0] y le restamos 1 porque termina en coma ","
+            var end = (latIncompleta[1].length - 1)
+
+            var latitud = latIncompleta[0].substring(1, final);
+            var longitud = latIncompleta[1].substring(0, end);
+
+            $("#my_lat").val(latitud).trigger('change');
+            $('#my_lng').val(longitud).trigger('change');;
+            //$("#your_lat").val("");
+            //$('#your_lng').val("");
+            $('#latLng').val(e.latLng);
+
+            placeMarkerAndPanTo(e.latLng, map);
+        } else {
+            $('#oculto').val(e.latLng); //Impreme la latitud y la logitud en formato: (lat, lang)
+            var cadenita = $('#oculto').val();
+
+            var latIncompleta = (cadenita.split(" ")); //Separamos la logitud y la latitud
+
+            var final = (latIncompleta[0].length) - 1; //Encontramos la logitud del el string guardado en [0] y le restamos 1 porque termina en coma ","
+            var end = (latIncompleta[1].length - 1)
+
+
+            var latitud = latIncompleta[0].substring(1, final);
+            var longitud = latIncompleta[1].substring(0, end);
+
+            $("#your_lat").val(latitud).trigger('change');
+            $('#your_lng').val(longitud).trigger('change');
+            $('#latLng').val(e.latLng);
+            placeMarkerAndPanTob(e.latLng, map);
+            ruta();
+            obtenerKmts();
+        }
+    });
+
 
 
 
@@ -35,9 +86,17 @@ function initMap() {
 } //Fin de el Init MAp>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 function ruta() {
+    var directionsService = new google.maps.DirectionsService();
+    var directionsRenderer = new google.maps.DirectionsRenderer();
+
+    mep = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 13.698473140684895, lng: -89.20124182969334 },
+        zoom: 8
+    });
 
 
-
+    directionsRenderer.setMap(mep);
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
 }
 
 
@@ -217,7 +276,7 @@ function agregarPunto(banderaPa) {
                 $('#your_lng').val(longitud).trigger('change');
                 $('#latLng').val(e.latLng);
                 placeMarkerAndPanTob(e.latLng, map);
-                //lol();
+                ruta();
                 obtenerKmts();
             }
         });
