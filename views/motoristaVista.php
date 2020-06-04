@@ -35,6 +35,7 @@
     <section>
         <div class="container">
             <div class="column col-md-5">
+<<<<<<< HEAD
                 <form action="#" id="f" onsubmit="return validar(this);"><div id="d1"></div>
                     ID<input type="text" name="idMotorista" id="idMotorista" class="form-control" readonly="true" required="true"><br>
                     Nombre<input type="text" name="nombre" id="nombre" class="form-control" required="true"><br>
@@ -43,6 +44,16 @@
                     DUI<input type="text" name="dui" id="dui" class="form-control" required="true" placeholder="00000000-0"><br>
                     NIT<input type="text" name="nit" id="nit" class="form-control" required="true" placeholder="0000-000000-000-0"><br>
                     Numero de Licencia<input type="text" name="numLicencia" id="numLicencia" class="form-control" required="true" placeholder="0000-000000-000-0"><br>
+=======
+                <form action="#" id="f" method="POST" ><div id="d1"></div>
+                    ID<input type="text" name="idMotorista" id="idMotorista" class="form-control" readonly="true"><br>
+                    Nombre<input type="text" name="nombre" id="nombre" class="form-control"><br>
+                    Apellido<input type="text" name="apellido" id="apellido" class="form-control"><br>
+                    Direccion<input type="text" name="direccion" id="direccion" class="form-control"><br>
+                    DUI<input type="text" name="dui" id="dui" class="form-control"><br>
+                    NIT<input type="text" name="nit" id="nit" class="form-control"><br>
+                    Numero de Licencia<input type="text" name="numLicencia" id="numLicencia" class="form-control"><br>
+>>>>>>> 2cc9e179adb5d9665357b30b8cf08fa47bb03f91
 
                     <input type="reset"  class="btn btn-primary" value="Nuevo" onclick="$('#g').attr('disabled',false)">
                     <input type="submit" name="insertar" id="g" value="Guardar" class="btn btn-primary">

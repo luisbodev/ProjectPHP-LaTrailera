@@ -34,7 +34,7 @@
     <section>
         <div class="container">
             <div class="column col-md-5">
-                <form action="#" id="f" ><div id="d1"></div>
+                <form action="#" id="f" method="POST" ><div id="d1"></div>
                     ID Carga<input type="text" name="idCarga" id="idCarga" class="form-control" readonly="true"><br>
                     Descripción<input type="text" name="descripcion" id="descripcion" class="form-control"><br>
                     Peso Total<input type="text" name="peso" id="peso" class="form-control"><br>
