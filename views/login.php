@@ -30,7 +30,7 @@
                         </div>
                         <div>
                             <label for="usuarioCli" class="font-bold text-1xl">Usuario:</label> <br>
-                            <input type="text" name="usuarioCli" class="bg-white focus:outline-none focus:shadow-outline border border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" value="<?php if(isset($_REQUEST['usuarioCli'])){echo $_REQUEST['usuarioCli'];}?>">
+                            <input type="text" name="usuarioCli" id="usuarioCli" class="bg-white focus:outline-none focus:shadow-outline border border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" value="<?php if(isset($_REQUEST['usuarioCli'])){echo $_REQUEST['usuarioCli'];}?>">
                             <div class="flex justify-center">
                                 <input type="submit" name="btnUsuario" value="Continuar" id="btnUsuario" class="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 my-4 rounded-full">
                             </div>

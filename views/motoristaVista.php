@@ -8,6 +8,7 @@
     <script type="text/javascript" src="dependencias/jquery.js"></script>
     <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
+    <script src="validar.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#eliminar').click(function(){
@@ -34,14 +35,14 @@
     <section>
         <div class="container">
             <div class="column col-md-5">
-                <form action="#" id="f" ><div id="d1"></div>
-                    ID<input type="text" name="idMotorista" id="idMotorista" class="form-control" readonly="true"><br>
-                    Nombre<input type="text" name="nombre" id="nombre" class="form-control"><br>
-                    Apellido<input type="text" name="apellido" id="apellido" class="form-control"><br>
-                    Direccion<input type="text" name="direccion" id="direccion" class="form-control"><br>
-                    DUI<input type="text" name="dui" id="dui" class="form-control"><br>
-                    NIT<input type="text" name="nit" id="nit" class="form-control"><br>
-                    Numero de Licencia<input type="text" name="numLicencia" id="numLicencia" class="form-control"><br>
+                <form action="#" id="f" onsubmit="return validar(this);"><div id="d1"></div>
+                    ID<input type="text" name="idMotorista" id="idMotorista" class="form-control" readonly="true" required="true"><br>
+                    Nombre<input type="text" name="nombre" id="nombre" class="form-control" required="true"><br>
+                    Apellido<input type="text" name="apellido" id="apellido" class="form-control" required="true"><br>
+                    Direccion<input type="text" name="direccion" id="direccion" class="form-control" required="true"><br>
+                    DUI<input type="text" name="dui" id="dui" class="form-control" required="true" placeholder="00000000-0"><br>
+                    NIT<input type="text" name="nit" id="nit" class="form-control" required="true" placeholder="0000-000000-000-0"><br>
+                    Numero de Licencia<input type="text" name="numLicencia" id="numLicencia" class="form-control" required="true" placeholder="0000-000000-000-0"><br>
 
                     <input type="reset"  class="btn btn-primary" value="Nuevo" onclick="$('#g').attr('disabled',false)">
                     <input type="submit" name="insertar" id="g" value="Guardar" class="btn btn-primary">

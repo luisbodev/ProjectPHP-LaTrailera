@@ -7,6 +7,7 @@
     <script type="text/javascript" src="dependencias/jquery.js"></script>
     <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
+    <script src="validar1.js"></script>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
     <script>
@@ -53,7 +54,7 @@
         
         <div class="container">               
             
-                <form action="#" method="POST" id="f" class="px-16 py-4 border-4 border-gray-600 rounded-lg" >
+                <form action="#" method="POST" id="f" onsubmit="return validar1();" class="px-16 py-4 border-4 border-gray-600 rounded-lg" >
                 <div id="d1"></div>
                     <div class="row">
                         <div class="col-md-6">
@@ -75,16 +76,18 @@
                         <div class="col-md-6">
                             <label for="sexo" class="font-bold text-1xl">Sexo</label>
                                 <select class="form-control" name="sexo" id="sexo" required>
-                                    <option>Masculino</option>
-                                    <option>Femenino</option>	
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Masculino</option>
+                                    <option value="2">Femenino</option>	
                                 </select>
                         </div>
                         
                         <div class="col-md-6">
                             <label for="cargo" class="font-bold text-1xl">Cargo</label>
                             <select class="form-control" name="cargo" id="cargo" required>
-                                <option>Empleado</option>
-                                <option>Administrador</option>	
+                                <option value="">Seleccionar</option>
+                                <option value="1">Empleado</option>
+                                <option value="2">Administrador</option>	
                             </select>
                         </div>
 
@@ -95,18 +98,18 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                                <label for="dui" class="font-bold text-1xl">DUI</label><input type="text" name="dui" id="dui" class="form-control" required>
+                                <label for="dui" class="font-bold text-1xl">DUI</label><input type="text" name="dui" id="dui" class="form-control" placeholder="00000000-0" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="nit" class="font-bold text-1xl">NIT</label><input type="text" name="nit" id="nit" class="form-control" required>
+                            <label for="nit" class="font-bold text-1xl">NIT</label><input type="text" name="nit" id="nit" class="form-control" placeholder="0000-000000-000-0" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="usuarioEmp" class="font-bold text-1xl">Usuario</label><input type="text" name="usuarioEmp" id="usuarioEmp" class="form-control" required>
+                            <label for="usuarioEmp" class="font-bold text-1xl">Usuario</label><input type="text" name="usuarioEmp" id="usuarioEmp" class="form-control" placeholder="empNombreUsuario">
                         </div>
                         <div class="col-md-6">
-                            <label for="password" class="font-bold text-1xl">Contraseña</label><input type="password" name="password" id="password" class="form-control" required>
+                            <label for="password" class="font-bold text-1xl">Contraseña</label><input type="password" name="password" id="password" class="form-control" >
                             <input type="checkbox" onclick="contra()"> Mostrar Contraseña
                             <input type='hidden' name='hiddenPass' id="hiddenPass">
                         </div>

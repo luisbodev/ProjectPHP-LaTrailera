@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Vista Vehiculo</title>
+    <title>Vista Vehicular</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css">
@@ -36,11 +36,11 @@
             <div class="column col-md-5">
                 <form action="#" id="f" method="POST" ><div id="d1"></div>
                     ID<input type="text" name="idVehiculo" id="idVehiculo" class="form-control" readonly="true"><br>
-                    Marca<input type="text" name="marca" id="marca" class="form-control"><br>
-                    Placa<input type="text" name="placa" id="placa" class="form-control"><br>
-                    Modelo<input type="text" name="modelo" id="modelo" class="form-control"><br>
-                    Taza de Combustible<input type="text" name="tazaCombustible" id="tazaCombustible" class="form-control"><br>
-                    Capacidad<input type="text" name="capacidadCombustible" id="capacidadCombustible" class="form-control"><br>
+                    Marca<input type="text" name="marca" id="marca" class="form-control" required="true"><br>
+                    Placa<input type="text" name="placa" id="placa" class="form-control" required="true"><br>
+                    Modelo<input type="text" name="modelo" id="modelo" class="form-control" required="true"><br>
+                    Taza de Combustible<input type="text" name="tazaCombustible" id="tazaCombustible" class="form-control" required="true"><br>
+                    Capacidad<input type="text" name="capacidadCombustible" id="capacidadCombustible" class="form-control" required="true"><br>
 
                     <input type="reset"  class="btn btn-primary" value="Nuevo" onclick="$('#g').attr('disabled',false)">
                     <input type="submit" name="insertar" id="g" value="Guardar" class="btn btn-primary">
