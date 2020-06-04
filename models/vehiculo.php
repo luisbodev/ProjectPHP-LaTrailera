@@ -8,7 +8,8 @@
 		private $modelo;
 		private $tazaCombustible;
 		private $capacidadCombustible;
-		function __construct($idVehiculo,$marca,$placa,$modelo,$tazaCombustible,$capacidadCombustible)
+		private $kmRecorridos;
+		function __construct($idVehiculo,$marca,$placa,$modelo,$tazaCombustible,$capacidadCombustible,$kmRecorridos)
 		{
 			$this->idVehiculo=$idVehiculo;
 			$this->marca=$marca;
@@ -16,6 +17,7 @@
 			$this->modelo=$modelo;
 			$this->tazaCombustible=$tazaCombustible;
 			$this->capacidadCombustible=$capacidadCombustible;
+			$this->kmRecorridos=$kmRecorridos;
 		}
 
 		function getIdVehiculo(){
@@ -35,6 +37,9 @@
 		}
 		function getCapacidadCombustible(){
 			return $this->capacidadCombustible;
+		}
+		function getKmRecorridos(){
+			return $this->kmRecorridos;
 		}
 	}
 
