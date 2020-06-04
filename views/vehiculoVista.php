@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Vista Vehicular</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Vehiculo - La Trailera</title>
+    <!--Dependencias-->
     <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="dependencias/jquery.js"></script>
     <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="dependencias/tailwind.css">
+    <!--CSS-->
+    <link rel="stylesheet" href="css/menu.css">
+    <!--Logo-->
+    <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
     <script type="text/javascript">
         $(document).ready(function(){
             $('#eliminar').click(function(){
@@ -29,27 +36,19 @@
         });
     </script>
 </head>
-<body><center>
-    <h2>CRUD VEHICULO</h2>
+<body>
+    <h2>Gestión Vehiculo</h2>
     <section>
         <div class="container">
             <div class="column col-md-5">
                 <form action="#" id="f" method="POST" ><div id="d1"></div>
                     ID<input type="text" name="idVehiculo" id="idVehiculo" class="form-control" readonly="true"><br>
-<<<<<<< HEAD
-                    Marca<input type="text" name="marca" id="marca" class="form-control" required="true"><br>
-                    Placa<input type="text" name="placa" id="placa" class="form-control" required="true"><br>
-                    Modelo<input type="text" name="modelo" id="modelo" class="form-control" required="true"><br>
-                    Taza de Combustible<input type="text" name="tazaCombustible" id="tazaCombustible" class="form-control" required="true"><br>
-                    Capacidad<input type="text" name="capacidadCombustible" id="capacidadCombustible" class="form-control" required="true"><br>
-=======
                     Marca<input type="text" name="marca" id="marca" class="form-control"><br>
                     Placa<input type="text" name="placa" id="placa" class="form-control"><br>
                     Modelo<input type="text" name="modelo" id="modelo" class="form-control"><br>
                     Taza de Combustible<input type="text" name="tazaCombustible" id="tazaCombustible" class="form-control"><br>
                     Capacidad<input type="text" name="capacidadCombustible" id="capacidadCombustible" class="form-control"><br>
                     Kilometros Recorridos<input type="text" name="kmRecorridos" id="kmRecorridos" class="form-control"><br>
->>>>>>> 2cc9e179adb5d9665357b30b8cf08fa47bb03f91
 
                     <input type="reset"  class="btn btn-primary" value="Nuevo" onclick="$('#g').attr('disabled',false)">
                     <input type="submit" name="insertar" id="g" value="Guardar" class="btn btn-primary">
