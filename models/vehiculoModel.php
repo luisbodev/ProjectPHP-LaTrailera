@@ -14,7 +14,7 @@
 			$res=$this->con->query("select * from vehiculo");
 			$r=array();
 			while($row=$res->fetch_assoc()){
-				$e=new Vehiculo($row["idVehiculo"],$row["marca"],$row["placa"],$row["modelo"],$row["tazaCombustible"],$row["capacidadCombustible"],$_REQUEST["kmRecorridos"]);
+				$e=new Vehiculo($row["idVehiculo"],$row["marca"],$row["placa"],$row["modelo"],$row["tazaCombustible"],$row["capacidadCombustible"],$row["kmRecorridos"]);
 				$r[]=$e;
 			}
 			return $r;
