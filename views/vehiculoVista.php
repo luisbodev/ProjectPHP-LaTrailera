@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <title>Vista Empleado</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión Vehiculo - La Trailera</title>
@@ -9,12 +10,7 @@
     <script type="text/javascript" src="dependencias/jquery.js"></script>
     <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
-    <!-- Tailwind -->
-    <link rel="stylesheet" href="dependencias/tailwind.css">
-    <!--CSS-->
-    <link rel="stylesheet" href="css/menu.css">
-    <!--Logo-->
-    <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
+    <script src="validar11.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#eliminar').click(function(){
@@ -41,14 +37,15 @@
     <section>
         <div class="container">
             <div class="column col-md-5">
-                <form action="#" id="f" method="POST" ><div id="d1"></div>
+                <form action="#" id="f" onsubmit="return validar(this);">
+                    <div id="d1"></div>
                     ID<input type="text" name="idVehiculo" id="idVehiculo" class="form-control" readonly="true"><br>
                     Marca<input type="text" name="marca" id="marca" class="form-control"><br>
                     Placa<input type="text" name="placa" id="placa" class="form-control"><br>
                     Modelo<input type="text" name="modelo" id="modelo" class="form-control"><br>
                     Taza de Combustible<input type="text" name="tazaCombustible" id="tazaCombustible" class="form-control"><br>
                     Capacidad<input type="text" name="capacidadCombustible" id="capacidadCombustible" class="form-control"><br>
-                    Kilometros Recorridos<input type="text" name="kmRecorridos" id="kmRecorridos" class="form-control"><br>
+                    Kilometraje Recorrido<input type="text" name="kmRecorridos" id="kmRecorridos" class="form-control"><br>
 
                     <input type="reset"  class="btn btn-primary" value="Nuevo" onclick="$('#g').attr('disabled',false)">
                     <input type="submit" name="insertar" id="g" value="Guardar" class="btn btn-primary">
@@ -57,7 +54,7 @@
                 </form>
                  <br>
                  <table class="table">
-                     <tr><th>ID</th><th>Marca</th><th>Placa</th><th>Modelo</th><th>Taza de Combustible</th><th>Capacidad</th><th>Acción</th></tr>
+                     <tr><th>ID</th><th>Marca</th><th>Placa</th><th>Modelo</th><th>Taza de Combustible</th><th>Capacidad</th><th>KM</th><th>Acción</th></tr>
                     <?php  
                         foreach ($datos as $e) {
                             $idVehiculo=$e->getIdVehiculo();
@@ -68,7 +65,7 @@
                             $capacidadCombustible=$e->getCapacidadCombustible();
                             $kmRecorridos=$e->getKmRecorridos();
 
-                            echo "<tr><td>$idVehiculo</td><td>$marca</td><td>$placa</td><td>$modelo</td><td>$tazaCombustible</td><td>$capacidadCombustible</td><td><button class='btn btn-warning' onclick=$('#idVehiculo').val('$idVehiculo');$('#marca').val('$marca');$('#placa').val('$placa');$('#modelo').val('$modelo');$('#tazaCombustible').val('$tazaCombustible');$('#capacidadCombustible').val('$capacidadCombustible');$('#kmRecorridos').val('$kmRecorridos')>Editar</button></td></tr>";
+                            echo "<tr><td>$idVehiculo</td><td>$marca</td><td>$placa</td><td>$modelo</td><td>$tazaCombustible</td><td>$capacidadCombustible</td><td>$kmRecorridos</td><td><button class='btn btn-warning' onclick=$('#idVehiculo').val('$idVehiculo');$('#marca').val('$marca');$('#placa').val('$placa');$('#modelo').val('$modelo');$('#tazaCombustible').val('$tazaCombustible');$('#capacidadCombustible').val('$capacidadCombustible');$('#kmRecorridos').val('$kmRecorridos')>Editar</button></td></tr>";
                         }
                     ?>
                  </table>

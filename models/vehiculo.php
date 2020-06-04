@@ -18,6 +18,7 @@
 			$this->tazaCombustible=$tazaCombustible;
 			$this->capacidadCombustible=$capacidadCombustible;
 			$this->kmRecorridos=$kmRecorridos;
+
 		}
 
 		function getIdVehiculo(){
