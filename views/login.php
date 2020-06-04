@@ -34,13 +34,8 @@
                             <span class="text-white font-bold text-2xl">Iniciar Sesion</span>
                         </div>
                         <div>
-<<<<<<< HEAD
-                            <label for="usuarioCli" class="font-bold text-1xl">Usuario:</label> <br>
-                            <input type="text" name="usuarioCli" id="usuarioCli" class="bg-white focus:outline-none focus:shadow-outline border border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" value="<?php if(isset($_REQUEST['usuarioCli'])){echo $_REQUEST['usuarioCli'];}?>">
-=======
                             <label for="usuarioCli" class="text-white font-bold text-1xl">Usuario:</label> <br>
                             <input type="text" name="usuarioCli" id="usuarioCliente" class="bg-white focus:outline-none focus:shadow-outline border border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold">
->>>>>>> 2cc9e179adb5d9665357b30b8cf08fa47bb03f91
                             <div class="flex justify-center">
                                 <input type="submit" name="btnUsuario" value="Continuar" id="btnUsuario" class="bg-orange-500 hover:bg-yellow-500  text-gray-800 font-bold py-2 px-4 my-4 rounded-full" onclick="guardar()" >
                             </div>

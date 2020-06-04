@@ -32,14 +32,6 @@
         });
 
        
-        function contra() {
-        var x = document.getElementById("passwordCli");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-        }
 
     </script>
     
@@ -47,7 +39,7 @@
 </head>
 <body class="bg-gray-100">
     <header class="text-center">
-        <span class="font-bold text-4xl">CRUD Cliente</span>
+        <span class="font-bold text-4xl">CRUD Envio</span>
     </header>
     <section>
     
@@ -58,7 +50,7 @@
                 <div id="d1"></div>
                     <div class="row">
                         <div class="col-md-6">
-                            <span class="font-bold text-1xl">ID Cliente</span><input type="text" name="idCliente" id="idCliente" class="form-control" readonly="true">
+                            <span class="font-bold text-1xl">ID Envio</span><input type="text" name="idCliente" id="idCliente" class="form-control" readonly="true">
                         </div>
                         <div class="col-md-6">
                             <span class="font-bold text-1xl">ID Usuario</span><input type="text" name="idUsuarioCli" id="idUsuarioCli" class="form-control" readonly="true">
@@ -94,7 +86,7 @@
                             <label for="usuarioCli" class="font-bold text-1xl">Usuario</label><input type="text" name="usuarioCli" id="usuarioCli" class="form-control" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="passwordCli" class="font-bold text-1xl">Contraseña</label><input type="password" name="passwordCli" id="passwordCli" class="form-control" required>
+                            <label for="passwordCli" class="font-bold text-1xl">Contraseña</label><input type="passwordCli" name="passwordCli" id="passwordCli" class="form-control" required>
                             <input type="checkbox" onclick="contra()"> Mostrar Contraseña
                             <input type='hidden' name='hiddenPass' id="hiddenPass">
                         </div>
@@ -111,50 +103,40 @@
                
            
         <br>
-            <div class="container">
+            <div class="container-fluid">
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col" class="text-center">ID</th>
-                            <th scope="col" class="text-center">Nombre</th>
+                            <th scope="col" class="text-center">Fecha Realización</th>
                         
-                            <th scope="col" class="text-center">Direccion</th>
-                            <th scope="col" class="text-center">Nit</th>
-                            <th scope="col" class="text-center">Numero de Contacto</th>
-                            <th scope="col" class="text-center">Correo</th>
-                            <!-- <th scope="col" class="text-center">ID Usuario</th> -->
-                            <th scope="col" class="text-center">Usuario</th>
-                            <!--<th scope="col" class="text-center">Contraseña</th>-->
+                            <th scope="col" class="text-center">Fecha Entrega</th>
+                            <th scope="col" class="text-center">Id Cliente</th>
+                            <th scope="col" class="text-center">Id Empleado</th>
                             <th scope="col" class="text-center">Acción</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                             foreach ($datos as $e) {
-                                $idUsuarioCli=$e->getIdUsuarioCli();
-                                $usuarioCli=$e->getUsuarioCli();
-                                $passwordCli=$e->getPasswordCli();
+                                $idEnvio=$e->getIdEnvio();
+                                $fechaRealizacion=$e->getFechaRealizacion();
+                                $fechaEntrega=$e->getFechaEntrega();
                                 $idCliente=$e->getIdCliente();
-                                $nombre=str_replace(" ","&nbsp;",$e->getNombre());
-                                $direccion=str_replace(" ","&nbsp;",$e->getDireccion());
-                                $nit=$e->getNit();
-                                $numContacto=$e->getNumContacto();
-                                $correo=$e->getCorreo();
+                                $idEmpleado=$e->getIdEmpleado();
                                 
                                 echo "
                                     <tr>
-                                        <td scope='row'>$idCliente</td>
-                                        <td>$nombre</td>
-                                        <td>$direccion</td>
-                                        <td>$nit</td>
-                                        <td>$numContacto</td>
-                                        <td>$correo</td>
+                                        <td scope='row'>$idEnvio</td>
+                                        <td>$fechaRealizacion</td>
+                                        <td>$fechaEntrega</td>
+                                        <td>$idCliente</td>
+                                        <td>$idEmpleado</td>
                                         
-                                        <td>$usuarioCli</td>
-                                        
-                                        <td>
-                                            <button onclick=$('#idCliente').val('$idCliente');$('#nombre').val('$nombre');$('#direccion').val('$direccion');$('#nit').val('$nit');$('#numContacto').val('$numContacto');$('#correo').val('$correo');$('#idUsuarioCli').val('$idUsuarioCli');$('#usuarioCli').val('$usuarioCli');$('#passwordCli').val('$passwordCli');$('#hiddenPass').val('$passwordCli') class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded'>Editar</button>
+                                    <td>
+                                            <button onclick=$('#idCliente').val('$idCliente');$('#nombre').val('$nombre');$('#direccion').val('$direccion');$('#nit').val('$nit');$('#numContacto').val('$numContacto');$('#correo').val('$correo');$('#idUsuarioCli').val('$idUsuarioCli');$('#usuarioCli').val('$usuarioCli');$('#passwordCli').val('$passwordCli');$('#hiddenPass').val('$passwordCli') class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded'>Ver Detalles</button>
                                         </td>
                                     </tr>";
                             }

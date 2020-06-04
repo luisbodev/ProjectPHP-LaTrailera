@@ -77,8 +77,8 @@
                             <label for="sexo" class="font-bold text-1xl">Sexo</label>
                                 <select class="form-control" name="sexo" id="sexo" required>
                                     <option value="">Seleccionar</option>
-                                    <option value="1">Masculino</option>
-                                    <option value="2">Femenino</option>	
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>	
                                 </select>
                         </div>
                         
@@ -86,8 +86,8 @@
                             <label for="cargo" class="font-bold text-1xl">Cargo</label>
                             <select class="form-control" name="cargo" id="cargo" required>
                                 <option value="">Seleccionar</option>
-                                <option value="1">Empleado</option>
-                                <option value="2">Administrador</option>	
+                                <option value="Empleado">Empleado</option>
+                                <option value="Administrador">Administrador</option>	
                             </select>
                         </div>
 
@@ -139,7 +139,7 @@
                             <th scope="col" class="text-center">Cargo</th>
                             <th scope="col" class="text-center">DUI</th>
                             <th scope="col" class="text-center">NIT</th>
-                            <th scope="col" class="text-center">ID Usuario</th>
+                            <!-- <th scope="col" class="text-center">ID Usuario</th> -->
                             <th scope="col" class="text-center">Usuario</th>
                             <!--<th scope="col" class="text-center">Contraseña</th>-->
                             <th scope="col" class="text-center">Acción</th>
@@ -171,7 +171,7 @@
                                         <td>$cargo</td>
                                         <td>$dui</td>
                                         <td>$nit</td>
-                                        <td>$idUsuarioEmp</td>
+                                        
                                         <td>$usuarioEmp</td>
                                         
                                         <td>
