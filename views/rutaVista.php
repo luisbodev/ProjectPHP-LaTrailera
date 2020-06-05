@@ -83,6 +83,7 @@
           <div class="col-md-2">Punto de Partida</div>
           
           <div class="col-md-2">Punto de Llegada</div>
+          <div class="col-md-2">Vehiculo</div>
         </div>
 
         
@@ -102,6 +103,16 @@
           </div>
 
           <div class="col-md-2">
+            <select name="idVehiculo" id="idVehiculo" required class="form-control">
+            <option></option>
+              <?php 
+                foreach ($vehi as $v) {
+                  $idVehiculo=$v->getIdVehiculo();
+                  $marca=$v->getMarca();
+                  echo "<option value='$idVehiculo'>$marca</option>";
+                }
+              ?>
+            </select>
           </div>
 
         </div>
@@ -144,6 +155,18 @@
           ID<input type="text" name="idRuta" id="idRuta" class="form-control"  readonly="true">
           </div>
           <div class="col-md-2">
+             Carga
+             <select name="idCarga" id="idCarga" required class="form-control">
+                <option></option>
+                        <?php
+                            foreach ($carga as $c) { 
+                              $idCarga=$c->getIdCarga();
+                              $descripcion=$c->getDescripcion();
+                              echo "<option value='$idCarga'>$descripcion</option>";
+                            }
+                        ?>
+                
+             </select>
              <input type="hidden" id="tiempo">
              <input type="hidden" id="kilometrajeReal" required name="kilometraje">
              
@@ -180,7 +203,7 @@
          <div class="container">
              <div class="column col-md-5">
                  <table class="table">
-                     <tr><th>ID</th><th>Kilometraje</th><th>LatPuntoA</th><th>lngPuntoA</th><th>LatPuntoB</th><th>lngPuntoB</th><th>IdMotorista</th><th>Acción</th></tr>
+                     <tr><th>ID</th><th>Kilometraje</th><th>LatPuntoA</th><th>lngPuntoA</th><th>LatPuntoB</th><th>lngPuntoB</th><th>IdMotorista</th><th>idVehiculo</th><th>IdCarga</th><th>Acción</th></tr>
                     <?php 
                         $count=1;
                         foreach ($datos as $e) {
@@ -191,12 +214,13 @@
                             $latPuntoB=$e->getLatPuntoB();
                             $lngPuntoB=$e->getLngPuntoB();
                             $idMotorista=$e->getIdMotorista();
-
+                            $idVehiculo=$e->getIdVehiculo();
+                            $idCarga=$e->getIdCarga();
                             $count=$count+1;
                             
 
-                            echo "<tr><td>$idRuta</td><td>$kilometraje</td><td>$latPuntoA</td><td>$lngPuntoA</td><td>$latPuntoB</td><td>$lngPuntoB</td><td>$idMotorista</td><td>
-                            <button class='btn btn-warning' id='b3".$count."' onclick=$('#idRuta').val('$idRuta');$('#kilometraje').val('$kilometraje');$('#my_lat').val('$latPuntoA');$('#my_lng').val('$lngPuntoA');$('#your_lat').val('$latPuntoB');$('#your_lng').val('$lngPuntoB');$('#idMotorista').val('$idMotorista');ruta();>Editar</button></td></tr>";
+                            echo "<tr><td>$idRuta</td><td>$kilometraje</td><td>$latPuntoA</td><td>$lngPuntoA</td><td>$latPuntoB</td><td>$lngPuntoB</td><td>$idMotorista</td><td>$idVehiculo</td><td>$idCarga</td><td>
+                            <button class='btn btn-warning' id='b3".$count."' onclick=$('#idRuta').val('$idRuta');$('#kilometraje').val('$kilometraje');$('#my_lat').val('$latPuntoA');$('#my_lng').val('$lngPuntoA');$('#your_lat').val('$latPuntoB');$('#your_lng').val('$lngPuntoB');$('#idMotorista').val('$idMotorista');$('#idVehiculo').val('$idVehiculo');$('#idCarga').val('$idCarga');ruta();>Editar</button></td></tr>";
                             //juarezgaaaaaaaaaaaaaaaaaaaaaaa
 
                            

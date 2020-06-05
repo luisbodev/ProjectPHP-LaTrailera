@@ -9,8 +9,10 @@
 		private $latPuntoB;
 		private $lngPuntoB;
 		private $idMotorista;
+		private $idVehiculo;
+		private $idCarga;
 		
-		function __construct($idRuta,$kilometraje,$latPuntoA,$lngPuntoA,$latPuntoB,$lngPuntoB,$idMotorista)
+		function __construct($idRuta,$kilometraje,$latPuntoA,$lngPuntoA,$latPuntoB,$lngPuntoB,$idMotorista, $idVehiculo, $idCarga)
 		{
 			$this->idRuta=$idRuta;
 			$this->kilometraje=$kilometraje;
@@ -19,6 +21,8 @@
 			$this->latPuntoB=$latPuntoB;
 			$this->lngPuntoB=$lngPuntoB;
 			$this->idMotorista=$idMotorista;
+			$this->idVehiculo=$idVehiculo;
+			$this->idCarga=$idCarga;
 		}
 
 		function setLatPuntoA($latPuntoA){
@@ -73,6 +77,20 @@
 		}
 		function setIdMotorista($idMotorista){
             $this->idMotorista=$idMotorista;
+		}
+
+		function getIdVehiculo(){
+			return $this->idVehiculo;
+		}
+		function setIdVehiculo($idVehiculo){
+            $this->idVehiculo=$idVehiculo;
+		}
+
+		function getIdCarga(){
+			return $this->idCarga;
+		}
+		function setIdCarga($idCarga){
+            $this->idCarga=$idCarga;
 		}
 		
 
