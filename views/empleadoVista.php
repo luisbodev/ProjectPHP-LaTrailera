@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Empleado - La Trailera</title>
+    <!--Dependencias-->
     <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="dependencias/jquery.js"></script>
     <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
-    <script src="validar1.js"></script>
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="dependencias/tailwind.css">
+    <!--CSS-->
+    <link rel="stylesheet" href="css/menu.css">
+    <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
     <script>
         $(document).ready(function(){
@@ -42,12 +47,10 @@
         }
 
     </script>
-    
-    <title>CRUD Empleado - La Trailera</title>
 </head>
 <body class="bg-gray-100">
     <header class="text-center">
-        <span class="font-bold text-4xl">CRUD Empleado</span>
+        <span class="font-bold text-4xl">Gestión Empleado</span>
     </header>
     <section>
     

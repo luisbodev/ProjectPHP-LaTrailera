@@ -9,7 +9,7 @@
 	    if($r==1) {
 	        session_start();
 	        $_SESSION["s1"]=$_REQUEST["usuarioCli"];//Identificador de la seción
-	        header("Location:controlEmpleado.php");
+	        header("Location:controlClienteVentana.php");
 
 	    }
 	    else
