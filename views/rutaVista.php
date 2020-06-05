@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Vista Ruta</title>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Ruta - La Trailera</title>
+    <!--Dependencias-->
     <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="dependencias/jquery.js"></script>
     <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="dependencias/tailwind.css">
+    <!--CSS-->
+    <link rel="stylesheet" href="css/menu.css">
+    <!--Logo-->
+    <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
+
     <script type="text/javascript">
         $(document).ready(function(){
             $('#eliminar').click(function(){
@@ -53,8 +60,10 @@
     </style>
 </head>
 <body>
-
-<div class="container">
+    <header class="text-center">
+        <span class="font-bold text-4xl">Gestión Ruta</span>
+    </header>
+      <div class="container">
         <div class="row">
           <div class="col-md-4">
             <input type="button" value="Obtener mi hubicación" onclick="get_my_location();" class="btn btn-success">
