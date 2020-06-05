@@ -46,7 +46,7 @@
         <div class="container">
                 <form action="#" id="f" onsubmit="return validar(this);" class="px-16 py-4 border-4 border-gray-600 rounded-lg">
                 <center>
-                    <div class='col-sm-12 col-md-6 text-left'>
+                    <div class='col-sm-12 col-md-6'>
                         ID
                         <input type="text" name="idMotorista" id="idMotorista" class="form-control" readonly="true" required="true"><br>
                     </div>
