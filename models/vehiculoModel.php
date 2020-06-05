@@ -24,6 +24,9 @@
 			try{
 				$para=$this->con->prepare("insert into vehiculo(idVehiculo,marca,placa,modelo,tazaCombustible,capacidadCombustible,kmRecorridos) values(?,?,?,?,?,?,?)");
 				$para->bind_param('sssssss',$a,$b,$c,$d,$ee,$f,$g);
+
+				$a=$e->getIdVehiculo();
+
 				$a='';
 				$b=$e->getMarca();
 				$c=$e->getPlaca();
@@ -61,7 +64,7 @@
 		}
 
 		function eliminarVehiculo($e){
-			try{
+			try{ 
 				$para=$this->con->prepare("delete from vehiculo where idVehiculo=?");
 				$para->bind_param('s',$a);
 				$a=$e->getIdVehiculo();

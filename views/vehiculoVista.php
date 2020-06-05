@@ -39,7 +39,7 @@
     <section>
         <div class="container">
             <div class="column col-md-5">
-                <form action="#" id="f" onsubmit="return validar(this);">
+                <form action="#" id="f"  method="POST" ><div id="d1"></div>
                     <div id="d1"></div>
                     ID<input type="text" name="idVehiculo" id="idVehiculo" class="form-control" readonly="true"><br>
                     Marca<input type="text" name="marca" id="marca" class="form-control"><br>
@@ -47,11 +47,11 @@
                     Modelo<input type="text" name="modelo" id="modelo" class="form-control"><br>
                     Taza de Combustible<input type="text" name="tazaCombustible" id="tazaCombustible" class="form-control"><br>
                     Capacidad<input type="text" name="capacidadCombustible" id="capacidadCombustible" class="form-control"><br>
-                    Kilometraje Recorrido<input type="text" name="kmRecorridos" id="kmRecorridos" class="form-control"><br>
-
+                    Kilometros Recorridos<input type="text" name="kmRecorridos" id="kmRecorridos" class="form-control"><br>
                     <input type="reset"  class="btn btn-primary" value="Nuevo" onclick="$('#g').attr('disabled',false)">
+
                     <input type="submit" name="insertar" id="g" value="Guardar" class="btn btn-primary">
-                    <input type="submit" name="modificar" value="Modificar" class="btn btn-primary">
+                    <input type="submit" name="modifi" id="modifi" value="Modificar" class="btn btn-primary">
                     <input type="button" id="eliminar" name="eliminar" value="Eliminar" class="btn btn-primary">
                 </form>
                  <br>
