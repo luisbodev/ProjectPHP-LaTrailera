@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Prueba</title>
     <!--Dependencias-->
-    <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css">
+    <!-- <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css"> -->
     <script type="text/javascript" src="dependencias/jquery.js"></script>
-    <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script>
+    <!-- <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script> -->
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
     <!-- Tailwind -->
     <link rel="stylesheet" href="dependencias/tailwind.css">
@@ -33,7 +33,7 @@
             </div>
         </div>
             <div id="opciones" class="hidden px-1 pb-1 md:flex md:p-0">
-                <a href="#" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200">Inicio</a>
+                <a href="#" class="block px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200">Inicio</a>
                 <a href="#" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Trailers</a>
                 <a href="#" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">¡Ver Ahora!</a>
                 <a href="#" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Meet & Greet</a>
@@ -41,12 +41,21 @@
             </div>
         </header>
 </div>
-        <div class="container">
-            <h1 class='text-center text-2xl text-gray-500'>Bienvenido Cliente</h1>
+
+        <!--Page Content-->
+        <div class="container my-8">
+            <h1 id='welcome' class='text-center text-4xl font-bold'>Bienvenido Cliente</h1>
         </div>
-        
+        <center>
+            <div class="w-full md:w-1/2 py-4 border-4 border-gray-600 rounded-lg">
+                <h3 class='text-center text-orange-500 text-2xl font-bold'>Menú</h3>
+                <button><a href="#" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-orange-500 hover:bg-black">Inicio</a></button>
+                <button><a href="#" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-orange-500 hover:bg-black">Ver Pedidos Activos</a></button>
+            </div>
+        </center>
         <script>
             document.getElementById('userName').innerHTML=sessionStorage.getItem("user");
+            document.getElementById('welcome').innerHTML+=": "+sessionStorage.getItem("user");
             var isOpen=false;
             var opciones =document.getElementById('opciones');
             function menu(){
