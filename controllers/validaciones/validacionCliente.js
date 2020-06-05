@@ -45,11 +45,23 @@ function validar(){
            title: "Ingrese solo numeros en su Telefono"
         });
 		return false;
-	}
-	else if (!val.test(correo)) {
+
+	}else if(numContacto.length>20) {
+		Swal.fire({
+           title: "Su Telefono es demasiado largo +"
+        });
+		return false;
+	}else if(numContacto.length<8) {
+		Swal.fire({
+           title: "Ingrese Correctamente su Telefono -"
+        });
+		return false;
+
+	}else if (!val.test(correo)) {
 		Swal.fire({
            title: "El correo no es valido"
         });
 		return false;
 	}
+	
 }

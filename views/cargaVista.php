@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/menu.css">
     <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
+    <script src="validaciones/validacionCarga.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#eliminar').click(function(){
@@ -45,7 +46,7 @@
     <section>
         <div class="container">
             <div class="column col-md-5">
-                <form action="#" id="f" method="POST" class="px-16 py-4 border-4 border-gray-600 rounded-lg"><div id="d1"></div>
+                <form action="#" id="f" onsubmit="return validar2(this);" method="POST" class="px-16 py-4 border-4 border-gray-600 rounded-lg"><div id="d1" ></div>
                     ID Carga<input type="text" name="idCarga" id="idCarga" class="form-control" readonly="true"><br>
                     Descripción<input type="text" name="descripcion" id="descripcion" class="form-control"><br>
                     Peso Total<input type="text" name="peso" id="peso" class="form-control"><br>
