@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Vista Empleado</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión Vehiculo - La Trailera</title>
+    <title>Gestión Vehículo - La Trailera</title>
     <!--Dependencias-->
     <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="dependencias/jquery.js"></script>
@@ -33,7 +32,10 @@
     </script>
 </head>
 <body>
-    <h2>Gestión Vehiculo</h2>
+    <header class='text-center'>
+        <span class="font-bold text-4xl">Gestión de Vehículo</span>
+    </header>
+    <center>
     <section>
         <div class="container">
             <div class="column col-md-5">
@@ -54,7 +56,16 @@
                 </form>
                  <br>
                  <table class="table">
-                     <tr><th>ID</th><th>Marca</th><th>Placa</th><th>Modelo</th><th>Taza de Combustible</th><th>Capacidad</th><th>KM</th><th>Acción</th></tr>
+                     <tr>
+                        <th>ID</th>
+                        <th>Marca</th>
+                        <th>Placa</th>
+                        <th>Modelo</th>
+                        <th>Taza de Combustible</th>
+                        <th>Capacidad</th>
+                        <th>KM</th>
+                        <th>Acción</th>
+                    </tr>
                     <?php  
                         foreach ($datos as $e) {
                             $idVehiculo=$e->getIdVehiculo();
