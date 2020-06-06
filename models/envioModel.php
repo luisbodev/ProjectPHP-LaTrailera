@@ -49,6 +49,14 @@
 			}
 			return $r;
 		}
+		function getRuta(){
+			$res=$this->con->query("select * from ruta");
+			$r=array();
+			while($row=$res->fetch_assoc()){
+				$r[]=$row;
+			}
+			return $r;
+		}
 	}
 
 ?>

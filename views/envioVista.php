@@ -33,6 +33,16 @@
                     }
                 });
             });
+            // $('#editarbtn').click(function(){
+            //     $('#data').append("<?php 
+            //                         $datos1 = $obj->getDetalleEnvio($idEnvio);
+            //                         foreach ($datos1 as $e) {
+            //                         $idDetalleEnvio=$e->getIdDetalleEnvio();
+            //                         $idRuta=$e->getIdRuta();
+            //                         $idEnvio=$e->getIdEnvio();                    
+            //                         echo "<tr><td scope='row'>$idDetalleEnvio</td><td>$idRuta</td><td><button>Cambiar Ruta</button></td></tr>";
+            //                     } ?>");
+            // });
 
         });
 
@@ -93,22 +103,41 @@
                     </div>
                     
                 <br>
+            
+            <center>
+                <div class="column col-sm-12 col-md-6">
                 <span class="font-bold text-1xl">Detalle de Envio</span>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col" class="text-center">ID</th>
-                            <th scope="col" class="text-center">Id Ruta</th>
-                            <th scope="col" class="text-center">Modificar</th>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class="text-center">ID</th>
+                                    <th scope="col" class="text-center">Id Ruta</th>
+                                    <th scope="col" class="text-center">Modificar</th>
 
-                        </tr>
-                    </thead>
-                    <tbody id='data'>
-                        
-                    </tbody>
-                </table>
-                </div> 
+                                </tr>
+                            </thead>
+                            <tbody id='data'>
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+            
+            
+
+                <div class="column col-sm-12 col-md-6">
+                    <span class="font-bold text-1xl">ID Ruta Seleccionada</span>
+                            <select name="ruta" id="ruta" class="form-control" required>
+                                    <option value=""></option>
+                                    <?php
+                                        foreach ($datosRuta as $r) {
+                                            echo "<option value=".$r['idRuta'].">".$r['idRuta']."</option>";
+                                        }
+                                    ?>
+                            </select>
+                </div>
+            </center>
+            
                     <!---->
                      <br>   
 
@@ -120,7 +149,7 @@
         </div>
                
         <br>
-            <div class="container-fluid">
+            <div class="container">
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead class="thead-dark">
@@ -153,17 +182,16 @@
                                 
                                 echo "
                                     <tr>
-                                        <td scope='row'>$idEnvio</td>
-                                        <td>$fechaRealizacion</td>
-                                        <td>$fechaEntrega</td>
-                                        <td>$usuarioCli</td>
-                                        <td>$usuarioEmp</td>
+                                        <td scope='row' class='text-center'>$idEnvio</td>
+                                        <td class='text-center'>$fechaRealizacion</td>
+                                        <td class='text-center'>$fechaEntrega</td>
+                                        <td class='text-center'>$usuarioCli</td>
+                                        <td class='text-center'>$usuarioEmp</td>
+                                        <td class='text-center'>
+                                            <button onclick=$('#idEnvio').val('$idEnvio');$('#fechaRealizacion').val('$fechaRealizacion');$('#fechaEntrega').val('$fechaEntrega');$('#usuarioCli').val('$idUsuarioCli');$('#usuarioEmp').val('$idUsuarioEmp');
+                                            class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' id='editarbtn'>Editar</button>    
+                                            </td>
                                         
-                                        <td>
-                                        <button onclick=$('#idEnvio').val('$idEnvio');$('#fechaRealizacion').val('$fechaRealizacion');$('#fechaEntrega').val('$fechaEntrega');$('#usuarioCli').val('$idUsuarioCli');$('#usuarioEmp').val('$idUsuarioEmp');
-                                        $('#data').val('');
-                                        class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' name='editarbtn'>Editar</button>    
-                                        </td>
                                     </tr>";
                             }
                         ?>
@@ -176,6 +204,19 @@
         
     </section>
     <footer></footer>
-    
+    <script>
+        $(document).ready(function(){
+            $('#editarbtn').click(function(){
+                $('#data').append("<?php 
+                                    $datos1 = $obj->getDetalleEnvio($idEnvio);
+                                    foreach ($datos1 as $e) {
+                                    $idDetalleEnvio=$e->getIdDetalleEnvio();
+                                    $idRuta=$e->getIdRuta();
+                                    $idEnvio=$e->getIdEnvio();                    
+                                    echo "<tr><td scope='row' class='text-center'>$idDetalleEnvio</td><td class='text-center'>$idRuta</td><td class='text-center'><button onclick=$('#ruta').val('$idRuta'); class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' type='button'>Ver Ruta</button></td></tr>";
+                                } ?>");
+            });
+        });
+    </script>
 </body>
 </html>
