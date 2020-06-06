@@ -45,7 +45,7 @@
     
     <section>
         <div class="container">
-                <form action="#" id="f"  method="POST"class='px-16 py-4 border-4 border-gray-600 rounded-lg'>
+                <form action="#" id="f"  method="POST"class='px-16 py-4 border-4 border-gray-600 rounded-lg'><div id="d1"></div>
                     <center>
                         <div class="col-sm-12 col-md-6">
                             <span class="font-bold text-1xl">ID</span><input type="text" name="idVehiculo" id="idVehiculo" class="form-control" readonly="true"><br>
