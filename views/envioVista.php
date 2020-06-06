@@ -53,47 +53,62 @@
                 <div id="d1"></div>
                     <div class="row">
                         <div class="col-md-6">
-                            <span class="font-bold text-1xl">ID Envio</span><input type="text" name="idCliente" id="idCliente" class="form-control" readonly="true">
-                        </div>
-                        <div class="col-md-6">
-                            <span class="font-bold text-1xl">ID Usuario</span><input type="text" name="idUsuarioCli" id="idUsuarioCli" class="form-control" readonly="true">
+                            <span class="font-bold text-1xl">ID Envio</span>
+                            <input type="text" name="idEnvio" id="idEnvio" class="form-control" readonly="true">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <span class="font-bold text-1xl">Nombre</span><input type="text" name="nombre" id="nombre" class="form-control" required>
-                        </div>   
+                            <span class="font-bold text-1xl">Fecha Realización</span>
+                            <input type="date" name="fechaRealizacion" id="fechaRealizacion" class="form-control" required>
+                        </div> 
+                        <div class="col-md-6">
+                            <span class="font-bold text-1xl">Fecha Entrega</span>
+                            <input type="date" name="fechaEntrega" id="fechaEntrega" class="form-control" required>
+                        </div>
                     </div>
                     <div class="row">
-                        
-                        
+                        <div class="col-md-6">
+                            <span class="font-bold text-1xl">Usario de Cliente que solicito envio</span>
+                            <select name="usuarioCli" id="usuarioCli" class="form-control" required>
+                                    <option value=""></option>
+                                    <?php
+                                        foreach ($datosUsuarioCli as $u) {
+                                            echo "<option value=".$u['idUsuarioCli'].">".$u['usuarioCli']."</option>";
+                                        }
+                                    ?>
+                            </select>
+                        </div> 
+                        <div class="col-md-6">
+                            <span class="font-bold text-1xl">Usuario Empleado que tomo Envio</span>
+                            <select name="usuarioEmp" id="usuarioEmp" class="form-control" required>
+                                    <option value=""></option>
+                                    <?php
+                                        foreach ($datosUsuarioEmpe as $u) {
+                                            echo "<option value=".$u['idUsuarioEmp'].">".$u['usuarioEmp']."</option>";
+                                        }
+                                    ?>
+                            </select>
+                        </div>
+                    </div>
+                    
+                <br>
+                <span class="font-bold text-1xl">Detalle de Envio</span>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" class="text-center">ID</th>
+                            <th scope="col" class="text-center">Id Ruta</th>
+                            <th scope="col" class="text-center">Modificar</th>
 
-                        <div class="col-md-12">
-                            <label for="direccion" class="font-bold text-1xl">Dirección</label><input type="text" name="direccion" id="direccion" class="form-control" required>
-                        </div>
+                        </tr>
+                    </thead>
+                    <tbody id='data'>
                         
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                                <label for="nit" class="font-bold text-1xl">NIT</label><input type="text" name="nit" id="nit" class="form-control" required placeholder="0000-000000-000-0" >
-                        </div>
-                        <div class="col-md-6">
-                            <label for="numContacto" class="font-bold text-1xl">Numero de Contacto</label><input type="text" name="numContacto" id="numContacto" class="form-control" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="correo" class="font-bold text-1xl">Correo</label><input type="text" name="correo" id="correo" class="form-control" required placeholder="@dominio.com" >
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="usuarioCli" class="font-bold text-1xl">Usuario</label><input type="text" name="usuarioCli" id="usuarioCli" class="form-control" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="passwordCli" class="font-bold text-1xl">Contraseña</label><input type="passwordCli" name="passwordCli" id="passwordCli" class="form-control" required>
-                            <input type="checkbox" onclick="contra()"> Mostrar Contraseña
-                            <input type='hidden' name='hiddenPass' id="hiddenPass">
-                        </div>
-                    </div>
+                    </tbody>
+                </table>
+                </div> 
                     <!---->
                      <br>   
 
@@ -104,7 +119,6 @@
         </form>
         </div>
                
-           
         <br>
             <div class="container-fluid">
             <div class="table-responsive">
@@ -113,33 +127,42 @@
                         <tr>
                             <th scope="col" class="text-center">ID</th>
                             <th scope="col" class="text-center">Fecha Realización</th>
-                        
                             <th scope="col" class="text-center">Fecha Entrega</th>
-                            <th scope="col" class="text-center">Id Cliente</th>
-                            <th scope="col" class="text-center">Id Empleado</th>
+                            <th scope="col" class="text-center">Usuario Cliente</th>
+                            <th scope="col" class="text-center">Usuario Empleado</th>
                             <th scope="col" class="text-center">Acción</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                            
+                        
+                        
                             foreach ($datos as $e) {
                                 $idEnvio=$e->getIdEnvio();
                                 $fechaRealizacion=$e->getFechaRealizacion();
                                 $fechaEntrega=$e->getFechaEntrega();
                                 $idCliente=$e->getIdCliente();
                                 $idEmpleado=$e->getIdEmpleado();
+                                $usuarioCli=$e->getusuarioCli();
+                                $usuarioEmp=$e->getusuarioEmp();
+                                $idUsuarioCli=$e->getIdUsuarioCli();
+                                $idUsuarioEmp=$e->getIdUsuarioEmp();
+
                                 
                                 echo "
                                     <tr>
                                         <td scope='row'>$idEnvio</td>
                                         <td>$fechaRealizacion</td>
                                         <td>$fechaEntrega</td>
-                                        <td>$idCliente</td>
-                                        <td>$idEmpleado</td>
+                                        <td>$usuarioCli</td>
+                                        <td>$usuarioEmp</td>
                                         
-                                    <td>
-                                            <button onclick=$('#idCliente').val('$idCliente');$('#nombre').val('$nombre');$('#direccion').val('$direccion');$('#nit').val('$nit');$('#numContacto').val('$numContacto');$('#correo').val('$correo');$('#idUsuarioCli').val('$idUsuarioCli');$('#usuarioCli').val('$usuarioCli');$('#passwordCli').val('$passwordCli');$('#hiddenPass').val('$passwordCli') class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded'>Ver Detalles</button>
+                                        <td>
+                                        <button onclick=$('#idEnvio').val('$idEnvio');$('#fechaRealizacion').val('$fechaRealizacion');$('#fechaEntrega').val('$fechaEntrega');$('#usuarioCli').val('$idUsuarioCli');$('#usuarioEmp').val('$idUsuarioEmp');
+                                        $('#data').val('');
+                                        class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' name='editarbtn'>Editar</button>    
                                         </td>
                                     </tr>";
                             }
