@@ -10,12 +10,12 @@
 	}
 
 	if (isset($_REQUEST["modifi"])) {
-		$e=new Vehiculo($_REQUEST["idVehiculo"], $_REQUEST["marca"], $_REQUEST["placa"], $_REQUEST["modelo"], $_REQUEST["tazaCombustible"], $_REQUEST["capacidadCombustible"], $_REQUEST["kmRecorridos"]);
+		$e=new Vehiculo($_REQUEST["idVehiculo"], $_REQUEST["marca"], $_REQUEST["placa"], $_REQUEST["modelo"], $_REQUEST["tazaCombustible"], $_REQUEST["capacidadCombustible"],$_REQUEST["kmRecorridos"]);
 		$error=$obVehiculo->modificarVehiculo($e);
 	}
 
 	if (isset($_REQUEST["eliminar"])) {
-		$e=new Vehiculo($_REQUEST["idVehiculo"],$_REQUEST["marca"],$_REQUEST["placa"],$_REQUEST["modelo"],$_REQUEST["tazaCombustible"],$_REQUEST["capacidadCombustible"],$_REQUEST["kmRecorridos"]);
+		$e=new Vehiculo($_REQUEST["idVehiculo"], $_REQUEST["marca"], $_REQUEST["placa"], $_REQUEST["modelo"], $_REQUEST["tazaCombustible"], $_REQUEST["capacidadCombustible"], $_REQUEST["kmRecorridos"]); 
 		$error=$obVehiculo->eliminarVehiculo($e);
 	}	
 

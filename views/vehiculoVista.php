@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="css/menu.css">
     <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
-
-    <script src="validar11.js"></script>
+    <!--Validaciones-->
+    <script src="validar2.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#eliminar').click(function(){
@@ -45,7 +45,7 @@
     
     <section>
         <div class="container">
-                <form action="#" id="f"  method="POST"class='px-16 py-4 border-4 border-gray-600 rounded-lg'>
+                <form action="#" id="f"  method="POST"class='px-16 py-4 border-4 border-gray-600 rounded-lg' onsubmit="return validar(this);">
                     <center>
                         <div class="col-sm-12 col-md-6">
                             <span class="font-bold text-1xl">ID</span><input type="text" name="idVehiculo" id="idVehiculo" class="form-control" readonly="true"><br>
@@ -53,7 +53,7 @@
                         </div>  
                     </center>
                     <div class='row'>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12 col-md-6"><div id="d1"></div>
                             <span class="font-bold text-1xl">Marca</span>
                             <input type="text" name="marca" id="marca" class="form-control"><br>
                             <span class="font-bold text-1xl">Placa</span>
