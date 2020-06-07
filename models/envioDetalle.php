@@ -1,5 +1,6 @@
 <?php 
-	
+	require ('envio.php');
+
 	class EnvioDetalle{
 		private $idDetalleEnvio;
 		private $idRuta;

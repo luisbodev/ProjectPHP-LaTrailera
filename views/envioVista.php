@@ -58,8 +58,8 @@
     
         
         <div class="container">               
-            
-                <form action="#" method="POST" id="f" class="px-16 py-4 border-4 border-gray-600 rounded-lg" onsubmit="return validar(this);">
+            <div class="px-16 py-4 border-4 border-gray-600 rounded-lg">
+            <form action="#" method="POST" id="f">
                 <div id="d1"></div>
                     <div class="row">
                         <div class="col-md-6">
@@ -104,48 +104,24 @@
                     
                 <br>
             
-            <center>
-                <div class="column col-sm-12 col-md-6">
-                <span class="font-bold text-1xl">Detalle de Envio</span>
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col" class="text-center">ID</th>
-                                    <th scope="col" class="text-center">Id Ruta</th>
-                                    <th scope="col" class="text-center">Modificar</th>
-
-                                </tr>
-                            </thead>
-                            <tbody id='data'>
-                            </tbody>
-                        </table>
-                    </div> 
-                </div>
-            
-            
-
-                <div class="column col-sm-12 col-md-6">
-                    <span class="font-bold text-1xl">ID Ruta Seleccionada</span>
-                            <select name="ruta" id="ruta" class="form-control" required>
-                                    <option value=""></option>
-                                    <?php
-                                        foreach ($datosRuta as $r) {
-                                            echo "<option value=".$r['idRuta'].">".$r['idRuta']."</option>";
-                                        }
-                                    ?>
-                            </select>
-                </div>
-            </center>
-            
                     <!---->
                      <br>   
-
+                <div class="column col-sm-12 col-md-6">
                     <input type="reset" class="btn btn-primary" value="Nuevo" onclick="$('#g').attr('disabled',false)">
                     <input type="submit" name="guardar" id="g" value="Guardar" class="btn btn-primary" disabled="true">
                     <input type="submit" name="modificar" value="Modificar" class="btn btn-primary">
                     <input type="button" id="eliminar" value="Eliminar" class="btn btn-primary">
-        </form>
+                </div>
+            </form>
+            <center>
+            <form action='controlDetalleEnvio.php' method='GET'> 
+                <div class="column col-sm-12 col-md-6">
+                    <input type="hidden" name='idEnvioD' id='idEnvioD'>
+                    <input type='submit' class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' name='btnDetalleEnvio' value="Ver Detalle de Envio">
+                </div>
+            </form>
+            </center>
+            </div>
         </div>
                
         <br>
@@ -165,9 +141,6 @@
                     </thead>
                     <tbody>
                         <?php
-                            
-                        
-                        
                             foreach ($datos as $e) {
                                 $idEnvio=$e->getIdEnvio();
                                 $fechaRealizacion=$e->getFechaRealizacion();
@@ -188,35 +161,19 @@
                                         <td class='text-center'>$usuarioCli</td>
                                         <td class='text-center'>$usuarioEmp</td>
                                         <td class='text-center'>
-                                            <button onclick=$('#idEnvio').val('$idEnvio');$('#fechaRealizacion').val('$fechaRealizacion');$('#fechaEntrega').val('$fechaEntrega');$('#usuarioCli').val('$idUsuarioCli');$('#usuarioEmp').val('$idUsuarioEmp');
-                                            class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' id='editarbtn'>Editar</button>    
+                                            <button onclick=$('#idEnvio').val('$idEnvio');$('#fechaRealizacion').val('$fechaRealizacion');$('#fechaEntrega').val('$fechaEntrega');$('#usuarioCli').val('$idUsuarioCli');$('#usuarioEmp').val('$idUsuarioEmp');$('#idEnvioD').val('$idEnvio'); class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' id='editarbtn'>Editar</button>    
                                             </td>
                                         
                                     </tr>";
                             }
+                            
                         ?>
                     </tbody>
                 </table> 
             </div>
         </div>
-
-        
         
     </section>
     <footer></footer>
-    <script>
-        $(document).ready(function(){
-            $('#editarbtn').click(function(){
-                $('#data').append("<?php 
-                                    $datos1 = $obj->getDetalleEnvio($idEnvio);
-                                    foreach ($datos1 as $e) {
-                                    $idDetalleEnvio=$e->getIdDetalleEnvio();
-                                    $idRuta=$e->getIdRuta();
-                                    $idEnvio=$e->getIdEnvio();                    
-                                    echo "<tr><td scope='row' class='text-center'>$idDetalleEnvio</td><td class='text-center'>$idRuta</td><td class='text-center'><button onclick=$('#ruta').val('$idRuta'); class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' type='button'>Ver Ruta</button></td></tr>";
-                                } ?>");
-            });
-        });
-    </script>
 </body>
 </html>

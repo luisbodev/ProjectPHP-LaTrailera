@@ -1,6 +1,5 @@
 <?php 
 	require '../db/conexion.php';
-	require 'envioDetalle.php';
 	require 'envio.php';
 
 	class EnvioModel extends Conexion{
@@ -40,23 +39,55 @@
 			}
 			return $r;
 		}
-		function getDetalleEnvio($e){
-			$res=$this->con->query('select * from detalleenvio where idEnvio ='.$e);
-			$r=array();
-			while($row=$res->fetch_assoc()) {
-				$d= new EnvioDetalle($row['idDetalleEnvio'],$row['idRuta'],$row['idEnvio']);
-				$r[]=$d;
+		function insertarEnvio($e){
+			try{
+				$para=$this->con->prepare("INSERT INTO envio(fechaRealizacion,fechaEntrega,idCliente,idEmpleado) VALUES(?,?,(select idCliente from cliente where idUsuarioCli =? order by idCliente DESC limit 1),(select idEmpleado from empleado where idUsuarioEmp =? order by idEmpleado DESC limit 1))");
+				$para->bind_param('ssss',$a,$b,$c,$d);
+				$a=$e->getFechaRealizacion();
+				$b=$e->getFechaEntrega();
+				$c=$e->getIdUsuarioCli();
+				$d=$e->getIdUsuarioEmp();
+				
+				$para->execute();				
+			}catch(Exception $ex){
+				return $ex;
+			}finally{
+				$para->close();
 			}
-			return $r;
 		}
-		function getRuta(){
-			$res=$this->con->query("select * from ruta");
-			$r=array();
-			while($row=$res->fetch_assoc()){
-				$r[]=$row;
+		function modificarEnvio($e){
+			try{
+				$para=$this->con->prepare("UPDATE envio set fechaRealizacion=?, fechaEntrega=?, idCliente=(select idCliente from cliente where idUsuarioCli =? order by idCliente DESC limit 1), idEmpleado=(select idEmpleado from empleado where idUsuarioEmp =? order by idEmpleado DESC limit 1) where idEnvio=?");
+                $para->bind_param('sssss',$a,$b,$c,$d,$f);
+                $a=$e->getFechaRealizacion();
+				$b=$e->getFechaEntrega();
+				$c=$e->getIdUsuarioCli();
+				$d=$e->getIdUsuarioEmp();
+                $f=$e->getIdEnvio();
+				
+                $para->execute();
+				
+            }catch(Exception $ex) {
+				return $ex;
+            }finally {
+				$para->close();
+            }
+		}
+		function eleminarEnvio($e){
+			try{
+				$para=$this->con->prepare("DELETE from envio where idEnvio=?");
+				$para->bind_param('s',$a);
+				$a=$e->getIdEnvio();
+				
+				
+				$para->execute();
+			}catch(Exception $ex){
+				return $ex;
+			}finally{
+				$para->close();
 			}
-			return $r;
+			
 		}
 	}
-
-?>
+	
+	?>
