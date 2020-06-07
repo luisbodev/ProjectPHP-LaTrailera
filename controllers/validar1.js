@@ -13,9 +13,16 @@ function validar1(){
 
 	expresion=/^[a-zA-Z\s]*$/;
 
-	if (nombre.length>30) {
+	if (nombre==="" || apellido===""  dui==="" || nit==="" || usuarioEmp===""|| password==="" ) {
 		Swal.fire({
-           title: "Nombre Demasiado Largo"
+           title: "Todos los Campos son obligatorios"
+        });
+		return false;
+	}
+
+	if (nombre.length>30 || nombre.length<4) {
+		Swal.fire({
+           title: "Nombre fuera de rango"
         });
 		return false;
 	}else if(!expresion.test(nombre)){
@@ -23,9 +30,9 @@ function validar1(){
            title: "No se permiten numeros en el campo nombre"
         });
 		return false;
-	}else if(apellido.length>30) {
+	}else if(apellido.length>30 || apellido.length<4) {
 		Swal.fire({
-           title: "Apellido Demasiado Largo"
+           title: "Apellido fuera de rango"
         });
 		return false;
 	}else if(!expresion.test(apellido)){

@@ -45,11 +45,8 @@
     
     <section>
         <div class="container">
-<<<<<<< HEAD
                 <form action="#" id="f"  method="POST"class='px-16 py-4 border-4 border-gray-600 rounded-lg' onsubmit="return validar(this);">
-=======
                 <form action="#" id="f"  method="POST"class='px-16 py-4 border-4 border-gray-600 rounded-lg'><div id="d1"></div>
->>>>>>> be68395e63cd7cdae3cf36d4ae824ba10a43774f
                     <center>
                         <div class="col-sm-12 col-md-6">
                             <span class="font-bold text-1xl">ID</span><input type="text" name="idVehiculo" id="idVehiculo" class="form-control" readonly="true"><br>
@@ -59,19 +56,19 @@
                     <div class='row'>
                         <div class="col-sm-12 col-md-6"><div id="d1"></div>
                             <span class="font-bold text-1xl">Marca</span>
-                            <input type="text" name="marca" id="marca" class="form-control"><br>
+                            <input type="text" name="marca" id="marca" class="form-control" required="true"><br>
                             <span class="font-bold text-1xl">Placa</span>
-                            <input type="text" name="placa" id="placa" class="form-control"><br>
+                            <input type="text" name="placa" id="placa" placeholder="C000-000" class="form-control" required="true"><br>
                             <span class="font-bold text-1xl">Modelo</span>
-                            <input type="text" name="modelo" id="modelo" class="form-control"><br>
+                            <input type="text" name="modelo" id="modelo" class="form-control" required="true"><br>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <span class="font-bold text-1xl">Taza de Combustible</span>
-                            <input type="text" name="tazaCombustible" id="tazaCombustible" class="form-control"><br>
+                            <input type="text" name="tazaCombustible" id="tazaCombustible" placeholder="00.00"  class="form-control" required="true"><br>
                             <span class="font-bold text-1xl">Capacidad</span>
-                            <input type="text" name="capacidadCombustible" id="capacidadCombustible" class="form-control"><br>
+                            <input type="text" name="capacidadCombustible" id="capacidadCombustible" placeholder="00.00" class="form-control" required="true"><br>
                             <span class="font-bold text-1xl">Kilometros Recorridos</span>
-                            <input type="text" name="kmRecorridos" id="kmRecorridos" class="form-control"><br>
+                            <input type="text" name="kmRecorridos" id="kmRecorridos" placeholder="00.00" class="form-control" required="true"><br>
                         </div>
                     </div>
                     <div class='row'>

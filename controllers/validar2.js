@@ -20,7 +20,7 @@ function validar(){
            title: "Marca fuera de rango"
         });
 		return false;
-	}else if (placa.length>10 || placa.length<7) {
+	}else if (placa.length>9 || placa.length<8) {
 		Swal.fire({
            title: "Placa fuera de rango"
         });
@@ -35,7 +35,7 @@ function validar(){
            title: "El campo Taza de Combustible solo permite datos númericos"
         });
 		return false;
-	}else if (tazaCombustible.length>7 || tazaCombustible.length<2) {
+	}else if (tazaCombustible.length>7) {
 		Swal.fire({
            title: "Dato Taza de Combustible fuera de rango"
         });
@@ -45,7 +45,7 @@ function validar(){
            title: "El campo Capacidad solo permite datos númericos"
         });
 		return false;
-	}else if (capacidadCombustible.length>7 || capacidadCombustible.length<2) {
+	}else if (capacidadCombustible.length>7 ) {
 		Swal.fire({
            title: "Dato Capacidad está fuera de rango"
         });

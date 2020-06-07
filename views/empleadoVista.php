@@ -9,6 +9,8 @@
     <script type="text/javascript" src="dependencias/jquery.js"></script>
     <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
+    <!-- Validaciones -->
+    <script src="validar1.js"></script>
     <!-- Tailwind -->
     <link rel="stylesheet" href="dependencias/tailwind.css">
     <!--CSS-->

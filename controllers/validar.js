@@ -10,9 +10,16 @@ function validar(){
 
 	expresion=/^[a-zA-Z\s]*$/;
 
-	if (nombre.length>30) {
+	if (nombre==="" || apellido==="" || direccion==="" || dui==="" || nit==="" || numLicencia==="") {
 		Swal.fire({
-           title: "Nombre Demasiado Largo"
+           title: "Todos los Campos son obligatorios"
+        });
+		return false;
+	}
+
+	if (nombre.length>30 || nombre.length<4) {
+		Swal.fire({
+           title: "Campo nombre fuera de rango"
         });
 		return false;
 	}else if(!expresion.test(nombre)){
@@ -21,9 +28,9 @@ function validar(){
         });
 		return false;
 	}
-	else if(apellido.length>30) {
+	else if(apellido.length>30 || apellido.length<4) {
 		Swal.fire({
-           title: "Apellido Demasiado Largo"
+           title: "Campo apellido fuera de rango"
         });
 		return false;
 	}else if(!expresion.test(apellido)){
@@ -33,7 +40,7 @@ function validar(){
 		return false;
 	}else if(direccion.length>40 || direccion==="") {
 		Swal.fire({
-           title: "Direccion Demasiado Larga"
+           title: "Campo direccion fuera de rango"
         });
 		return false;
 	}else if(dui.length>10) {
