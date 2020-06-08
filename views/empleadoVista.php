@@ -227,10 +227,9 @@
                 </table> 
             </div>
         </div>
+</section>
 </center>
-        
-        
-    </section>
+<br>
     <footer></footer>
     <script>
             function desactivar(){

@@ -195,8 +195,6 @@
                         ?>
                     </tbody>
                 </table> 
-            </div>
-        </div>
     </section>
 </center>
     <footer></footer>
