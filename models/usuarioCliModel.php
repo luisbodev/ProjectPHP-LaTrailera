@@ -50,7 +50,7 @@ class UsuarioCliModel extends Conexion {
         $res->bind_param('sss',$a,$b,$c);
         $a=$usuarioCli;
         $b=sha1($passwordEmp);//passwor encriptado.
-        $c="Admin";
+        $c="Administrador";
 
         $res->execute();
         while($res->fetch()) {
