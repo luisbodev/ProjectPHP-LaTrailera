@@ -11,7 +11,7 @@ function validar(){
 
 	expresion=/^[a-zA-Z\s]*$/;
 
-	if (nombre.length>30) {
+	if (nombre.length>30 || nombre.length<4) {
 		Swal.fire({
            title: "Nombre Demasiado Largo"
         });
@@ -23,7 +23,7 @@ function validar(){
 		return false;
 	}
 
-	else if(direccion.length>40) {
+	else if(direccion.length>40 || direccion==="") {
 		Swal.fire({
            title: "Direccion Demasiado Larga"
         });

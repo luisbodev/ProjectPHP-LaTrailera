@@ -16,7 +16,7 @@
     <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
 
-    <script src="validar.js"></script>
+    <script src="validaciones/validar.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#eliminar').click(function(){

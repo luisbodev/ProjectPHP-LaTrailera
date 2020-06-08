@@ -6,12 +6,12 @@ function validar2(){
 	
 	
 
-	if (descripcion.length>30) {
+	if (descripcion.length>50 || descripcion.length<4) {
 		Swal.fire({
            title: "Descripcion Demasiado Larga"
         });
 		return false;
-	}else if(peso.length>15) {
+	}else if(peso.length>15) || peso.length<4{
 		Swal.fire({
            title: "Peso fuera de rango"
         });
