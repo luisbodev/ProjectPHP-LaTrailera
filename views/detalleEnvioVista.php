@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-md-6">
                             <span class="font-bold text-1xl">ID Envio</span>
-                            <input type="text" name="idEnvio" id="idEnvio" class="form-control" readonly="true">
+                            <input type="text" name="idEnvio" id="idEnvio" class="form-control" readonly="true" value="<?php echo $e ?>">
                         </div>
                     </div>
                     <div class="row">
