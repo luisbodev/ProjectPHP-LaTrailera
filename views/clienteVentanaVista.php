@@ -18,7 +18,7 @@
 </head>
 <body >
     <div class="flex">
-    <header class="bg md:flex md:justify-between md:px-2 md:py-1 md:items-center w-screen">
+    <div class="bg md:flex md:justify-between md:px-2 md:py-1 md:items-center w-screen">
         <div class="flex items-center justify-between px-2 py-1 md:px-0 md:py-0">
             <div class="flex items-center">
                 <a href="../index.php"><img class="h-12" src="img/logo/Logo-LaTrailera2.svg" alt="Logo La Trailera"></a>
@@ -39,8 +39,8 @@
                 <a href="#" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Cerrar Sesión</a>
                 <div class="block mt-1 px-2 text-gray-800 bg-yellow-500 font-semibold rounded md:mt-0 md:ml-2">Usuario: <span id="userName" class="underline"></span></div>
             </div>
-        </header>
-</div>
+        </div>
+    </div>
 
         <!--Page Content-->
         <div class="container my-8">
