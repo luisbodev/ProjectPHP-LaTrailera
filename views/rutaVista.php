@@ -40,10 +40,7 @@
      <style>
       /* Tamaño del div del mapa. */
       #map {
-        height: 50%;
-        width: 50%;
-        margin-left: 10%;
-        margin-right: 10%;
+        height: 100%;
         margin-top: 2%;
       }
       
@@ -52,7 +49,11 @@
         margin: 0;
         padding: 0;
       }
-
+      #contenedor{
+        height: 50%;
+        margin: 0;
+        padding: 0;
+      }
       #btnDibujarRuta{
         margin-top: 3px;
       }
@@ -65,17 +66,23 @@
     </header>
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
-            <input type="button" value="Obtener mi hubicación" onclick="get_my_location();" class="btn btn-success">
-          </div>
+          
         </div>
       </div>
-      
-
-      <div id="output"></div>
-      <div id="map"></div>
-    <section>
-    <form action="#" id="f" method="POST" ><div id="d1"></div>
+      <center>
+      <div class="col-md-4">
+            <input type="button" value="Obtener mi hubicación" onclick="get_my_location();" class="btn btn-success">
+          </div>
+      </center>
+      <center id='contenedor'>
+          <div id="output" class='w-11/12 md:w-1/2'></div>
+          <div id="map" class='w-11/12 md:w-1/2'></div>
+      </center>
+      <br>
+  <section>
+  <div class="container">
+    <form action="#" id="f" method="POST" class="px-16 py-4 border-4 border-gray-600 rounded-lg">
+    <div id="d1"></div>
      <br>
       <div class="container">
         <div class="row">
@@ -90,7 +97,7 @@
         <div class="row">
 
           <div class="col-md-2">
-             <input type="button" value="      Agregar Ruta     " id="btnMark" onclick="initMap(); $('#my_lat').val(' ');$('#my_lng').val('');$('#your_lat').val('');$('#your_lng').val('');" class="btn btn-success">
+             <input type="button" value="Agregar Ruta" id="btnMark" onclick="initMap(); $('#my_lat').val(' ');$('#my_lng').val('');$('#your_lat').val('');$('#your_lng').val('');" class="btn btn-success">
           </div>
 
           <div class="col-md-2">
@@ -176,7 +183,6 @@
         </div>
 
 
-
         </div>
 
         
@@ -193,17 +199,33 @@
         
             
                
-                
-
+          
+            <br>
             <input type="reset"  class="btn btn-primary" value="Nuevo" onclick="$('#g').attr('disabled',false)">
             <input type="submit" name="insertar" id="g" value="Guardar" class="btn btn-primary">
             <input type="submit" name="modificar" value="Modificar" class="btn btn-primary">
             <input type="button" id="eliminar" name="eliminar" value="Eliminar" class="btn btn-primary">
         </form>
-         <div class="container">
-             <div class="column col-md-5">
-                 <table class="table">
-                     <tr><th>ID</th><th>Kilometraje</th><th>LatPuntoA</th><th>lngPuntoA</th><th>LatPuntoB</th><th>lngPuntoB</th><th>IdMotorista</th><th>idVehiculo</th><th>IdCarga</th><th>Acción</th></tr>
+        </div>
+        <br>
+        <div class="container-fluid">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th>ID</th>
+                        <th>Kilometraje</th>
+                        <th>LatPuntoA</th>
+                        <th>lngPuntoA</th>
+                        <th>LatPuntoB</th>
+                        <th>lngPuntoB</th>
+                        <th>IdMotorista</th>
+                        <th>idVehiculo</th>
+                        <th>IdCarga</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                  <tbody>
                     <?php 
                         $count=1;
                         foreach ($datos as $e) {
@@ -219,14 +241,27 @@
                             $count=$count+1;
                             
 
-                            echo "<tr><td>$idRuta</td><td>$kilometraje</td><td>$latPuntoA</td><td>$lngPuntoA</td><td>$latPuntoB</td><td>$lngPuntoB</td><td>$idMotorista</td><td>$idVehiculo</td><td>$idCarga</td><td>
-                            <button class='btn btn-warning' id='b3".$count."' onclick=$('#idRuta').val('$idRuta');$('#kilometraje').val('$kilometraje');$('#my_lat').val('$latPuntoA');$('#my_lng').val('$lngPuntoA');$('#your_lat').val('$latPuntoB');$('#your_lng').val('$lngPuntoB');$('#idMotorista').val('$idMotorista');$('#idVehiculo').val('$idVehiculo');$('#idCarga').val('$idCarga');ruta();>Editar</button></td></tr>";
+                            echo "<tr>
+                                    <td>$idRuta</td>
+                                    <td>$kilometraje</td>
+                                    <td>$latPuntoA</td>
+                                    <td>$lngPuntoA</td>
+                                    <td>$latPuntoB</td>
+                                    <td>$lngPuntoB</td>
+                                    <td>$idMotorista</td>
+                                    <td>$idVehiculo</td>
+                                    <td>$idCarga</td>
+                                    <td>
+                                      <button class='btn btn-warning' id='b3".$count."' onclick=$('#idRuta').val('$idRuta');$('#kilometraje').val('$kilometraje');$('#my_lat').val('$latPuntoA');$('#my_lng').val('$lngPuntoA');$('#your_lat').val('$latPuntoB');$('#your_lng').val('$lngPuntoB');$('#idMotorista').val('$idMotorista');$('#idVehiculo').val('$idVehiculo');$('#idCarga').val('$idCarga');ruta();>Editar</button>
+                                    </td>
+                                  </tr>";
                             //juarezgaaaaaaaaaaaaaaaaaaaaaaa
 
                            
 
                         }
                     ?>
+                  </tbody>
                  </table>
 
             </div>
