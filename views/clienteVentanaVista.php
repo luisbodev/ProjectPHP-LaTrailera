@@ -34,10 +34,10 @@
         </div>
             <div id="opciones" class="hidden px-1 pb-1 md:flex md:p-0">
                 <a href="#" class="block px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200">Inicio</a>
-                <a href="#" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Trailers</a>
-                <a href="#" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">¡Ver Ahora!</a>
-                <a href="#" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Meet & Greet</a>
-                <div class="block mt-1 px-2 text-gray-800 bg-yellow-500 font-semibold rounded hover:text-white hover:bg-orange-500 md:mt-0 md:ml-2">Usuario: <span id="userName" class="underline"></span></div>
+                <a href="#" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Envios</a>
+                <a href="#" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Configurar Perfil</a>
+                <a href="#" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Cerrar Sesión</a>
+                <div class="block mt-1 px-2 text-gray-800 bg-yellow-500 font-semibold rounded md:mt-0 md:ml-2">Usuario: <span id="userName" class="underline"></span></div>
             </div>
         </header>
 </div>
@@ -47,10 +47,13 @@
             <h1 id='welcome' class='text-center text-4xl font-bold'>Bienvenido Cliente</h1>
         </div>
         <center>
-            <div class="w-full md:w-1/2 py-4 border-4 border-gray-600 rounded-lg">
-                <h3 class='text-center text-orange-500 text-2xl font-bold'>Menú</h3>
-                <button><a href="#" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-orange-500 hover:bg-black">Inicio</a></button>
-                <button><a href="#" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-orange-500 hover:bg-black">Ver Pedidos Activos</a></button>
+            <div class="w-full md:w-1/3 py-4 border-4 border-gray-600 rounded-lg bg-orange-500">
+                <h3 class='text-center text-white text-2xl font-bold'>Menú</h3>
+                <button><a href="#" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-black hover:bg-white hover:border-4 hover:border-gray-600">Inicio</a></button><br>
+                <button><a href="#" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-black hover:bg-white hover:border-4 hover:border-gray-600">Envios</a></button><br>
+                <button><a href="#" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-black hover:bg-white hover:border-4 hover:border-gray-600">Configurar Perfil</a></button><br>
+                <button><a href="#" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-black hover:bg-white hover:border-4 hover:border-gray-600">Cerrar Sesión</a></button>
+
             </div>
         </center>
         <script>

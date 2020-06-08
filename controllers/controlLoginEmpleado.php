@@ -12,10 +12,12 @@
 	    if($r==1 && $rol==0) {
 	        session_start();
 	        $_SESSION["s1"]=$_REQUEST["usuarioCli"];//Identificador de la seción
-			//header("Location:controlEmpleado.php");
 			echo "<script>alert('Empleado común')</script>";
+			header("Location:controlEmpleado.php");
 	    } elseif($r==1 && $rol==1) {
-			echo "<script>alert('Empleado Admin')</script>"; /*Aquí irá el código para abrir la ventana de admonistrador*/
+			echo "<script>alert('Empleado Admin')</script>"; /*Aquí irá el código para abrir la ventana de administrador*/
+			header("Location:controlAdminVentana.php");
+
 		} else {
 			echo "<script>alert('Usuario o contraseña no validos')</script>";
 		}

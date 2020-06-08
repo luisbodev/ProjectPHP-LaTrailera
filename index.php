@@ -1,3 +1,3 @@
 <?php
-    header('Location:controllers/controlEmpleado.php');
+    header('Location:controllers/controlLogin.php');
 ?>
