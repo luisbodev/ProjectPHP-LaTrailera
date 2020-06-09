@@ -52,6 +52,7 @@
 			return $r;
 		}
 
+		
 
 
 		function insertarRuta($e){
@@ -68,6 +69,24 @@
 				$i=$e->getIdVehiculo();
 				$j=$e->getIdCarga();
 				$para->execute();
+
+				$res=$this->con->prepare("select * from vehiculo where idVehiculo=?");
+				$res->bind_param('s', $i);
+				$i=$e->getIdVehiculo();
+
+				$v=" ";
+				while($row=$res->fetch_assoc()){
+					$v=new Vehiculo($row["idVehiculo"],$row["marca"],$row["placa"],$row["modelo"],$row["tazaCombustible"],$row["capacidadCombustible"],$row["kmRecorridos"]);
+				}
+				
+				$rew=$v->getKmRecorridos();
+			
+				$rut=$this->con->prepare("update vehiculo set kmRecorridos=? where idVehiculo=?");
+				$rut->bind_param('ss',$n,$m);
+				$n=$rew;
+				$m=$e->getIdVehiculo();
+				$rut->execute();
+
 			}catch(Exception $ex){
 				return $ex;
 			}finally{
