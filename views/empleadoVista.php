@@ -87,7 +87,7 @@
     <section>
         <div class="container">               
             
-                <form action="#" method="POST" id="f" onsubmit="return validar1();" class="px-16 py-4 border-4 border-gray-600 rounded-lg" >
+                <form action="#" method="POST" id="f" class="px-16 py-4 border-4 border-gray-600 rounded-lg" onsubmit="return validar1();">
                 <div id="d1"></div>
                     <div class="md:flex">
                         <div class="w-full md:w-1/2">
