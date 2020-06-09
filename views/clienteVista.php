@@ -106,8 +106,8 @@
                             <input type="text" name="nombre" id="nombre" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
                         </div>   
                         <div class="w-full md:w-1/2 md:ml-2">
-                            <label for="direccion" class="font-bold text-xl">Dirección</label>
-                            <input type="text" name="direccion" id="direccion" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
+                            <label for="direccion" class="font-bold text-xl">Apellido</label>
+                            <input type="text" name="apellido" id="apellido" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
                         </div>
                         
                     </div>
@@ -122,9 +122,13 @@
                         </div>
                     </div>
                     <div class='md:flex'>
-                        <div class="w-full md:w-1/2">
+                        <div class="w-full md:w-1/2 md:ml-2">
                             <label for="correo" class="font-bold text-xl">Correo</label>
                             <input type="text" name="correo" id="correo" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required placeholder="@dominio.com" >
+                        </div>
+                        <div class="w-full md:w-1/2 md:ml-2">
+                            <label for="direccion" class="font-bold text-xl">Dirección</label>
+                            <input type="text" name="direccion" id="direccion" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
                         </div>
                     </div>
                     <div class="md:flex">
@@ -155,6 +159,7 @@
                     <thead>
                             <th class='text-center text-white bg px-4 py-2'>ID</th>
                             <th class='text-center text-white bg px-4 py-2'>Nombre</th>
+                            <th class='text-center text-white bg px-4 py-2'>Apellido</th>
                             <th class='text-center text-white bg px-4 py-2'>Direccion</th>
                             <th class='text-center text-white bg px-4 py-2'>NIT</th>
                             <th class='text-center text-white bg px-4 py-2'>Numero de Contacto</th>
@@ -170,6 +175,7 @@
                                 $passwordCli=$e->getPasswordCli();
                                 $idCliente=$e->getIdCliente();
                                 $nombre=str_replace(" ","&nbsp;",$e->getNombre());
+                                $apellido=str_replace(" ","&nbsp;",$e->getApellido());
                                 $direccion=str_replace(" ","&nbsp;",$e->getDireccion());
                                 $nit=$e->getNit();
                                 $numContacto=$e->getNumContacto();
@@ -179,13 +185,14 @@
                                     <tr>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idCliente</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$nombre</td>
+                                        <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$apellido</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$direccion</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$nit</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$numContacto</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$correo</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$usuarioCli</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>
-                                            <button onclick=$('#idCliente').val('$idCliente');$('#nombre').val('$nombre');$('#direccion').val('$direccion');$('#nit').val('$nit');$('#numContacto').val('$numContacto');$('#correo').val('$correo');$('#idUsuarioCli').val('$idUsuarioCli');$('#usuarioCli').val('$usuarioCli');$('#passwordCli').val('$passwordCli');$('#hiddenPass').val('$passwordCli') class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded'>Editar</button>
+                                            <button onclick=$('#idCliente').val('$idCliente');$('#nombre').val('$nombre');$('#apellido').val('$apellido');$('#direccion').val('$direccion');$('#nit').val('$nit');$('#numContacto').val('$numContacto');$('#correo').val('$correo');$('#idUsuarioCli').val('$idUsuarioCli');$('#usuarioCli').val('$usuarioCli');$('#passwordCli').val('$passwordCli');$('#hiddenPass').val('$passwordCli') class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded'>Editar</button>
                                         </td>
                                     </tr>";
                             }

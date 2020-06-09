@@ -10,11 +10,11 @@
         }
 
         function getCliente(){
-            $res=$this->con->query("select e.idCliente, e.nombre, e.direccion, e.nit, e.numContacto, e.correo, e.idUsuarioCli, u.usuarioCli, u.passwordCli from cliente e INNER JOIN usuariocli u on e.idUsuarioCli = u.idUsuarioCli");
+            $res=$this->con->query("select e.idCliente, e.nombre, e.apellido, e.direccion, e.nit, e.numContacto, e.correo, e.idUsuarioCli, u.usuarioCli, u.passwordCli from cliente e INNER JOIN usuariocli u on e.idUsuarioCli = u.idUsuarioCli");
             
             $r=array();
             while($row=$res->fetch_assoc()){   
-             $e=new Cliente($row["idUsuarioCli"],$row["usuarioCli"],$row["passwordCli"],$row["idCliente"],$row["nombre"],$row["direccion"],$row["nit"],$row["numContacto"],$row["correo"]);
+             $e=new Cliente($row["idUsuarioCli"],$row["usuarioCli"],$row["passwordCli"],$row["idCliente"],$row["nombre"],$row["apellido"],$row["direccion"],$row["nit"],$row["numContacto"],$row["correo"]);
                 $r[]=$e;
             }
             return $r;
@@ -43,10 +43,11 @@
                 
                 
 
-                $para=$this->con->prepare("insert into cliente(nombre,direccion,nit,numContacto,correo,idUsuarioCli) values(?,?,?,?,?,(select idUsuarioCli from usuariocli order by idUsuarioCli DESC limit 1))");
-                $para->bind_param('sssss',$b,$o,$h,$f,$g);
+                $para=$this->con->prepare("insert into cliente(nombre,apellido,direccion,nit,numContacto,correo,idUsuarioCli) values(?,?,?,?,?,?,(select idUsuarioCli from usuariocli order by idUsuarioCli DESC limit 1))");
+                $para->bind_param('ssssss',$b,$w,$o,$h,$f,$g);
                 
                 $b=$e->getNombre();
+                $w=$e->getApellido();
                 $o=$e->getDireccion();
                 $h=$e->getNit();
                 $f=$e->getNumContacto();
@@ -75,9 +76,10 @@
                 $m=$e->getIdUsuarioCli();
                 $res->execute();
 
-                $para=$this->con->prepare("update cliente set nombre=?, direccion=?, nit=?, numContacto=?, correo=? where idCliente=?");
-                $para->bind_param('ssssss',$a,$b,$c,$d,$o,$f);
+                $para=$this->con->prepare("update cliente set nombre=?, apellido=?, direccion=?, nit=?, numContacto=?, correo=? where idCliente=?");
+                $para->bind_param('ssssssss',$a,$w,$b,$c,$d,$o,$f);
                 $a=$e->getNombre();
+                $w=$e->getApellido();
                 $b=$e->getDireccion();
                 $c=$e->getNit();
                 $d=$e->getNumContacto();
@@ -104,9 +106,10 @@
                 $l=$e->getIdUsuarioCli();
                 $res->execute();
 
-                $para=$this->con->prepare("update cliente set nombre=?, direccion=?, nit=?, numContacto=?, correo=? where idCliente=?");
-                $para->bind_param('ssssss',$a,$d,$o,$f,$g,$h);
+                $para=$this->con->prepare("update cliente set nombre=?, apellido=?, direccion=?, nit=?, numContacto=?, correo=? where idCliente=?");
+                $para->bind_param('sssssss',$a,$w,$d,$o,$f,$g,$h);
                 $a=$e->getNombre();
+                $w=$e->getApellido();
                 $d=$e->getDireccion();
                 $o=$e->getNit();
                 $f=$e->getNumContacto();

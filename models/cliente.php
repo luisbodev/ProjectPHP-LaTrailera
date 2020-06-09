@@ -4,6 +4,7 @@
     class Cliente extends UsuarioCliente {
         private $idCliente;
         private $nombre;
+        private $apellido;
         private $direccion;
         private $nit;
         private $numContacto;
@@ -11,10 +12,11 @@
         
         
 
-        function __construct($idUsuarioCli, $usuarioCli, $passwordCli, $idCliente, $nombre, $direccion, $nit, $numContacto, $correo){
+        function __construct($idUsuarioCli, $usuarioCli, $passwordCli, $idCliente, $nombre, $apellido, $direccion, $nit, $numContacto, $correo){
             parent::__construct($idUsuarioCli, $usuarioCli, $passwordCli);
             $this->idCliente=$idCliente;
             $this->nombre=$nombre;
+            $this->apellido=$apellido;
             $this->direccion=$direccion;
             $this->nit=$nit; 
             $this->numContacto=$numContacto;
@@ -66,7 +68,12 @@
             return $this->correo;
         }
         //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-       
+        function setApellido($apellido){
+            $this->apellido=$apellido;
+        }
+        function getApellido(){
+            return $this->apellido;
+        }
         //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
       
