@@ -8,7 +8,7 @@
 	    $r=$obUser->validarUsuario($_REQUEST["usuarioCli"], $_REQUEST["passwordCli"]);
 	    if($r==1) {
 	        session_start();
-	        $_SESSION["s1"]=$_REQUEST["usuarioCli"];//Identificador de la seción
+	        $_SESSION["cliente"]=$_REQUEST["usuarioCli"];//Identificador de la seción
 	        header("Location:controlClienteVentana.php");
 
 	    }

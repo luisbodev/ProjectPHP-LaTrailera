@@ -27,6 +27,8 @@
         }
         else if($r==1 && $rest=="emp"){
             header("Location:controlLoginEmpleado.php");
+        } else {
+            echo "<script>alert('Usuario incorrecto')</script>";
         }
        
     }
