@@ -23,6 +23,7 @@
        
         function insertarEmpleado($e) {
             try{
+                
                 $num=(strlen($e->getUsuarioEmp())-3);
                 $rest = substr($e->getUsuarioEmp(), 0, -($num));//emp
 
@@ -38,30 +39,43 @@
 
                 $res->execute();
 
+                $insertEmp=mysqli_error($this->con);
+                if(mysqli_error($this->con)){
+                    throw new exception("
+                    <script>
+                        alert(\"Error al crear Usuario: ".$this->con->error."\");
+                    </script>");
+                }else{
+                    $para=$this->con->prepare("insert into empleado(nombre,apellido,sexo,direccion,cargo,dui,nit,idUsuarioEmp) values(?,?,?,?,?,?,?,(select idUsuarioEmp from usuarioemp order by idUsuarioEmp DESC limit 1))");
+                    $para->bind_param('sssssss',$b,$c,$d,$o,$f,$g,$h);
+                    
+                    $b=$e->getNombre();
+                    $c=$e->getApellido();
+                    $d=$e->getSexo();
+                    $o=$e->getDireccion();
+                    $f=$e->getCargo();
+                    $g=$e->getDui();
+                    $h=$e->getNit();
                 
-                
+                    $para->execute();
+                    
+                    if(mysqli_error($this->con)){
+                        throw new exception("
+                        <script>
+                            alert(\"Error al crear datos de empleado: ".$this->con->error."\");
+                        </script>");
+                    }
+                }
                 
                 
 
-                $para=$this->con->prepare("insert into empleado(nombre,apellido,sexo,direccion,cargo,dui,nit,idUsuarioEmp) values(?,?,?,?,?,?,?,(select idUsuarioEmp from usuarioemp order by idUsuarioEmp DESC limit 1))");
-                $para->bind_param('sssssss',$b,$c,$d,$o,$f,$g,$h);
-                
-                $b=$e->getNombre();
-                $c=$e->getApellido();
-                $d=$e->getSexo();
-                $o=$e->getDireccion();
-                $f=$e->getCargo();
-                $g=$e->getDui();
-                $h=$e->getNit();
-            
-                $para->execute();
-                
-                
             }catch(Exception $ex) {
-                return $ex;
+                echo $ex->getMessage();
             }finally {
                 $res->close();
-                $para->close();
+                if(!$insertEmp){
+                    $para->close();
+                }
             }
         }
 
