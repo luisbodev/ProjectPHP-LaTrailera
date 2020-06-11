@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Carga</title>
+    <title>Gestión Detalle Envio - La Trailera</title>
     <!--Dependencias-->
     <!-- <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css"> -->
     <script type="text/javascript" src="dependencias/jquery.js"></script>
@@ -15,9 +15,7 @@
     <link rel="stylesheet" href="css/menu.css">
     <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
-    <!--Validacion-->
-    <script src="validaciones/validacionCarga.js"></script>
-    <script type="text/javascript">
+    <script>
         $(document).ready(function(){
             $('#eliminar').click(function(){
                 swal.fire({
@@ -36,6 +34,9 @@
                 });
             });
         });
+
+       
+
     </script>
 </head>
 <body>
@@ -63,72 +64,98 @@
                 <a href="controladorMotorista.php" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Motorista</a>
                 <a href="controlCliente.php" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Cliente</a>
                 <a href="controlEmpleado.php" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Empleado</a>
-                <a href="controlCarga.php?c=1" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Cerrar Sesión</a>
+                <a href="controlDetalleEnvio.php?c=1" class="block mt-1 px-2 text-white font-semibold rounded hover:text-gray-800 hover:bg-gray-200 md:mt-0 md:ml-2">Cerrar Sesión</a>
                 <div class="block mt-1 px-2 text-gray-800 bg-yellow-500 font-semibold rounded md:mt-0 md:ml-2">Usuario: <span id="userName" class="underline"></span></div>
             </div>
         </div>
     </header>
-    <div class='text-center'>
-        <span class="font-bold text-4xl">Gestión de Carga</span>
+    <div class="text-center">
+        <span class="font-bold text-4xl">Gestión Detalle Envio Seleccionado</span>
     </div>
-
 <center>
-    <section>
-        <div class="container">
-            <div class="w-full md:w-1/2">
-                <form action="#" id="f" onsubmit="return validar2(this);" method="POST" class="px-16 py-4 border-4 border-gray-600 rounded-lg"><div id="d1" ></div>
-<<<<<<< HEAD
-                    ID Carga<input type="text" name="idCarga" id="idCarga" class="form-control" readonly="true"><br>
-                    Descripción<input type="text" name="descripcion" id="descripcion" class="form-control"><br>
-                    Peso Total<input type="text" name="peso" id="peso" placeholder="00.00" class="form-control"><br>
-=======
-                <span class="font-bold text-xl">ID Carga</span>
-                    <input type="text" name="idCarga" id="idCarga" class="bg-gray-400 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" readonly="true"><br>
-                    <span class="font-bold text-xl">Descripción</span>
-                    <input type="text" name="descripcion" id="descripcion" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold"><br>
-                    <span class="font-bold text-xl">Peso Total</span>
-                    <input type="text" name="peso" id="peso" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold"><br>
->>>>>>> 4abb9f974214d08518d4861e80339285a91ebbd9
+    <section>    
+        <div class="container">               
+            
+                <form action="#" method="POST" id="f" class="px-16 py-4 border-4 border-gray-600 rounded-lg">
+                <div id="d1"></div>
+                    <div class="md:flex">
+                        <div class="w-full md:w-1/2">
+                            <span class="font-bold text-xl">ID Detalle Envio</span>
+                            <input type="text" name="idEnvioDetalle" id="idEnvioDetalle" class="bg-gray-400 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" readonly="true">
+                        </div>
+                        <div class="w-full md:w-1/2 md:ml-2">
+                            <span class="font-bold text-xl">ID Envio</span>
+                            <input type="text" name="idEnvio" id="idEnvio" class="bg-gray-400 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" readonly="true" value="<?php echo $e ?>" required>
+                        </div>
+                    </div>
+                    <div class="md:flex">
+                        <div class="w-full md:w-1/2">
+                        <span class="font-bold text-xl">ID Ruta Seleccionada</span>
+                            <div class='relative'>
+                                <select name="ruta" id="ruta" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
+                                        <option value=""></option>
+                                        <?php
+                                            foreach ($datosRuta as $r) {
+                                                echo "<option value=".$r['idRuta'].">".$r['idRuta']."</option>";
+                                            }
+                                        ?>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                    <svg class="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <input type="reset"  class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded" value="Nuevo" onclick="$('#g').attr('disabled',false);desactivar()">
-                    <input type="submit" name="insertar" id="g" value="Guardar" class="bg-blue-400 text-white text-xl mt-2 py-1 px-2 rounded cursor-not-allowed" disabled='true'>
-                    <input type="submit" name="modificar" value="Modificar" class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded">
-                    <input type="button" id="eliminar" name="eliminar" value="Eliminar" class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded">
-                </form>
-                 <br>
-                     <table class="table-auto">
-                         <thead>
-                             <th class='text-center text-white bg px-4 py-2'>ID Carga</th>
-                             <th class='text-center text-white bg px-4 py-2'>Descripción</th>
-                             <th class='text-center text-white bg px-4 py-2'>Peso</th>
-                             <th class='text-center text-white bg px-4 py-2'>Acción</th>
-                        </thead>
-                        <tbody>
-                        <?php 
-                            foreach ($datos as $e) {
-                                $idCarga=$e->getIdCarga();
-                                $descripcion=str_replace(" ","&nbsp;", $e->getDescripcion());
-                                $peso=str_replace(" ","&nbsp;",$e->getPeso()); 
-                                echo "<tr>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idCarga</td>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$descripcion</td>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$peso</td>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>
-                                    <button class='bg-blue-700 hover:bg-red-800 text-white py-1 px-2 rounded' onclick=$('#idCarga').val('$idCarga');$('#descripcion').val('$descripcion');$('#peso').val('$peso')>Editar</button></td>
-                                    </tr>";
-                            }
-                        ?>
-                        </tbody>
-                     </table>
+                <br>
+            
+                    <!---->
+                     <br>   
+            <input type="reset"  class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded" value="Nuevo" onclick="$('#g').attr('disabled',false);desactivar()">
+            <input type="submit" name="insertar" id="g" value="Guardar" class="bg-blue-400 text-white text-xl mt-2 py-1 px-2 rounded cursor-not-allowed" disabled='true'>
+            <input type="submit" name="modificar" value="Modificar" class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded">
+            <input type="button" id="eliminar" name="eliminar" value="Eliminar" class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded">
+        </form>
+        </div>
+        <div class='m-4'>
+            <a href="controlEnvio.php" class='text-xl font-bold text-blue-700 hover:text-red-800 hover:underline'>← Regresar</a>
+        </div>
+            <table class="table-auto">
+                    <thead>
+                        <tr>
+                            <th class='text-center text-white bg px-4 py-2'>ID Detalle</th>
+                            <th class='text-center text-white bg px-4 py-2'>ID Ruta</th>
+                            <th class='text-center text-white bg px-4 py-2'>ID Envio</th>
+                            <th class='text-center text-white bg px-4 py-2'>Acción</th>
 
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach ($datos1 as $e) {
+                                $idDetalleEnvio=$e->getIdDetalleEnvio();
+                                $idRuta=$e->getIdRuta();
+                                $idEnvio=$e->getIdEnvio();                    
+                                echo "<tr>
+                                        <td class='border-b-4 border-gray-600 rounded-lg text-center font-bold px-4 py-2'>$idDetalleEnvio</td>
+                                        <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idRuta</td>
+                                        <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idEnvio</td>
+                                        <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>
+                                            <button onclick=$('#idEnvioDetalle').val('$idDetalleEnvio');$('#ruta').val('$idRuta');$('#idEnvio').val('$idEnvio'); class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' type='button'>Ver Ruta</button>
+                                        </td>
+                                        </tr>";
+                             } 
+                        ?>
+                    </tbody>
+                </table> 
             </div>
         </div>
+        
     </section>
-    <br>
 </center>
-    <footer>
-    
-    </footer>
+    <br>
+    <footer></footer>
     <script>
             function desactivar(){
                 var btn = document.getElementById('g');

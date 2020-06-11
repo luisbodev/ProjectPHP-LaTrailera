@@ -1,5 +1,4 @@
 <?php 
-	
 	class Envio{
 		private $idEnvio;
 		private $fechaRealizacion;
