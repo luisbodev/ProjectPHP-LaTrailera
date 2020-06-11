@@ -7,8 +7,8 @@
 	}
    
 	if(isset($_SESSION["administrador"])) {
-		echo "Bienvenida/o ".$_SESSION["administrador"];
-		echo " <a href='controlEmpleado.php?c=1'>Cerrar Sesión</a>";
+		//echo "Bienvenida/o ".$_SESSION["administrador"];
+		//echo " <a href='controlEmpleado.php?c=1'>Cerrar Sesión</a>";
 	} else {
 		header("Location:controlLogin.php");
 	}
