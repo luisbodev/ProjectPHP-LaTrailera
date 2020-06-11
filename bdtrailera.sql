@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2020 a las 00:58:38
+-- Tiempo de generación: 12-06-2020 a las 00:20:19
 -- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.3.15
+-- Versión de PHP: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,7 +39,9 @@ CREATE TABLE `carga` (
 --
 
 INSERT INTO `carga` (`idCarga`, `descripcion`, `peso`) VALUES
-(9, 'Trece cajas de Tomate', '67 kilos');
+(1, 'Abrigos de piel de lana', '50 ton'),
+(2, 'Herramientas de construcción', '70 ton'),
+(3, 'Madera', '50 ton');
 
 -- --------------------------------------------------------
 
@@ -51,19 +53,12 @@ CREATE TABLE `cliente` (
   `idCliente` int(11) NOT NULL,
   `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `apellido` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `direccion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `direccion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `nit` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `numContacto` int(20) NOT NULL,
   `correo` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `idUsuarioCli` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `cliente`
---
-
-INSERT INTO `cliente` (`idCliente`, `nombre`, `apellido`, `direccion`, `nit`, `numContacto`, `correo`, `idUsuarioCli`) VALUES
-(7, 'Nataren', '', 'Soyapango', '1234-123456-123-1', 88776655, 'bonillajose@gmail.com', 4);
 
 -- --------------------------------------------------------
 
@@ -100,8 +95,8 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`idEmpleado`, `nombre`, `apellido`, `sexo`, `direccion`, `cargo`, `dui`, `nit`, `idUsuarioEmp`) VALUES
-(70, 'Natk', 'Bonk', 'Masculino', 'Soy', 'Empleado', '34557895-0', '1234-123456-123-1', 79),
-(73, 'dfdh', 'Carpio', 'Femenino', 'Tonaca', 'Administrador', '12356789-3', '3333-888888-888-7', 80);
+(1, 'Administrador', 'Administrador', 'Femenino', 'La Trailera SA de SV', 'Administrador', '00000000-0', '0000-000000-000-0', 1),
+(2, 'Empleado', 'Empleado', 'Femenino', 'La Trailera SA de SV', 'Empleado', '55555555-5', '5555-555555-555-5', 2);
 
 -- --------------------------------------------------------
 
@@ -138,8 +133,7 @@ CREATE TABLE `motorista` (
 --
 
 INSERT INTO `motorista` (`idMotorista`, `nombre`, `apellido`, `direccion`, `dui`, `nit`, `numLicencia`) VALUES
-(13, 'Nataren', 'Bonilla', 'Soyapango', '12357579-0', '1234-123456-123-1', '1234-123456-123-1'),
-(17, 'Kasandra', 'Carpio', 'Tonaca', '12345678-0', '3333-888888-888-7', '1344-123456-123-1');
+(1, 'Adan Manuel', 'Cornejo Estrada', 'C. Delgado, San Salvador', '25639856-9', '2563-856974-589-2', '2563-859689-895-7');
 
 -- --------------------------------------------------------
 
@@ -159,13 +153,6 @@ CREATE TABLE `ruta` (
   `idCarga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `ruta`
---
-
-INSERT INTO `ruta` (`idRuta`, `kilometraje`, `latPuntoA`, `lngPuntoA`, `latPuntoB`, `lngPuntoB`, `idMotorista`, `idVehiculo`, `idCarga`) VALUES
-(25, 28.1, '13.688549607959276', '-89.1912210968137', '13.81928347355936', '-89.26865378886464', 13, 72, 9);
-
 -- --------------------------------------------------------
 
 --
@@ -177,13 +164,6 @@ CREATE TABLE `usuariocli` (
   `usuarioCli` varchar(40) NOT NULL,
   `passwordCli` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `usuariocli`
---
-
-INSERT INTO `usuariocli` (`idUsuarioCli`, `usuarioCli`, `passwordCli`) VALUES
-(4, 'cliNAt', 'e2756eaac75cef9ae3a5939105684fb1f6e74a79');
 
 -- --------------------------------------------------------
 
@@ -203,8 +183,8 @@ CREATE TABLE `usuarioemp` (
 --
 
 INSERT INTO `usuarioemp` (`idUsuarioEmp`, `usuarioEmp`, `password`, `rol`) VALUES
-(79, 'empNata', 'b53e9b6273d7a2e1f33b26941e3272c87d1da7d3', 'Empleado'),
-(80, 'empKas', 'deb50d8a093553b5d4673b99033a7b5c228bf41e', 'Administrador');
+(1, 'empAdmin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Administrador'),
+(2, 'empleado', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Empleado');
 
 -- --------------------------------------------------------
 
@@ -227,7 +207,7 @@ CREATE TABLE `vehiculo` (
 --
 
 INSERT INTO `vehiculo` (`idVehiculo`, `marca`, `placa`, `modelo`, `tazaCombustible`, `capacidadCombustible`, `kmRecorridos`) VALUES
-(72, 'toyota', 'P798-123', 'corola', 56.3, 60.5, 56);
+(1, 'Volvo', 'C206-965', 'Volvo16', 20.2, 20.2, 20.2);
 
 --
 -- Índices para tablas volcadas
@@ -318,13 +298,13 @@ ALTER TABLE `vehiculo`
 -- AUTO_INCREMENT de la tabla `carga`
 --
 ALTER TABLE `carga`
-  MODIFY `idCarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idCarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `detalleenvio`
@@ -336,7 +316,7 @@ ALTER TABLE `detalleenvio`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `envio`
@@ -348,31 +328,31 @@ ALTER TABLE `envio`
 -- AUTO_INCREMENT de la tabla `motorista`
 --
 ALTER TABLE `motorista`
-  MODIFY `idMotorista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idMotorista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `ruta`
 --
 ALTER TABLE `ruta`
-  MODIFY `idRuta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `idRuta` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuariocli`
 --
 ALTER TABLE `usuariocli`
-  MODIFY `idUsuarioCli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idUsuarioCli` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarioemp`
 --
 ALTER TABLE `usuarioemp`
-  MODIFY `idUsuarioEmp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `idUsuarioEmp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `idVehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `idVehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
