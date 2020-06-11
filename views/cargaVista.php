@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/menu.css">
     <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
+    <!--Validacion-->
     <script src="validaciones/validacionCarga.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -49,7 +50,7 @@
                 <form action="#" id="f" onsubmit="return validar2(this);" method="POST" class="px-16 py-4 border-4 border-gray-600 rounded-lg"><div id="d1" ></div>
                     ID Carga<input type="text" name="idCarga" id="idCarga" class="form-control" readonly="true"><br>
                     Descripción<input type="text" name="descripcion" id="descripcion" class="form-control"><br>
-                    Peso Total<input type="text" name="peso" id="peso" class="form-control"><br>
+                    Peso Total<input type="text" name="peso" id="peso" placeholder="00.00" class="form-control"><br>
                     
                     <input type="reset"  class="btn btn-primary" value="Nuevo" onclick="$('#g').attr('disabled',false)">
                     <input type="submit" name="insertar" id="g" value="Guardar" class="btn btn-primary" disabled='true'>

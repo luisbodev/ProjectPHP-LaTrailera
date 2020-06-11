@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/menu.css">
     <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
+    <!--Validaciones-->
     <script src="validaciones/validacionCliente.js"></script>
     <script>
         $(document).ready(function(){
@@ -87,7 +88,7 @@
                                 <label for="nit" class="font-bold text-1xl">NIT</label><input type="text" name="nit" id="nit" class="form-control" required placeholder="0000-000000-000-0" >
                         </div>
                         <div class="col-md-6">
-                            <label for="numContacto" class="font-bold text-1xl">Numero de Contacto</label><input type="text" name="numContacto" id="numContacto" class="form-control" required>
+                            <label for="numContacto" class="font-bold text-1xl">Numero de Contacto</label><input type="text" name="numContacto" id="numContacto" class="form-control" required placeholder="00000000">
                         </div>
                         <div class="col-md-6">
                             <label for="correo" class="font-bold text-1xl">Correo</label><input type="text" name="correo" id="correo" class="form-control" required placeholder="@dominio.com" >
@@ -95,7 +96,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="usuarioCli" class="font-bold text-1xl">Usuario</label><input type="text" name="usuarioCli" id="usuarioCli" class="form-control" required>
+                            <label for="usuarioCli" class="font-bold text-1xl">Usuario</label><input type="text" name="usuarioCli" id="usuarioCli" class="form-control" required placeholder="cliUsuario">
                         </div>
                         <div class="col-md-6">
                             <label for="passwordCli" class="font-bold text-1xl">Contraseña</label><input type="password" name="passwordCli" id="passwordCli" class="form-control" required>
