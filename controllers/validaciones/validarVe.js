@@ -17,47 +17,47 @@ function validar(){
 
 	if (marca.length>14 || marca.length<4) {
 		Swal.fire({
-           title: "Marca fuera de rango"
+           title: "Campo marca no valido"
         });
 		return false;
 	}else if (placa.length>9 || placa.length<8) {
 		Swal.fire({
-           title: "Placa fuera de rango"
+           title: "Campo placa no valido"
         });
 		return false;
 	}else if (modelo.length>14 || modelo.length<4) {
 		Swal.fire({
-           title: "Modelo fuera de rango"
+           title: "Campo mdelo no valido"
         });
 		return false;
 	}else if (isNaN(tazaCombustible)) {
 		Swal.fire({
-           title: "El campo Taza de Combustible solo permite datos númericos"
+           title: "Campo taza de combustible no valido"
         });
 		return false;
 	}else if (tazaCombustible.length>7) {
 		Swal.fire({
-           title: "Dato Taza de Combustible fuera de rango"
+           title: "Campo taza de combustible no valido"
         });
 		return false;
 	}else if (isNaN(capacidadCombustible)) {
 		Swal.fire({
-           title: "El campo Capacidad solo permite datos númericos"
+           title: "Campo capacidad no valido"
         });
 		return false;
 	}else if (capacidadCombustible.length>7 ) {
 		Swal.fire({
-           title: "Dato Capacidad está fuera de rango"
+           title: "Campo capacidad no valido"
         });
 		return false;
 	}else if (isNaN(kmRecorridos)) {
 		Swal.fire({
-           title: "El campo Kilometros Recorridos solo permite datos númericos"
+           title: "Campo km recorridose no valido"
         });
 		return false;
 	}else if (kmRecorridos.length>7) {
 		Swal.fire({
-           title: "Dato Kilometros Recorridos está fuera de rango"
+           title: "Campo km recorridose no valido"
         });
 		return false;
 	}	

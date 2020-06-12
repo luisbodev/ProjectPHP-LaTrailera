@@ -16,7 +16,7 @@
     <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
     <!--Validaciones-->
-    <script src="validaciones/validar2.js"></script>
+    <script src="validaciones/validarVe.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#eliminar').click(function(){
@@ -74,7 +74,7 @@
 <center>
     <section>
         <div class="container">
-                <form action="#" id="f"  method="POST"class='px-16 py-4 border-4 border-gray-600 rounded-lg' onsubmit="return validar(this);">
+                <form action="#" id="f"  method="POST"class='px-16 py-4 border-4 border-gray-600 rounded-lg' onsubmit="return validar();">
                 <div id="d1"></div>
                     <center>
                         <div class="w-full md:w-1/2">

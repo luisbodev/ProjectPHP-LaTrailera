@@ -10,7 +10,7 @@
     <!-- <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script> -->
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
     <!-- Validaciones -->
-    <script src="validaciones/validar1.js"></script>
+    <script src="validaciones/validarEmp.js"></script>
     <!-- Tailwind -->
     <link rel="stylesheet" href="dependencias/tailwind.css">
     <!--CSS-->
@@ -87,7 +87,7 @@
     <section>
         <div class="container">               
             
-                <form action="#" method="POST" id="f" class="px-16 py-4 border-4 border-gray-600 rounded-lg" onsubmit="return validar1();">
+                <form action="#" method="POST" id="f" class="px-16 py-4 border-4 border-gray-600 rounded-lg" onsubmit="return validar();">
                 <div id="d1"></div>
                     <div class="md:flex">
                         <div class="w-full md:w-1/2">

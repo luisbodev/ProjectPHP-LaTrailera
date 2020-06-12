@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="css/menu.css">
     <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
-
-    <script src="validaciones/validar.js"></script>
+    <!--Validacion-->
+    <script src="validaciones/validarMo.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#eliminar').click(function(){
@@ -74,7 +74,8 @@
 <center>
     <section>
         <div class="container">
-                <form action="#" id="f" onsubmit="return validar(this);" class="px-16 py-4 border-4 border-gray-600 rounded-lg">
+                <form action="#" id="f"  class="px-16 py-4 border-4 border-gray-600 rounded-lg" onsubmit="return validar();">
+                <div id="d1"></div>
                 <center>
                     <div class='w-full md:w-1/2'>
                         <span class="font-bold text-xl">ID</span>
