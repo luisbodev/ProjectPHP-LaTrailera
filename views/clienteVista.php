@@ -117,14 +117,9 @@
                                 <label for="nit" class="font-bold text-xl">NIT</label>
                                 <input type="text" name="nit" id="nit" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required placeholder="0000-000000-000-0" >
                         </div>
-<<<<<<< HEAD
-                        <div class="col-md-6">
-                            <label for="numContacto" class="font-bold text-1xl">Numero de Contacto</label><input type="text" name="numContacto" id="numContacto" class="form-control" required placeholder="00000000">
-=======
                         <div class="w-full md:w-1/2 md:ml-2">
                             <label for="numContacto" class="font-bold text-xl">Numero de Contacto</label>
                             <input type="text" name="numContacto" id="numContacto" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
->>>>>>> 4abb9f974214d08518d4861e80339285a91ebbd9
                         </div>
                     </div>
                     <div class='md:flex'>
@@ -137,16 +132,10 @@
                             <input type="text" name="direccion" id="direccion" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="usuarioCli" class="font-bold text-1xl">Usuario</label><input type="text" name="usuarioCli" id="usuarioCli" class="form-control" required placeholder="cliUsuario">
-=======
                     <div class="md:flex">
                         <div class="w-full md:w-1/2">
                             <label for="usuarioCli" class="font-bold text-xl">Usuario</label>
                             <input type="text" name="usuarioCli" id="usuarioCli" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
->>>>>>> 4abb9f974214d08518d4861e80339285a91ebbd9
                         </div>
                         <div class="w-full md:w-1/2 md:ml-2">
                             <label for="passwordCli" class="font-bold text-xl">Contraseña</label>

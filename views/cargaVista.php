@@ -77,18 +77,12 @@
         <div class="container">
             <div class="w-full md:w-1/2">
                 <form action="#" id="f" onsubmit="return validar2(this);" method="POST" class="px-16 py-4 border-4 border-gray-600 rounded-lg"><div id="d1" ></div>
-<<<<<<< HEAD
-                    ID Carga<input type="text" name="idCarga" id="idCarga" class="form-control" readonly="true"><br>
-                    Descripción<input type="text" name="descripcion" id="descripcion" class="form-control"><br>
-                    Peso Total<input type="text" name="peso" id="peso" placeholder="00.00" class="form-control"><br>
-=======
                 <span class="font-bold text-xl">ID Carga</span>
                     <input type="text" name="idCarga" id="idCarga" class="bg-gray-400 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" readonly="true"><br>
                     <span class="font-bold text-xl">Descripción</span>
                     <input type="text" name="descripcion" id="descripcion" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold"><br>
                     <span class="font-bold text-xl">Peso Total</span>
                     <input type="text" name="peso" id="peso" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold"><br>
->>>>>>> 4abb9f974214d08518d4861e80339285a91ebbd9
                     
                     <input type="reset"  class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded" value="Nuevo" onclick="$('#g').attr('disabled',false);desactivar()">
                     <input type="submit" name="insertar" id="g" value="Guardar" class="bg-blue-400 text-white text-xl mt-2 py-1 px-2 rounded cursor-not-allowed" disabled='true'>
