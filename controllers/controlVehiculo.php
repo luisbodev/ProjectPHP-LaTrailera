@@ -20,7 +20,7 @@
 	$error="";
 	$obVehiculo=new VehiculoModel();
 
-	if (isset($_REQUEST["insertar"])) {
+	if (isset($_REQUEST["guardar"])) {
 		$e=new Vehiculo($_REQUEST["idVehiculo"],$_REQUEST["marca"],$_REQUEST["placa"],$_REQUEST["modelo"],$_REQUEST["tazaCombustible"],$_REQUEST["capacidadCombustible"],$_REQUEST["kmRecorridos"]);
 		$error=$obVehiculo->insertarVehiculo($e);
 	}

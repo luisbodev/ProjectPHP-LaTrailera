@@ -19,7 +19,7 @@
 	$error="";
 	$obCarga=new CargaModel();
 
-	if (isset($_REQUEST["insertar"])) {
+	if (isset($_REQUEST["guardar"])) {
 		$e=new Carga($_REQUEST["idCarga"],$_REQUEST["descripcion"],$_REQUEST["peso"]);
 		$error=$obCarga->insertarCarga($e);
 	}

@@ -19,7 +19,7 @@
 	$error="";
 	$obRuta=new RutaModel();
 
-	if (isset($_REQUEST["insertar"])) {
+	if (isset($_REQUEST["guardar"])) {
 		$e=new Ruta($_REQUEST["idRuta"],$_REQUEST["kilometraje"],$_REQUEST["my_lat"],$_REQUEST["my_lng"],$_REQUEST["your_lat"],$_REQUEST["your_lng"],$_REQUEST["idMotorista"],$_REQUEST["idVehiculo"],$_REQUEST["idCarga"]);
 		$error=$obRuta->insertarRuta($e);
 	}

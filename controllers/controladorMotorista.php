@@ -18,7 +18,7 @@
 	$error="";
 	$obMotorista=new MotoristaModel();
 
-	if (isset($_REQUEST["insertar"])) {
+	if (isset($_REQUEST["guardar"])) {
 		$e=new Motorista($_REQUEST["idMotorista"],$_REQUEST["nombre"],$_REQUEST["apellido"],$_REQUEST["direccion"],$_REQUEST["dui"],$_REQUEST["nit"],$_REQUEST["numLicencia"]);
 		$error=$obMotorista->insertarMotorista($e);
 	}
