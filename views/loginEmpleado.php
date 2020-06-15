@@ -27,9 +27,7 @@
                 <form action="#" method="POST" class="bg px-2 py-4 border-4 border-gray-600 rounded-lg" >
                     <div>
                         <div class="flex justify-center m-4">
-                            <a href="../index.php">
                                 <img src="img/logo/Logo-LaTrailera.svg" width="200px">
-                            </a>
                         </div>
                         <hr>
                         <div class="text-center mt-4">
