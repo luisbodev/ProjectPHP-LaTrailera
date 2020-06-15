@@ -13,7 +13,7 @@
 	        session_start();
 	        $_SESSION["empleado"]=$_REQUEST["usuarioCli"];//Identificador de la seción
 			/*Aquí irá el código para abrir la ventana de empleado*/
-			header("Location:controlEmpleado.php");
+			header("Location:controlEmpleadoVentana.php");
 	    } elseif($r==1 && $rol==1) {
 			session_start();
 	        $_SESSION["administrador"]=$_REQUEST["usuarioCli"];
