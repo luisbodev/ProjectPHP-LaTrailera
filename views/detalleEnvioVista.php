@@ -15,6 +15,25 @@
     <link rel="stylesheet" href="css/menu.css">
     <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
+    <style>
+      /* Tamaño del div del mapa. */
+      #map {
+        height: 100%;
+      }
+      
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #contenedor{
+        height: 300px;
+      }
+      #btnDibujarRuta{
+        margin-top: 3px;
+      }
+
+    </style>
     <script>
         $(document).ready(function(){
             $('#eliminar').click(function(){
@@ -35,14 +54,16 @@
             });
         });
 
-       
+        
 
     </script>
 </head>
 <body>
+        
     <header class="flex">
     <div class="bg md:flex md:justify-between md:px-2 md:py-1 md:items-center w-screen">
         <div class="flex items-center justify-between px-2 py-1 md:px-0 md:py-0">
+        
             <div class="flex items-center">
                 <a href="../index.php"><img class="h-12" src="img/logo/Logo-LaTrailera2.svg" alt="Logo La Trailera"></a>
             </div>
@@ -69,15 +90,26 @@
             </div>
         </div>
     </header>
+
+    
     <div class="text-center">
         <span class="font-bold text-4xl">Gestión Detalle Envio Seleccionado</span>
     </div>
+     
 <center>
+      <center id='contenedor' class='w-full'>
+          <div id="output" class='w-11/12 md:w-1/2'></div>
+          <div id="map" class='w-11/12 md:w-1/2'></div>
+      </center>
+<br>
+
     <section>    
-        <div class="container">               
+        <div class="container">   
+                    
             
                 <form action="#" method="POST" id="f" class="px-16 py-4 border-4 border-gray-600 rounded-lg">
                 <div id="d1"></div>
+                
                     <div class="md:flex">
                         <div class="w-full md:w-1/2">
                             <span class="font-bold text-xl">ID Detalle Envio</span>
@@ -108,13 +140,18 @@
                     </div>
                     
                 <br>
-            
+                <input type="text" id="my_lat" name="my_lat">
+                <input type="text" id="my_lng" name="my_lng"><!-- Se imprimen las lat y lng-->
+                <input type="text" id="your_lat" name="your_lat">
+                <input type="text" id="your_lng" name="your_lng">
                     <!---->
                      <br>   
             <input type="reset"  class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded" value="Nuevo" onclick="$('#g').attr('disabled',false);desactivar()">
             <input type="submit" name="guardar" id="g" value="Guardar" class="bg-blue-400 text-white text-xl mt-2 py-1 px-2 rounded cursor-not-allowed" disabled='true'>
             <input type="submit" name="modificar" value="Modificar" class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded">
             <input type="button" id="eliminar" name="eliminar" value="Eliminar" class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded">
+            
+            
         </form>
         </div>
         <div class='m-4'>
@@ -136,13 +173,17 @@
                             foreach ($datos1 as $e) {
                                 $idDetalleEnvio=$e->getIdDetalleEnvio();
                                 $idRuta=$e->getIdRuta();
-                                $idEnvio=$e->getIdEnvio();                    
+                                $idEnvio=$e->getIdEnvio();
+                                $latPuntoA=$e->getLatPuntoA();
+                                $lngPuntoA=$e->getLngPuntoA();
+                                $latPuntoB=$e->getLatPuntoB();
+                                $lngPuntoB=$e->getLngPuntoB();;           
                                 echo "<tr>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center font-bold px-4 py-2'>$idDetalleEnvio</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idRuta</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idEnvio</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>
-                                            <button onclick=$('#idEnvioDetalle').val('$idDetalleEnvio');$('#ruta').val('$idRuta');$('#idEnvio').val('$idEnvio'); class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' type='button'>Ver Ruta</button>
+                                            <button onclick=$('#idEnvioDetalle').val('$idDetalleEnvio');$('#ruta').val('$idRuta');$('#idEnvio').val('$idEnvio');$('#my_lat').val('$latPuntoA');$('#my_lng').val('$lngPuntoA');$('#your_lat').val('$latPuntoB');$('#your_lng').val('$lngPuntoB');ruta(); class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' type='button'>Ver Ruta</button>
                                         </td>
                                         </tr>";
                              } 
@@ -183,8 +224,25 @@
                     isOpen=false;
                 }
             }
+
+           
+
+            /*var xhr = new XMLHttpRequest();
+            xhr.open('GET','../controllers/controlDetalleEnvio.php');
+            xhr.onload = function(){
+                if(xhr.status === 200){
+                    var json = xhr.responseText;
+                    console.log(xhr.responseText);
+                } else {
+                    console.log("existe un error de tipo: "+xhr.status);
+                }
+            }
+            xhr.send();*/
             
             
         </script>
+        <script type="text/javascript" src="dependencias/googleMaps.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBp4XzNgVeOPr0_Jn516wdmLZhblYjyJ0&callback=initMap"
+        async defer></script>
 </body>
 </html>

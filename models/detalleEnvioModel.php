@@ -1,6 +1,7 @@
 <?php 
 	require '../db/conexion.php';
 	require 'envioDetalle.php';
+	require 'envioDetalleRuta.php';
 
 	class DetalleEnvioModel extends Conexion{
 		public $error='';
@@ -9,10 +10,10 @@
 			parent:: __construct();
 		}
 		function getDetalleEnvio($e){
-			$res=$this->con->query('select * from detalleenvio where idEnvio ='.$e);
+			$res=$this->con->query('SELECT d.idDetalleEnvio, d.idRuta, d.idEnvio, r.latPuntoA, r.lngPuntoA, r.latPuntoB, r.lngPuntoB FROM detalleenvio d INNER JOIN ruta r on d.idRuta = r.idRuta where d.idEnvio ='.$e);
 			$r=array();
 			while($row=$res->fetch_assoc()) {
-				$d= new EnvioDetalle($row['idDetalleEnvio'],$row['idRuta'],$row['idEnvio']);
+				$d= new EnvioDetalleRuta($row['idDetalleEnvio'],$row['idRuta'],$row['idEnvio'],$row["latPuntoA"],$row["lngPuntoA"],$row["latPuntoB"],$row["lngPuntoB"]);
 				$r[]=$d;
 			}
 			return $r;
