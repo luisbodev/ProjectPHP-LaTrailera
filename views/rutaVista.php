@@ -72,7 +72,7 @@
   <div class='class="px-16 py-4 border-4 border-gray-600 rounded-lg h-auto'>
       <center id='contenedor' class='w-full'>
           <div class="w-full md:w-1/2 mb-2">
-                <input type="button" value="Obtener mi hubicación" onclick="get_my_location();" class="bg-orange-500 hover:bg-blue-700 text-white text-xl mt-2 py-1 px-2 rounded">
+                <input type="button" value="Obtener mi Ubicación" onclick="get_my_location();" class="bg-orange-500 hover:bg-blue-700 text-white text-xl mt-2 py-1 px-2 rounded">
           </div>
           <div id="output" class='w-11/12 md:w-1/2'></div>
           <div id="map" class='w-11/12 md:w-1/2'></div>
