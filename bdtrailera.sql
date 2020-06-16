@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-06-2020 a las 00:20:19
+-- Tiempo de generación: 16-06-2020 a las 03:12:15
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -21,27 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bdtrailera`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `carga`
---
-
-CREATE TABLE `carga` (
-  `idCarga` int(11) NOT NULL,
-  `descripcion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `peso` varchar(15) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `carga`
---
-
-INSERT INTO `carga` (`idCarga`, `descripcion`, `peso`) VALUES
-(1, 'Abrigos de piel de lana', '50 ton'),
-(2, 'Herramientas de construcción', '70 ton'),
-(3, 'Madera', '50 ton');
 
 -- --------------------------------------------------------
 
@@ -150,7 +129,7 @@ CREATE TABLE `ruta` (
   `lngPuntoB` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `idMotorista` int(11) NOT NULL,
   `idVehiculo` int(11) NOT NULL,
-  `idCarga` int(11) NOT NULL,
+  `carga` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(40) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -215,12 +194,6 @@ INSERT INTO `vehiculo` (`idVehiculo`, `marca`, `placa`, `modelo`, `tazaCombustib
 --
 
 --
--- Indices de la tabla `carga`
---
-ALTER TABLE `carga`
-  ADD PRIMARY KEY (`idCarga`);
-
---
 -- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
@@ -267,7 +240,6 @@ ALTER TABLE `motorista`
 ALTER TABLE `ruta`
   ADD PRIMARY KEY (`idRuta`),
   ADD KEY `idMotorista` (`idMotorista`),
-  ADD KEY `idCarga` (`idCarga`),
   ADD KEY `idVehiculo` (`idVehiculo`);
 
 --
@@ -294,12 +266,6 @@ ALTER TABLE `vehiculo`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `carga`
---
-ALTER TABLE `carga`
-  MODIFY `idCarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente`
@@ -390,7 +356,6 @@ ALTER TABLE `envio`
 --
 ALTER TABLE `ruta`
   ADD CONSTRAINT `ruta_ibfk_1` FOREIGN KEY (`idMotorista`) REFERENCES `motorista` (`idMotorista`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `ruta_ibfk_2` FOREIGN KEY (`idCarga`) REFERENCES `carga` (`idCarga`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `ruta_ibfk_3` FOREIGN KEY (`idVehiculo`) REFERENCES `vehiculo` (`idVehiculo`);
 COMMIT;
 
