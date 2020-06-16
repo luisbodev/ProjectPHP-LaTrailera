@@ -88,6 +88,23 @@
 			}
 			
 		}
+		function insertarEnvioEmp($e){
+			try{
+				$para=$this->con->prepare("INSERT INTO envio(fechaRealizacion,fechaEntrega,idCliente,idEmpleado) VALUES(?,?,(select idCliente from cliente where idUsuarioCli =? order by idCliente DESC limit 1),(select idEmpleado from empleado where idUsuarioEmp = (select idUsuarioEmp from usuarioemp where usuarioEmp =? order by idEmpleado DESC limit 1) order by idEmpleado DESC limit 1))");
+				$para->bind_param('ssss',$a,$b,$c,$d);
+				$a=$e->getFechaRealizacion();
+				$b=$e->getFechaEntrega();
+				$c=$e->getIdUsuarioCli();
+				$d=$e->getUsuarioEmp();
+				
+				$para->execute();				
+			}catch(Exception $ex){
+				return $ex;
+			}finally{
+				$para->close();
+			}
+		}
+		
 	}
 	
 	?>
