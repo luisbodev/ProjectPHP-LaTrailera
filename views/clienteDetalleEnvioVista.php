@@ -116,7 +116,7 @@
                                 $lngPuntoA=$e->getLngPuntoA();
                                 $latPuntoB=$e->getLatPuntoB();
                                 $lngPuntoB=$e->getLngPuntoB();
-                                $desc=$e->getDescripcion();           
+                                $desc=str_replace(" ","&nbsp;",$e->getDescripcion());      
                                 echo "<tr>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center font-bold px-4 py-2'>$idDetalleEnvio</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idRuta</td>
