@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Envios - La Trailera</title>
+    <title>Envios Empleado - La Trailera</title>
     <!--Dependencias-->
     <!-- <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css"> -->
     <script type="text/javascript" src="dependencias/jquery.js"></script>
@@ -118,7 +118,7 @@
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>
                                         <form action='controlEmpleadoDetalleEnvio.php' method='GET'> 
                                         <input type='hidden' name='idEnvioD' id='idEnvioD' value='$idEnvio'>
-                                            <input type='submit' class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' name='btnDetalleEnvio' value='Ver Detalle de Envio'>
+                                            <input type='submit' class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' name='btnDetalleEnvio' value='Detalle de Envio'>
                                         </form>    
                                         </td>
                                         
