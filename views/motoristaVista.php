@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión Motorista - La Trailera</title>
+    <title>Gestión Motorista Administrador - La Trailera</title>
     <!--Dependencias-->
     <!-- <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css"> -->
     <script type="text/javascript" src="dependencias/jquery.js"></script>

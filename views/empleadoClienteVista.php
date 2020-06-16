@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión Cliente Administrador - La Trailera</title>
+    <title>Clientes Empleado - La Trailera</title>
     <!--Dependencias-->
     <!-- <link rel="stylesheet" type="text/css" href="dependencias/bootstrap/css/bootstrap.css"> -->
     <script type="text/javascript" src="dependencias/jquery.js"></script>
@@ -53,10 +53,10 @@
 <body>
     <?php
         $currentPage='Cliente';
-        require 'menu/menuAdmin.php';
+        require 'menu/menuEmpleado.php';
     ?>
     <header class="text-center">
-        <span class="font-bold text-4xl">Gestión Cliente</span>
+        <span class="font-bold text-4xl">Clientes</span>
     </header>
     <section>
     
@@ -122,10 +122,9 @@
                     <!---->
                      <br>   
 
-                     <input type="reset"  class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded" value="Nuevo" onclick="$('#g').attr('disabled',false);desactivar()">
-                    <input type="submit" name="guardar" id="g" value="Guardar" class="bg-blue-400 text-white text-xl mt-2 py-1 px-2 rounded cursor-not-allowed" disabled='true'>
-                    <input type="submit" name="modificar" value="Modificar" class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded">
-                    <input type="button" id="eliminar" name="eliminar" value="Eliminar" class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded">
+            <div class="w-full">
+                <input type="submit" name="guardar" id="g" value="Guardar" class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded">
+            </div>
         </form>
         </div>
                
@@ -141,7 +140,6 @@
                             <th class='text-center text-white bg px-4 py-2'>Numero de Contacto</th>
                             <th class='text-center text-white bg px-4 py-2'>Correo</th>
                             <th class='text-center text-white bg px-4 py-2'>Usuario</th>
-                            <th class='text-center text-white bg px-4 py-2'>Acción</th>
                     </thead>
                     <tbody>
                         <?php
@@ -167,9 +165,6 @@
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$numContacto</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$correo</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$usuarioCli</td>
-                                        <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>
-                                            <button onclick=$('#idCliente').val('$idCliente');$('#nombre').val('$nombre');$('#apellido').val('$apellido');$('#direccion').val('$direccion');$('#nit').val('$nit');$('#numContacto').val('$numContacto');$('#correo').val('$correo');$('#idUsuarioCli').val('$idUsuarioCli');$('#usuarioCli').val('$usuarioCli');$('#passwordCli').val('$passwordCli');$('#hiddenPass').val('$passwordCli') class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded'>Editar</button>
-                                        </td>
                                     </tr>";
                             }
                         ?>
@@ -182,14 +177,5 @@
         </center>
     </section>
     <footer></footer>
-    <script>
-            function desactivar(){
-                var btn = document.getElementById('g');
-                btn.classList.remove('cursor-not-allowed','bg-blue-400');
-                btn.classList.add('bg-blue-700','hover:bg-red-800');
-
-
-            }
-        </script>
 </body>
 </html>
