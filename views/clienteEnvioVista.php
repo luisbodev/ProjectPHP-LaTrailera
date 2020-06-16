@@ -27,49 +27,6 @@
     </div>
     <center>
     <section>
-        <div class="container">               
-            <div class="px-16 py-4 border-4 border-gray-600 rounded-lg">
-            <form action="#" method="POST" id="f">
-                    <div class="md:flex">
-                        <div class="w-full md:w-1/2">
-                            <span class="font-bold text-xl">ID Envio</span>
-                            <input type="text" name="idEnvio" id="idEnvio" class="bg-gray-400 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" readonly="true">
-                        </div>
-                    </div>
-                    <div class="md:flex">
-                        <div class="w-full md:w-1/2">
-                            <span class="font-bold text-xl">Fecha Realización</span>
-                            <input type="date" name="fechaRealizacion" id="fechaRealizacion" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required readonly="true">
-                        </div> 
-                        <div class="w-full md:w-1/2 md:ml-2">
-                            <span class="font-bold text-xl">Fecha Entrega</span>
-                            <input type="date" name="fechaEntrega" id="fechaEntrega" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required readonly="true"> 
-                        </div>
-                    </div>
-                    <div class="md:flex">
-                        <div class="w-full md:w-1/2">
-                            <span class="font-bold text-xl">Usario de Cliente que solicito envio</span>
-                            <input type="text" name="usuarioCli" id="usuarioCli" value="<?php echo $_SESSION["cliente"];?>" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" readonly="true">
-                        </div> 
-                        <div class="w-full md:w-1/2 md:ml-2">
-                            <span class="font-bold text-xl">Usuario Empleado que tomo Envio</span>
-                            <input type="text" name="usuarioEmp" id="usuarioEmp" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" readonly="true">
-                        </div>
-                    </div>
-                    
-                <br>
-            
-                    <!---->
-                     <br>
-            </form>
-            <div class="w-full md:w-1/2">
-                <form action='controlDetalleEnvio.php' method='GET'> 
-                        <input type="hidden" name='idEnvioD' id='idEnvioD'>
-                        <input type='submit' class='bg-blue-700 hover:bg-red-800 text-white text-xl py-1 px-4 rounded' name='btnDetalleEnvio' value="Ver Detalle de Envio">
-                </form>
-            </div>
-            </div>
-        </div>
                
         <br>
             <table class="table-auto">
@@ -104,8 +61,11 @@
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$fechaEntrega</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$usuarioEmp</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>
-                                            <button onclick=$('#idEnvio').val('$idEnvio');$('#fechaRealizacion').val('$fechaRealizacion');$('#fechaEntrega').val('$fechaEntrega');$('#usuarioEmp').val('$usuarioEmp');$('#idEnvioD').val('$idEnvio'); class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' id='editarbtn'>Editar</button>    
-                                            </td>
+                                            <form action='controlClienteDetalleEnvio.php' method='GET'> 
+                                            <input type='hidden' name='idEnvioD' id='idEnvioD' value='$idEnvio'>
+                                                <input type='submit' class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' name='btnDetalleEnvio' value='Ver Detalle de Envio'>
+                                            </form>
+                                        </td>
                                         
                                     </tr>";
                             }

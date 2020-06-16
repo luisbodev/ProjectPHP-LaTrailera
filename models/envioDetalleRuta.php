@@ -8,9 +8,10 @@
 		private $lngPuntoA;
 		private $latPuntoB;
 		private $lngPuntoB;
+		private $descripcion;
 		
 
-		function __construct($idDetalleEnvio,$idRuta,$idEnvio,$latPuntoA,$lngPuntoA,$latPuntoB,$lngPuntoB){
+		function __construct($idDetalleEnvio,$idRuta,$idEnvio,$latPuntoA,$lngPuntoA,$latPuntoB,$lngPuntoB,$descripcion){
 			$this->idDetalleEnvio=$idDetalleEnvio;
 			$this->idRuta=$idRuta;
 			$this->idEnvio=$idEnvio;
@@ -18,7 +19,7 @@
 			$this->lngPuntoA=$lngPuntoA;
 			$this->latPuntoB=$latPuntoB;
 			$this->lngPuntoB=$lngPuntoB;
-		
+			$this->descripcion=$descripcion;
 
 
 		}
@@ -68,6 +69,12 @@
 		}
 		function getIdEnvio(){
 			return $this->idEnvio;
+		}
+		function getDescripcion(){
+			return $this->descripcion;
+		}
+		function setDescripcion($descripcion){
+            $this->descripcion=$descripcion;
 		}
 	}
 ?>
