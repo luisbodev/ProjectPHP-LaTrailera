@@ -86,7 +86,7 @@
         <div class='w-full md:w-1/2'>
           <input type="button" value="Agregar Ruta" id="btnMark" onclick="initMap(); $('#my_lat').val(' ');$('#my_lng').val('');$('#your_lat').val('');$('#your_lng').val('');" class="bg-green-500 hover:bg-red-700 text-white text-xl mt-2 py-1 px-2 rounded">
         </div>
-        <div class="md:flex">
+        <div class="hidden">
           <div class="w-full md:w-1/2">
             <span class="font-bold text-xl">Punto de Partida</span><br>
             <input type="text" required placeholder="Latitud" name="my_lat"  id="my_lat" class="mb-1 bg-gray-200 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" readonly="true">
@@ -101,23 +101,33 @@
           </div>
         </div>
         <div class='md:flex'>
-        <div class="w-full md:w-1/2">
-              <!--<input type="button" value="obtener kms" class="btn btn-success" onclick="obtenerKmts()">-->
-              <span class="font-bold text-xl">Kilometraje</span><br>
-              <input type="text" class="bg-gray-200 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" id="kilometraje" required placeholder="Kilometraje" readonly>     
-          </div>
-          <div class="w-full md:w-1/2 md:ml-2">
+          <div class="w-full md:w-1/2">
             <span class="font-bold text-xl">ID</span><br>
             <input type="text" name="idRuta" id="idRuta" class="bg-gray-200 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold"  readonly="true">
           </div>
           <div class="w-full md:w-1/2 md:ml-2">
-            <span class="font-bold text-xl">Descripción</span><br>
-            <input type="text" name="descripcion" id="descripcion" class="bg-gray-200 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
+              <!--<input type="button" value="obtener kms" class="btn btn-success" onclick="obtenerKmts()">-->
+              <span class="font-bold text-xl">Kilometraje</span><br>
+              <input type="text" class="bg-gray-200 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" id="kilometraje" required placeholder="Kilometraje" readonly>     
           </div>
+          
+        </div>
+
+        <div class='md:flex'>
+          <div class="w-full md:w-1/2">
+            <span class="font-bold text-xl">Descripción</span><br>
+            <input type="text" name="descripcion" id="descripcion" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
+          </div>
+
+          <div class="w-full md:w-1/2 md:ml-2">
+            <span class="font-bold text-xl">Carga</span><br>
+            <input type="text" name="carga" id="carga" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold">
+        </div>
+
         </div>
 
         <div class="md:flex">
-          <div class="w-full md:w-1/2 md:ml-2">
+          <div class="w-full md:w-1/2">
             <span class="font-bold text-xl">Vehiculo</span><br>
             <div class='relative'>
             <select name="idVehiculo" id="idVehiculo" required class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold">
@@ -130,14 +140,13 @@
                 }
               ?>
             </select>
-            
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                     <svg class="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                                 </div>
                             </div>
           </div>
 
-          <div class="w-full md:w-1/3 md:ml-2">
+          <div class="w-full md:w-1/2 md:ml-2">
             <span class="font-bold text-xl">Motorista</span><br>
             <div class='relative'>
               <select name="idMotorista" required id="idMotorista" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold">
@@ -149,75 +158,27 @@
                         }
                          ?>
               </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <svg class="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                                </div>
-                            </div>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
           </div>
-          <div class="w-full md:w-1/3 md:ml-2">
-            <span class="font-bold text-xl">Carga</span><br>
-            <div class='relative'>
-            <input type="text" name="carga" id="carga" class="bg-gray-200 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold">
-             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <!--<svg class="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>-->
-                                </div>
-                            </div>
-          </div>
+
           
-        </div>
         
-        
-
-        <div class="md:flex">
-          <div class="col-md-2">
-            <!--<input type="button" value="Ver Ruta en el Mapa" id="btnDibujarRuta" disabled="disabled" class="btn btn-info">-->
-          </div>
-          
-          <!--<div class="col-md-2" ></div>-->
-          
-          
-        </div>
-
-        <div class="md:flex">
-
-          <div class="col-md-2">
-               <!--<input type="button" value="Ruta" onclick="ruta();" class="btn btn-success">-->
-          </div>
-          <div class="col-md-2">
-              <!--<input type="button" value="obtener kms" class="btn btn-success" onclick="obtenerKmts()">-->
-                   
-          </div>
-          <div class="col-md-2">
-          
-          </div>
-          <div class="col-md-2">
              
+        
+
              <input type="hidden" id="tiempo">
              <input type="hidden" id="kilometrajeReal" required name="kilometraje">
              
-             
-          </div>
 
         </div>
-
-
-        
-
-        
-
-      
-      
-
        
-
             <input type="hidden" id="latLng">      
             <input type="hidden" id="oculto">
 
-    
-        
-            
-               
-          
+
             <br>
             <input type="reset"  class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded" value="Nuevo" onclick="$('#g').attr('disabled',false);desactivar()">
             <input type="submit" name="guardar" id="g" value="Guardar" class="bg-blue-400 text-white text-xl mt-2 py-1 px-2 rounded cursor-not-allowed" disabled='true'>
@@ -232,15 +193,9 @@
                     <thead>
                       <tr>
                         <th class='text-center text-white bg px-4 py-2'>ID</th>
-                        <th class='text-center text-white bg px-4 py-2'>Kilometraje</th>
-                        <th class='text-center text-white bg px-4 py-2'>LatPuntoA</th>
-                        <th class='text-center text-white bg px-4 py-2'>lngPuntoA</th>
-                        <th class='text-center text-white bg px-4 py-2'>LatPuntoB</th>
-                        <th class='text-center text-white bg px-4 py-2'>lngPuntoB</th>
-                        <th class='text-center text-white bg px-4 py-2'>IdMotorista</th>
-                        <th class='text-center text-white bg px-4 py-2'>idVehiculo</th>
-                        <th class='text-center text-white bg px-4 py-2'>Carga</th>
                         <th class='text-center text-white bg px-4 py-2'>  Descripción  </th>
+                        <th class='text-center text-white bg px-4 py-2'>Carga</th>
+                        <th class='text-center text-white bg px-4 py-2'>Kilometraje</th>
                         <th class='text-center text-white bg px-4 py-2'>Acción</th>
                       </tr>
                     </thead>
@@ -263,15 +218,9 @@
 
                             echo "<tr>
                                     <td class='border-b-4 border-gray-600 rounded-lg text-center font-bold px-4 py-2'>$idRuta</td>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$kilometraje</td>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$latPuntoA</td>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$lngPuntoA</td>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$latPuntoB</td>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$lngPuntoB</td>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idMotorista</td>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idVehiculo</td>
-                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$carga</td>
                                     <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$descripcion</td>
+                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$carga</td>
+                                    <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$kilometraje</td>
                                     <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>
                                       <button class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' id='b3".$count."' onclick=$('#idRuta').val('$idRuta');$('#kilometraje').val('$kilometraje');$('#my_lat').val('$latPuntoA');$('#my_lng').val('$lngPuntoA');$('#your_lat').val('$latPuntoB');$('#your_lng').val('$lngPuntoB');$('#idMotorista').val('$idMotorista');$('#idVehiculo').val('$idVehiculo');$('#carga').val('$carga');$('#descripcion').val('$descripcion');ruta();>Editar</button>
                                     </td>

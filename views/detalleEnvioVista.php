@@ -97,17 +97,13 @@
     </div>
      
 <center>
-      <center id='contenedor' class='w-full'>
-          <div id="output" class='w-11/12 md:w-1/2'></div>
-          <div id="map" class='w-11/12 md:w-1/2'></div>
-      </center>
 <br>
 
     <section>    
-        <div class="container">   
                     
+        <div class="container">   
             
-                <form action="#" method="POST" id="f" class="px-16 py-4 border-4 border-gray-600 rounded-lg">
+                <form action="#" method="POST" id="f" class="px-2 md:px-16 py-4 border-4 border-gray-600 rounded-lg">
                 <div id="d1"></div>
                 
                     <div class="md:flex">
@@ -122,7 +118,7 @@
                     </div>
                     <div class="md:flex">
                         <div class="w-full md:w-1/2">
-                        <span class="font-bold text-xl">ID Ruta Seleccionada</span>
+                        <span class="font-bold text-xl">Descripción Ruta Seleccionada</span>
                             <div class='relative'>
                                 <select name="ruta" id="ruta" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
                                         <option value=""></option>
@@ -138,12 +134,18 @@
                             </div>
                         </div>
                     </div>
+    <br>
+    <center id='contenedor' class='w-full'>
+          <div id="output" class='w-full md:w-1/2'></div>
+          <div id="map" class='w-full md:w-1/2'></div>
+      </center>
                     
-                <br>
+            <div class='hidden'>
                 <input type="text" id="my_lat" name="my_lat">
                 <input type="text" id="my_lng" name="my_lng"><!-- Se imprimen las lat y lng-->
                 <input type="text" id="your_lat" name="your_lat">
                 <input type="text" id="your_lng" name="your_lng">
+            </div>
                     <!---->
                      <br>   
             <input type="reset"  class="bg-blue-700 hover:bg-red-800 text-white text-xl mt-2 py-1 px-2 rounded" value="Nuevo" onclick="$('#g').attr('disabled',false);desactivar()">
