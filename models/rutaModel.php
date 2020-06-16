@@ -16,7 +16,7 @@
 			$res=$this->con->query("select * from ruta");
 			$r=array();
 			while($row=$res->fetch_assoc()){
-				$e=new Ruta($row["idRuta"],$row["kilometraje"],$row["latPuntoA"],$row["lngPuntoA"],$row["latPuntoB"],$row["lngPuntoB"],$row["idMotorista"],$row["idVehiculo"],$row["idCarga"]);
+				$e=new Ruta($row["idRuta"],$row["kilometraje"],$row["latPuntoA"],$row["lngPuntoA"],$row["latPuntoB"],$row["lngPuntoB"],$row["idMotorista"],$row["idVehiculo"],$row["carga"],$row["descripcion"]);
 				$r[]=$e;
 			}
 			return $r;
@@ -42,7 +42,7 @@
 			return $r;
 		}
 
-		function getCarga(){
+		/*function getCarga(){
 			$res=$this->con->query("select * from carga");
 			$r=array();
 			while($row=$res->fetch_assoc()){
@@ -50,15 +50,15 @@
 				$r[]=$c;
 			}
 			return $r;
-		}
+		}*/
 
 		
 
 
 		function insertarRuta($e){
 			try{
-				$para=$this->con->prepare("insert into ruta(kilometraje,latPuntoA,lngPuntoA,latPuntoB,lngPuntoB,idMotorista, idVehiculo, idCarga) values(?,?,?,?,?,?,?,?)");
-				$para->bind_param('ssssssss',$b,$c,$d,$f,$g,$h,$i,$j);
+				$para=$this->con->prepare("insert into ruta(kilometraje,latPuntoA,lngPuntoA,latPuntoB,lngPuntoB,idMotorista, idVehiculo, carga, descripcion) values(?,?,?,?,?,?,?,?,?)");
+				$para->bind_param('sssssssss',$b,$c,$d,$f,$g,$h,$i,$j,$k);
 				
 				$b=$e->getKilometraje();
 				$c=$e->getLatPuntoA();
@@ -67,7 +67,8 @@
 				$g=$e->getLngPuntoB();
 				$h=$e->getIdMotorista();
 				$i=$e->getIdVehiculo();
-				$j=$e->getIdCarga();
+				$j=$e->getCarga();
+				$k=$e->getDescripcion();
 				$para->execute();
 
 			}catch(Exception $ex){
@@ -79,8 +80,8 @@
 
 		function modificarRuta($e){
 			try{
-				$para=$this->con->prepare("update ruta set kilometraje=?,latPuntoA=?,lngPuntoA=?,latPuntoB=?,lngPuntoB=?,idMotorista=?, idVehiculo=?, idCarga=? where idRuta=?");
-				$para->bind_param('sssssssss',$a,$b,$c,$d,$f,$g,$i,$j,$h);
+				$para=$this->con->prepare("update ruta set kilometraje=?,latPuntoA=?,lngPuntoA=?,latPuntoB=?,lngPuntoB=?,idMotorista=?, idVehiculo=?, carga=?, descripcion=? where idRuta=?");
+				$para->bind_param('ssssssssss',$a,$b,$c,$d,$f,$g,$i,$j,$k,$h);
 				
 				$a=$e->getKilometraje();
 				$b=$e->getLatPuntoA();
@@ -89,7 +90,8 @@
 				$f=$e->getLngPuntoB();
 				$g=$e->getIdMotorista();
 				$i=$e->getIdVehiculo();
-				$j=$e->getIdCarga();
+				$j=$e->getCarga();
+				$k=$e->getDescripcion();
 				$h=$e->getIdRuta();
 				
 				

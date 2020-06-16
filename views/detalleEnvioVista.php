@@ -128,7 +128,7 @@
                                         <option value=""></option>
                                         <?php
                                             foreach ($datosRuta as $r) {
-                                                echo "<option value=".$r['idRuta'].">".$r['idRuta']."</option>";
+                                                echo "<option value=".$r['idRuta'].">".$r['descripcion']."</option>";
                                             }
                                         ?>
                                 </select>
