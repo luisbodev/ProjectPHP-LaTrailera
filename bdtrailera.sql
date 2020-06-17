@@ -130,7 +130,7 @@ CREATE TABLE `ruta` (
   `idMotorista` int(11) NOT NULL,
   `idVehiculo` int(11) NOT NULL,
   `carga` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
-  `descripcion` varchar(40) COLLATE utf8_spanish_ci NOT NULL
+  `descripcion` varchar(200) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
