@@ -9,6 +9,8 @@
     <script type="text/javascript" src="dependencias/jquery.js"></script>
     <!-- <script type="text/javascript" src="dependencias/bootstrap/js/bootstrap.js"></script> -->
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
+    <!--Validaciones-->
+    <script src="validaciones/validacionRuta.js"></script>
     <!-- Tailwind -->
     <link rel="stylesheet" href="dependencias/tailwind.css">
     <!--CSS-->
@@ -80,7 +82,7 @@
     <br>
     <br>
     <div class='container w-11/12'>
-    <form action="#" id="f" method="POST">
+    <form action="#" id="f" method="POST" onsubmit="return validar();">
     <div id="d1"></div>
      <br>
         <div class='w-full md:w-1/2'>
