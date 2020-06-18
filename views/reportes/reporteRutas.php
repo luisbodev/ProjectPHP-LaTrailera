@@ -1,5 +1,9 @@
 <?php
+    $id=$_REQUEST['id'];
+    
+    
     require('pdf/fpdf.php');
+
 
     class PDF extends FPDF
     {
@@ -38,9 +42,9 @@
             $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
         }
     }
-
+    
     require 'conex.php';
-    $consulta = "select R.idRuta, R.descripcion, R.kilometraje, M.idMotorista, M.nombre, M.apellido, E.idEnvio, E.fechaRealizacion, E.fechaEntrega, C.idCliente, C.nombre, C.apellido From ruta as R inner JOIN motorista as M on M.idMotorista=R.idMotorista INNER JOIN envio as E INNER JOIN cliente as C on C.idCliente=E.idCliente";
+    $consulta = "select R.idRuta, R.descripcion, R.kilometraje, M.idMotorista, M.nombre, M.apellido, E.idEnvio, E.fechaRealizacion, E.fechaEntrega, C.idCliente, C.nombre, C.apellido From ruta as R inner JOIN motorista as M on M.idMotorista=R.idMotorista INNER JOIN envio as E INNER JOIN cliente as C on C.idCliente=E.idCliente where E.idEnvio = $id ";
     $res = $mysqli->query($consulta);
     $pdf = new PDF();
     $pdf->AliasNbPages();
@@ -56,7 +60,7 @@
         $pdf->Cell(20,5,$row['idCliente'],1,0,'C',0);
         $pdf->Cell(30,5,$row['nombre'],1,1,'C',0);
         $pdf->cell(10);
-    }
+        }
 
     $pdf->Output();
 ?>
