@@ -110,7 +110,7 @@
           <div class="w-full md:w-1/2 md:ml-2">
               <!--<input type="button" value="obtener kms" class="btn btn-success" onclick="obtenerKmts()">-->
               <span class="font-bold text-xl">Kilometraje</span><br>
-              <input type="text" class="bg-gray-200 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" id="kilometraje" required placeholder="Kilometraje" readonly>     
+              <input type="text" class="bg-gray-200 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" id="kilometraje" name="otro" required placeholder="Kilometraje" readonly>     
           </div>
           
         </div>
@@ -173,6 +173,7 @@
 
              <input type="hidden" id="tiempo">
              <input type="hidden" id="kilometrajeReal" required name="kilometraje">
+             <input type="hidden" id="kmtraje" name="kmtraje">
              
 
         </div>
@@ -215,6 +216,7 @@
                             $idVehiculo=$e->getIdVehiculo();
                             $carga=str_replace(" ","&nbsp;",$e->getCarga());
                             $descripcion=str_replace(" ","&nbsp;",$e->getDescripcion());
+                            $kmRecorridos=$e->getKmRecorridos();
                             $count=$count+1;
                             
 
@@ -224,7 +226,7 @@
                                     <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$carga</td>
                                     <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$kilometraje</td>
                                     <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>
-                                      <button class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' id='b3".$count."' onclick=$('#idRuta').val('$idRuta');$('#kilometraje').val('$kilometraje');$('#my_lat').val('$latPuntoA');$('#my_lng').val('$lngPuntoA');$('#your_lat').val('$latPuntoB');$('#your_lng').val('$lngPuntoB');$('#idMotorista').val('$idMotorista');$('#idVehiculo').val('$idVehiculo');$('#carga').val('$carga');$('#descripcion').val('$descripcion');ruta();>Editar</button>
+                                      <button class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' id='b3".$count."' onclick=$('#idRuta').val('$idRuta');$('#kilometraje').val('$kilometraje');$('#my_lat').val('$latPuntoA');$('#my_lng').val('$lngPuntoA');$('#your_lat').val('$latPuntoB');$('#your_lng').val('$lngPuntoB');$('#idMotorista').val('$idMotorista');$('#idVehiculo').val('$idVehiculo');$('#carga').val('$carga');$('#descripcion').val('$descripcion');$('#kmRecorridos').val('#kmtraje');$('$kilometraje');ruta();>Editar</button>
                                     </td>
                                   </tr>";
                             //juarezgaaaaaaaaaaaaaaaaaaaaaaa
