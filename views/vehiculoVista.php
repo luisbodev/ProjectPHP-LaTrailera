@@ -73,7 +73,7 @@
                             <span class="font-bold text-xl">Capacidad del Vehículo</span>
                             <input type="text" name="capacidadCombustible" id="capacidadCombustible" placeholder="00.00" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required="true"><br>
                             <span class="font-bold text-xl">Kilometros Recorridos</span>
-                            <input type="text" name="kmRecorridos" id="kmRecorridos" placeholder="00.00" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required="true"><br>
+                            <input type="text" name="kmRecorridos" id="kmRecorridos" placeholder="00.00" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold"><br>
                         </div>
                     </div>
                     <div class='md:flex'>

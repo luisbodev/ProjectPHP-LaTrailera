@@ -8,7 +8,7 @@ function validar(){
 	capacidadCombustible=document.getElementById('capacidadCombustible').value;
 	kmRecorridos=document.getElementById('kmRecorridos').value;
 
-	if (marca==="" || placa==="" || modelo==="" || tazaCombustible==="" || capacidadCombustible==="" || kmRecorridos==="") {
+	if (marca==="" || placa==="" || modelo==="" || tazaCombustible==="" || capacidadCombustible==="") {
 		Swal.fire({
            title: "Todos los Campos son obligatorios"
         });
@@ -51,11 +51,6 @@ function validar(){
         });
 		return false;
 	}else if (isNaN(kmRecorridos)) {
-		Swal.fire({
-           title: "Campo km recorridose no valido"
-        });
-		return false;
-	}else if (kmRecorridos.length>7) {
 		Swal.fire({
            title: "Campo km recorridose no valido"
         });
