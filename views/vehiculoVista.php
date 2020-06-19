@@ -73,7 +73,11 @@
                             <span class="font-bold text-xl">Capacidad del Vehículo</span>
                             <input type="text" name="capacidadCombustible" id="capacidadCombustible" placeholder="00.00" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required="true"><br>
                             <span class="font-bold text-xl">Kilometros Recorridos</span>
+<<<<<<< HEAD
                             <input type="text" name="kmRecorridos" id="kmRecorridos" placeholder="00.00" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold"><br>
+=======
+                            <input type="text" name="kmRecorridos" id="kmRecorridos" placeholder="00.00" class="bg-gray-400 focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" readonly="true"><br>
+>>>>>>> 2ffcba9d18930a42f298744d79774ca486f28b7c
                         </div>
                     </div>
                     <div class='md:flex'>
@@ -94,7 +98,7 @@
                                <th class="text-center text-white bg px-4 py-2">Modelo</th>
                                <th class="text-center text-white bg px-4 py-2">Taza de Combustible</th>
                                <th class="text-center text-white bg px-4 py-2">Capacidad</th>
-                               <th class="text-center text-white bg px-4 py-2">KM</th>
+                               <th class="text-center text-white bg px-4 py-2">KM Recorridos</th>
                                <th class="text-center text-white bg px-4 py-2">Acción</th>
                            </thead>
                            <tbody>

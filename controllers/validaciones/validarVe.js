@@ -1,12 +1,12 @@
 function validar(){
-	var marca, placa, modelo, tazaCombustible, capacidadCombustible, kmRecorridos;
+	var marca, placa, modelo, tazaCombustible, capacidadCombustible, ;
 
 	marca=document.getElementById('marca').value;
 	placa=document.getElementById('placa').value;
 	modelo=document.getElementById('modelo').value;
 	tazaCombustible=document.getElementById('tazaCombustible').value;
 	capacidadCombustible=document.getElementById('capacidadCombustible').value;
-	kmRecorridos=document.getElementById('kmRecorridos').value;
+
 
 	if (marca==="" || placa==="" || modelo==="" || tazaCombustible==="" || capacidadCombustible==="") {
 		Swal.fire({
@@ -50,11 +50,6 @@ function validar(){
            title: "Campo capacidad no valido"
         });
 		return false;
-	}else if (isNaN(kmRecorridos)) {
-		Swal.fire({
-           title: "Campo km recorridose no valido"
-        });
-		return false;
-	}	
+	}
 	
 }
