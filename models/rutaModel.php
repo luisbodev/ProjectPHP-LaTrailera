@@ -45,6 +45,18 @@
 			return $r;
 		}
 
+		/*function getCarga(){
+			$res=$this->con->query("select * from carga");
+			$r=array();
+			while($row=$res->fetch_assoc()){
+				$c=new Carga($row["idCarga"],$row["descripcion"],$row["peso"]);
+				$r[]=$c;
+			}
+			return $r;
+		}*/
+
+		
+
 
 		function insertarRuta($e){
 			try{
@@ -65,23 +77,16 @@
 				$j=$e->getCarga();
 				$k=$e->getDescripcion();
 				$para->execute();
-				
-				$ruta=mysqli_error($this->con);
-				if(mysqli_error($this->con)){
-					throw new exception("
-					<script>
-					alert(\"Error al insertar datos de Ruta: ".$this->con->error."\");
-					</script>");
-				}
 				$res->execute();
 
+				
+				
+				
+
 			}catch(Exception $ex){
-				echo $ex->getMessage();
+				return $ex;
 			}finally{
 				$para->close();
-				if(!$ruta){
-					$res->close();
-				}
 			}
 		}
 
@@ -104,19 +109,12 @@
 				$k=$e->getDescripcion();
 				$h=$e->getIdRuta();
 
-				
-				$para->execute();
-				if(mysqli_error($this->con)){
-					throw new exception("
-					<script>
-					alert(\"Error al modificar datos de Ruta: ".$this->con->error."\");
-					</script>");
-				}
-
 				$res=$this->con->query("UPDATE vehiculo SET kmRecorridos=$a-(select kilometraje from ruta where idRuta=$h)+(Select kmRecorridos from vehiculo where idVehiculo=$i) where idVehiculo=$i");
 				
+				$para->execute();
+				
 			}catch(Exception $ex){
-				echo $ex->getMessage();
+				return $ex;
 			}finally{
 				$para->close();
 			}
@@ -141,20 +139,12 @@
 				$k=$e->getDescripcion();
 				$h=$e->getIdRuta();
 
+				$res=$this->con->query("UPDATE vehiculo SET kmRecorridos=$a-(select kilometraje from ruta where idRuta=$h)+(Select kmRecorridos from vehiculo where idVehiculo=$i) where idVehiculo=$i");
 				
 				$para->execute();
 				
-				if(mysqli_error($this->con)){
-					throw new exception("
-					<script>
-					alert(\"Error al modificar datos de Ruta: ".$this->con->error."\");
-					</script>");
-				}
-				
-				$res=$this->con->query("UPDATE vehiculo SET kmRecorridos=$a-(select kilometraje from ruta where idRuta=$h)+(Select kmRecorridos from vehiculo where idVehiculo=$i) where idVehiculo=$i");
-
 			}catch(Exception $ex){
-				echo $ex->getMessage();
+				return $ex;
 			}finally{
 				$para->close();
 			}
@@ -167,18 +157,12 @@
 				$a=$e->getIdRuta();
 				$i=$e->getIdVehiculo();
 
-				$para->execute();
-				
-				if(mysqli_error($this->con)){
-					throw new exception("
-					<script>
-					alert(\"Error al eliminar Ruta: ".$this->con->error."\");
-					</script>");
-				}
-				
+
 				$res=$this->con->query("UPDATE vehiculo SET kmRecorridos=(Select kmRecorridos from vehiculo where idVehiculo=$i)-(select kilometraje from ruta where idRuta=$a) where idVehiculo=$i");
+				
+				$para->execute();
 			}catch(Exception $ex){
-				echo $ex->getMessage();
+				return $ex;
 			}finally{
 				$para->close();
 			}
