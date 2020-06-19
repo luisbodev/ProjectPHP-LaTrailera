@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-function validar(){
-	var marca, placa, modelo, tazaCombustible, capacidadCombustible, ;
-
-	marca=document.getElementById('marca').value;
-	placa=document.getElementById('placa').value;
-	modelo=document.getElementById('modelo').value;
-	tazaCombustible=document.getElementById('tazaCombustible').value;
-	capacidadCombustible=document.getElementById('capacidadCombustible').value;
-
-
-	if (marca==="" || placa==="" || modelo==="" || tazaCombustible==="" || capacidadCombustible==="") {
-		Swal.fire({
-           title: "Todos los Campos son obligatorios"
-        });
-		return false;
-	}
-=======
 function validar() {
     var marca, placa, modelo, tazaCombustible, capacidadCombustible;
 
@@ -25,23 +7,11 @@ function validar() {
     tazaCombustible = document.getElementById('tazaCombustible').value;
     capacidadCombustible = document.getElementById('capacidadCombustible').value;
 
->>>>>>> 66f5d17044311db79c428ecfc849a9f102b36b0d
 
     if (marca === "" || placa === "" || modelo === "" || tazaCombustible === "" || capacidadCombustible === "") {
         Swal.fire({
             title: "Todos los Campos son obligatorios"
         });
-<<<<<<< HEAD
-		return false;
-	}else if (capacidadCombustible.length>7 ) {
-		Swal.fire({
-           title: "Campo capacidad no valido"
-        });
-		return false;
-	}
-	
-}
-=======
         return false;
     }
 
@@ -83,4 +53,3 @@ function validar() {
     }
 
 }
->>>>>>> 66f5d17044311db79c428ecfc849a9f102b36b0d
