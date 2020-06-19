@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/menu.css">
     <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
+    <script src="validaciones/validacionRuta1.js"></script>
      <style>
       /* Tamaño del div del mapa. */
       #map {
@@ -82,7 +83,7 @@
     <br>
     <br>
     <div class='container w-11/12'>
-    <form action="#" id="f" method="POST" onsubmit="return validar();">
+    <form action="#" id="f" method="POST" onsubmit="return validar(this);">
     <div id="d1"></div>
      <br>
         <div class='w-full md:w-1/2'>
