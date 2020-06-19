@@ -38,30 +38,46 @@
 
                 $res->execute();
 
+                $insertCli=mysqli_error($this->con);
+                $insertCliente=0;
+                if(mysqli_error($this->con)){
+                    throw new exception("
+                    <script>
+                        alert(\"Error al crear Usuario: ".$this->con->error."\");
+                    </script>");
+                }
+                else{
+                    $para=$this->con->prepare("insert into cliente(nombre,apellido,direccion,nit,numContacto,correo,idUsuarioCli) values(?,?,?,?,?,?,(select idUsuarioCli from usuariocli order by idUsuarioCli DESC limit 1))");
+                    $para->bind_param('ssssss',$b,$w,$o,$h,$f,$g);
+                    
+                    $b=$e->getNombre();
+                    $w=$e->getApellido();
+                    $o=$e->getDireccion();
+                    $h=$e->getNit();
+                    $f=$e->getNumContacto();
+                    $g=$e->getCorreo();
+                    
                 
-                
-                
-                
+                    $para->execute();
 
-                $para=$this->con->prepare("insert into cliente(nombre,apellido,direccion,nit,numContacto,correo,idUsuarioCli) values(?,?,?,?,?,?,(select idUsuarioCli from usuariocli order by idUsuarioCli DESC limit 1))");
-                $para->bind_param('ssssss',$b,$w,$o,$h,$f,$g);
-                
-                $b=$e->getNombre();
-                $w=$e->getApellido();
-                $o=$e->getDireccion();
-                $h=$e->getNit();
-                $f=$e->getNumContacto();
-                $g=$e->getCorreo();
-                
-            
-                $para->execute();
-                
-                
+                    $insertCliente=mysqli_error($this->con);
+                    if(mysqli_error($this->con)){
+                        throw new exception("
+                        <script>
+                            alert(\"Error al crear datos de cliente: ".$this->con->error."\");
+                        </script>");
+                    }
+                }
             }catch(Exception $ex) {
-                return $ex;
+                echo $ex->getMessage();
+                if($insertCliente){
+                    $this->con->query("delete from usuariocli where usuarioCli = '$k'");
+                }
             }finally {
                 $res->close();
-               //$para->close();
+                if(!$insertCli){
+                    $para->close();
+                }
             }
         }
 
@@ -76,23 +92,44 @@
                 $m=$e->getIdUsuarioCli();
                 $res->execute();
 
-                $para=$this->con->prepare("update cliente set nombre=?, apellido=?, direccion=?, nit=?, numContacto=?, correo=? where idCliente=?");
-                $para->bind_param('ssssssss',$a,$w,$b,$c,$d,$o,$f);
-                $a=$e->getNombre();
-                $w=$e->getApellido();
-                $b=$e->getDireccion();
-                $c=$e->getNit();
-                $d=$e->getNumContacto();
-                $o=$e->getCorreo();
-                $f=$e->getIdCliente();
+                $insertCli=mysqli_error($this->con);
+                if(mysqli_error($this->con)){
+                    throw new exception("
+                    <script>
+                        alert(\"Error al modificar Usuario: ".$this->con->error."\");
+                    </script>");
+                }
+                else{
+                    $para=$this->con->prepare("update cliente set nombre=?, apellido=?, direccion=?, nit=?, numContacto=?, correo=? where idCliente=?");
+                    $para->bind_param('ssssssss',$a,$w,$b,$c,$d,$o,$f);
+                    $a=$e->getNombre();
+                    $w=$e->getApellido();
+                    $b=$e->getDireccion();
+                    $c=$e->getNit();
+                    $d=$e->getNumContacto();
+                    $o=$e->getCorreo();
+                    $f=$e->getIdCliente();
+                    
+                    $para->execute();
+
+                    
+                    if(mysqli_error($this->con)){
+                        throw new exception("
+                        <script>
+                            alert(\"Error al modificar datos de cliente: ".$this->con->error."\");
+                        </script>");
+                    }
+                }
                 
-                $para->execute();
+
 
             }catch(Exception $ex) {
-                return $ex;
+                echo $ex->getMessage();
             }finally {
-                $para->close();
                 $res->close();
+                if(!$insertCli){
+                    $para->close();
+                }
             }
             
         }
@@ -106,22 +143,40 @@
                 $l=$e->getIdUsuarioCli();
                 $res->execute();
 
-                $para=$this->con->prepare("update cliente set nombre=?, apellido=?, direccion=?, nit=?, numContacto=?, correo=? where idCliente=?");
-                $para->bind_param('sssssss',$a,$w,$d,$o,$f,$g,$h);
-                $a=$e->getNombre();
-                $w=$e->getApellido();
-                $d=$e->getDireccion();
-                $o=$e->getNit();
-                $f=$e->getNumContacto();
-                $g=$e->getCorreo();
-                $h=$e->getIdCliente();
-                $para->execute();
+                $insertCli=mysqli_error($this->con);
+                if(mysqli_error($this->con)){
+                    throw new exception("
+                    <script>
+                        alert(\"Error al modificar Usuario: ".$this->con->error."\");
+                    </script>");
+                }
+                else{
+                    $para=$this->con->prepare("update cliente set nombre=?, apellido=?, direccion=?, nit=?, numContacto=?, correo=? where idCliente=?");
+                    $para->bind_param('sssssss',$a,$w,$d,$o,$f,$g,$h);
+                    $a=$e->getNombre();
+                    $w=$e->getApellido();
+                    $d=$e->getDireccion();
+                    $o=$e->getNit();
+                    $f=$e->getNumContacto();
+                    $g=$e->getCorreo();
+                    $h=$e->getIdCliente();
+                    $para->execute();
+
+                    if(mysqli_error($this->con)){
+                        throw new exception("
+                        <script>
+                            alert(\"Error al modificar datos de cliente: ".$this->con->error."\");
+                        </script>");
+                    }
+                }
 
             }catch(Exception $ex) {
-                return $ex;
+                echo $ex->getMessage();
             }finally {
-                $para->close();
                 $res->close();
+                if(!$insertCli){
+                    $para->close();
+                }
             }
         }
 
@@ -133,15 +188,34 @@
                 $b=$e->getIdUsuarioCli();
                 $res->execute();
 
-                $para=$this->con->prepare("delete from cliente where idCliente=?");
-                $para->bind_param('s',$a);
-                $a=$e->getIdCliente();
-                $para->execute();
+                $insertCli=mysqli_error($this->con);
+                if(mysqli_error($this->con)){
+                    throw new exception("
+                    <script>
+                        alert(\"Error al eliminar Usuario: ".$this->con->error."\");
+                    </script>");
+                }
+                else{
+                    $para=$this->con->prepare("delete from cliente where idCliente=?");
+                    $para->bind_param('s',$a);
+                    $a=$e->getIdCliente();
+                    $para->execute();
+
+                    if(mysqli_error($this->con)){
+                        throw new exception("
+                        <script>
+                            alert(\"Error al eliminar datos de cliente: ".$this->con->error."\");
+                        </script>");
+                    }
+                }
+
             }catch(Exception $ex) {
-                return $ex;
+                echo $ex->getMessage();
             }finally {
-                $para->close();
                 $res->close();
+                if(!$insertCli){
+                    $para->close();
+                }
             }
         }
     }
