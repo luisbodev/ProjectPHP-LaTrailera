@@ -25,7 +25,7 @@
 		$error=$obj->insertarEnvioEmp($e);
 	}
 	if(isset($_REQUEST["modificar"])) {
-            $e=new Envio($_REQUEST['idEnvio'],$_REQUEST['fechaRealizacion'],$_REQUEST['fechaEntrega'],'','','','',$_REQUEST['usuarioCli'],$_REQUEST['usuarioEmp']);
+            $e=new Envio($_REQUEST['idEnvio'],$_REQUEST['fechaRealizacion'],$_REQUEST['fechaEntrega'],'','','',$_REQUEST['usuarioEmp'],$_REQUEST['usuarioCli'],'');
             $error=$obj->modificarEnvio($e);
 	}
 	if(isset($_REQUEST["eliminar"])) {

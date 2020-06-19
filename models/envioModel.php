@@ -63,12 +63,12 @@
 		}
 		function modificarEnvio($e){
 			try{
-				$para=$this->con->prepare("UPDATE envio set fechaRealizacion=?, fechaEntrega=?, idCliente=(select idCliente from cliente where idUsuarioCli =? order by idCliente DESC limit 1), idEmpleado=(select idEmpleado from empleado where idUsuarioEmp =? order by idEmpleado DESC limit 1) where idEnvio=?");
+				$para=$this->con->prepare("UPDATE envio set fechaRealizacion=?, fechaEntrega=?, idCliente=(select idCliente from cliente where idUsuarioCli =? order by idCliente DESC limit 1), idEmpleado=(select idEmpleado from empleado where idUsuarioEmp = (select idUsuarioEmp from usuarioemp where usuarioEmp =? order by idEmpleado DESC limit 1) order by idEmpleado DESC limit 1) where idEnvio=?");
                 $para->bind_param('sssss',$a,$b,$c,$d,$f);
                 $a=$e->getFechaRealizacion();
 				$b=$e->getFechaEntrega();
 				$c=$e->getIdUsuarioCli();
-				$d=$e->getIdUsuarioEmp();
+				$d=$e->getUsuarioEmp();
                 $f=$e->getIdEnvio();
 				
 				$para->execute();
