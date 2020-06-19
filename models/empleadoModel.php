@@ -40,6 +40,7 @@
                 $res->execute();
 
                 $insertEmp=mysqli_error($this->con);
+                $insertEmpleado=0;
                 if(mysqli_error($this->con)){
                     throw new exception("
                     <script>
@@ -59,6 +60,7 @@
                 
                     $para->execute();
                     
+                    $insertEmpleado=mysqli_error($this->con);
                     if(mysqli_error($this->con)){
                         throw new exception("
                         <script>
@@ -71,6 +73,9 @@
 
             }catch(Exception $ex) {
                 echo $ex->getMessage();
+                if($insertEmpleado){
+                    $this->con->query("delete from usuarioEmp where usuarioEmp = '$k'");
+                }
             }finally {
                 $res->close();
                 if(!$insertEmp){
@@ -90,23 +95,41 @@
                 $m=$e->getIdUsuarioEmp();
                 $res->execute();
 
-                $para=$this->con->prepare("update empleado set nombre=?, apellido=?, sexo=?, direccion=?, cargo=?, dui=?, nit=? where idEmpleado=?");
-                $para->bind_param('ssssssss',$a,$b,$c,$d,$o,$f,$g,$h);
-                $a=$e->getNombre();
-                $b=$e->getApellido();
-                $c=$e->getSexo();
-                $d=$e->getDireccion();
-                $o=$e->getCargo();
-                $f=$e->getDui();
-                $g=$e->getNit();
-                $h=$e->getIdEmpleado();
-                $para->execute();
+                $insertEmp=mysqli_error($this->con);
+                if(mysqli_error($this->con)){
+                    throw new exception("
+                    <script>
+                        alert(\"Error al modificar Usuario: ".$this->con->error."\");
+                    </script>");
+                }
+                else{
+                    $para=$this->con->prepare("update empleado set nombre=?, apellido=?, sexo=?, direccion=?, cargo=?, dui=?, nit=? where idEmpleado=?");
+                    $para->bind_param('ssssssss',$a,$b,$c,$d,$o,$f,$g,$h);
+                    $a=$e->getNombre();
+                    $b=$e->getApellido();
+                    $c=$e->getSexo();
+                    $d=$e->getDireccion();
+                    $o=$e->getCargo();
+                    $f=$e->getDui();
+                    $g=$e->getNit();
+                    $h=$e->getIdEmpleado();
+                    $para->execute();
+                    if(mysqli_error($this->con)){
+                        throw new exception("
+                        <script>
+                            alert(\"Error al modificar datos de empleado: ".$this->con->error."\");
+                        </script>");
+                    }
+                }
+
 
             }catch(Exception $ex) {
-                return $ex;
+                echo $ex->getMessage();
             }finally {
-                $para->close();
                 $res->close();
+                if(!$insertEmp){
+                    $para->close();
+                }
             }
             
         }
@@ -121,23 +144,41 @@
                 $l=$e->getIdUsuarioEmp();
                 $res->execute();
 
-                $para=$this->con->prepare("update empleado set nombre=?, apellido=?, sexo=?, direccion=?, cargo=?, dui=?, nit=? where idEmpleado=?");
-                $para->bind_param('ssssssss',$a,$b,$c,$d,$o,$f,$g,$h);
-                $a=$e->getNombre();
-                $b=$e->getApellido();
-                $c=$e->getSexo();
-                $d=$e->getDireccion();
-                $o=$e->getCargo();
-                $f=$e->getDui();
-                $g=$e->getNit();
-                $h=$e->getIdEmpleado();
-                $para->execute();
+                $insertEmp=mysqli_error($this->con);
+                if(mysqli_error($this->con)){
+                    throw new exception("
+                    <script>
+                        alert(\"Error al modificar Usuario: ".$this->con->error."\");
+                    </script>");
+                }
+                else{
+                    $para=$this->con->prepare("update empleado set nombre=?, apellido=?, sexo=?, direccion=?, cargo=?, dui=?, nit=? where idEmpleado=?");
+                    $para->bind_param('ssssssss',$a,$b,$c,$d,$o,$f,$g,$h);
+                    $a=$e->getNombre();
+                    $b=$e->getApellido();
+                    $c=$e->getSexo();
+                    $d=$e->getDireccion();
+                    $o=$e->getCargo();
+                    $f=$e->getDui();
+                    $g=$e->getNit();
+                    $h=$e->getIdEmpleado();
+                    $para->execute();
+
+                    if(mysqli_error($this->con)){
+                        throw new exception("
+                        <script>
+                            alert(\"Error al modificar datos de empleado: ".$this->con->error."\");
+                        </script>");
+                    }
+                }
 
             }catch(Exception $ex) {
-                return $ex;
+                echo $ex->getMessage();
             }finally {
-                $para->close();
                 $res->close();
+                if(!$insertEmp){
+                    $para->close();
+                }
             }
         }
 
@@ -149,15 +190,34 @@
                 $b=$e->getIdUsuarioEmp();
                 $res->execute();
 
-                $para=$this->con->prepare("delete from empleado where idEmpleado=?");
-                $para->bind_param('s',$a);
-                $a=$e->getIdEmpleado();
-                $para->execute();
+                $insertEmp=mysqli_error($this->con);
+                if(mysqli_error($this->con)){
+                    throw new exception("
+                    <script>
+                        alert(\"Error al eliminar Usuario: ".$this->con->error."\");
+                    </script>");
+                }
+                else{
+                    $para=$this->con->prepare("delete from empleado where idEmpleado=?");
+                    $para->bind_param('s',$a);
+                    $a=$e->getIdEmpleado();
+                    $para->execute();
+
+                    if(mysqli_error($this->con)){
+                        throw new exception("
+                        <script>
+                            alert(\"Error al eliminar datos de empleado: ".$this->con->error."\");
+                        </script>");
+                    }
+                }
+
             }catch(Exception $ex) {
-                return $ex;
+                echo $ex->getMessage();
             }finally {
-                $para->close();
                 $res->close();
+                if(!$insertEmp){
+                    $para->close();
+                }
             }
         }
     }

@@ -31,7 +31,7 @@
 				$d=$e->getModelo();
 				$ee=$e->getTazaCombustible();
 				$f=$e->getCapacidadCombustible();
-				$g=$e->getKmRecorridos();
+				$g=0;
 				$para->execute();
 
 			}catch(Exception $ex){

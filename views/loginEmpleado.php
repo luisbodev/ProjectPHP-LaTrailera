@@ -39,7 +39,7 @@
 
                             
                             <label for="passwordEmp" class="text-white font-bold text-1xl">Contreseña:</label> <br>
-                            <input type="password" name="passwordEmp" class="bg-white focus:outline-none focus:shadow-outline border border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal">
+                            <input type="password" name="passwordEmp" class="bg-white focus:outline-none focus:shadow-outline border border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" autofocus>
                             <div class="flex justify-center">
                                 <input type="submit" name="btnValidarEmpleado" value="Continuar" class="bg-orange-500 text-white hover:bg-white hover:text-gray-800 font-bold py-2 px-4 my-4 rounded-full">
                             </div>

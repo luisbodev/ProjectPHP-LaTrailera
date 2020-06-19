@@ -29,8 +29,8 @@
         <center>
             <div class="w-full md:w-1/3 py-4 border-4 border-gray-600 rounded-lg bg-orange-500">
                 <h3 class='text-center text-white text-2xl font-bold'>Menú</h3>
-                <button><a href="controlEnvioCliente.php" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-black hover:bg-white hover:border-4 hover:border-gray-600">Envios</a></button><br>
-                <button><a href="controlClienteVentana.php?c=1" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-black hover:bg-white hover:border-4 hover:border-gray-600">Cerrar Sesión</a></button>
+                <button class='w-64'><a href="controlEnvioCliente.php" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-black hover:bg-white hover:border-4 hover:border-gray-600">Envios</a></button><br>
+                <button class='w-64'><a href="controlClienteVentana.php?c=1" class="block mt-1 px-2 text-2xl font-semibold rounded text-white bg hover:text-black hover:bg-white hover:border-4 hover:border-gray-600">Cerrar Sesión</a></button>
 
             </div>
         </center>
