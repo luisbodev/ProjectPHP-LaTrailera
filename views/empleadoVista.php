@@ -150,8 +150,9 @@
                
            
         <br>
+        <div class='md:px-4'>
             <table class="table-auto">
-                    <thead class="thead-dark">
+                    <thead>
                         <tr>
                             <th class='text-center text-white bg px-4 py-2'>ID</th>
                             <th class='text-center text-white bg px-4 py-2'>Nombre</th>
@@ -199,9 +200,9 @@
                             }
                         ?>
                     </tbody>
-                </table> 
-            </div>
-        </div>
+                </table>
+                </div> 
+        
 </section>
 </center>
 <br>
