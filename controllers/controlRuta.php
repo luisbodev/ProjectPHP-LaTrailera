@@ -20,18 +20,15 @@
 	$obRuta=new RutaModel();
 
 	if (isset($_REQUEST["guardar"])) {
-		$e=new Ruta($_REQUEST["idRuta"],$_REQUEST["kilometraje"],$_REQUEST["my_lat"],$_REQUEST["my_lng"],$_REQUEST["your_lat"],$_REQUEST["your_lng"],$_REQUEST["idMotorista"],$_REQUEST["idVehiculo"],$_REQUEST["carga"],$_REQUEST["descripcion"]);
+		$e=new Ruta($_REQUEST["idRuta"],$_REQUEST["otro"],$_REQUEST["my_lat"],$_REQUEST["my_lng"],$_REQUEST["your_lat"],$_REQUEST["your_lng"],$_REQUEST["idMotorista"],$_REQUEST["idVehiculo"],$_REQUEST["carga"],$_REQUEST["descripcion"]);
 		$error=$obRuta->insertarRuta($e);
 	}
 
 	if (isset($_REQUEST["modificar"])) {
-		if($_REQUEST["otro"]==$_REQUEST["kmtraje"]){
+		
 			$e=new Ruta($_REQUEST["idRuta"],$_REQUEST["otro"],$_REQUEST["my_lat"],$_REQUEST["my_lng"],$_REQUEST["your_lat"],$_REQUEST["your_lng"],$_REQUEST["idMotorista"],$_REQUEST["idVehiculo"],$_REQUEST["carga"],$_REQUEST["descripcion"]);
 			$error=$obRuta->modificarRutaSinKm($e);
-		} else {
-			$e=new Ruta($_REQUEST["idRuta"],$_REQUEST["kilometraje"],$_REQUEST["my_lat"],$_REQUEST["my_lng"],$_REQUEST["your_lat"],$_REQUEST["your_lng"],$_REQUEST["idMotorista"],$_REQUEST["idVehiculo"],$_REQUEST["carga"],$_REQUEST["descripcion"]);
-			$error=$obRuta->modificarRuta($e);
-		}
+		
 		
 	}
 
