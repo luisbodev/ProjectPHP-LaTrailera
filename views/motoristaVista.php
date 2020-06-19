@@ -98,9 +98,15 @@
                                 <?php  
                                 foreach ($datos as $e) {
                                     $idMotorista=$e->getIdMotorista();
+<<<<<<< HEAD
                                     $nombre=str_replace(" ","&nbsp;",$e->getNombre()); 
                                     $apellido=str_replace(" ","&nbsp;",$e->getApellido()); 
                                     $direccion=str_replace(" ","&nbsp;",$e->getDireccion()); 
+=======
+                                    $nombre=str_replace(" ","&nbsp;",$e->getNombre());
+                                    $apellido=str_replace(" ","&nbsp;",$e->getApellido());
+                                    $direccion=str_replace(" ","&nbsp;",$e->getDireccion());
+>>>>>>> 66f5d17044311db79c428ecfc849a9f102b36b0d
                                     $dui=$e->getDui();
                                     $nit=$e->getNit();
                                     $numLicencia=$e->getNumLicencia();
