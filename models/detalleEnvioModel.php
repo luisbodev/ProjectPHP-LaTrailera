@@ -34,9 +34,15 @@
                 $b=$d->getIdEnvio();
                 
 				$detalle->execute();
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al insertar datos en el Detalle del Envio: ".$this->con->error."\");
+					</script>");
+				}
 				
 			}catch(Exception $ex){
-				return $ex;
+				echo $ex->getMessage();
 			}finally{
 				$detalle->close();
 			}
@@ -49,10 +55,16 @@
                 $b=$d->getIdEnvio();
                 $c=$d->getIdDetalleEnvio();
 				
-                $para->execute();
+				$para->execute();
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al modificar datos en el Detalle del Envio: ".$this->con->error."\");
+					</script>");
+				}
 				
             }catch(Exception $ex) {
-				return $ex;
+				echo $ex->getMessage();
             }finally {
 				$para->close();
             }
@@ -64,8 +76,14 @@
 				$a=$d->getIdDetalleEnvio();
 				
 				$para->execute();
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al eliminar Detalle de Envio: ".$this->con->error."\");
+					</script>");
+				}
 			}catch(Exception $ex){
-				return $ex;
+				echo $ex->getMessage();
 			}finally{
 				$para->close();
 			}

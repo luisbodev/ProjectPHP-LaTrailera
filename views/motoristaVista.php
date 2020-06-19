@@ -98,9 +98,9 @@
                                 <?php  
                                 foreach ($datos as $e) {
                                     $idMotorista=$e->getIdMotorista();
-                                    $nombre=$e->getNombre();
-                                    $apellido=$e->getApellido();
-                                    $direccion=$e->getDireccion();
+                                    $nombre=str_replace(" ","&nbsp;",$e->getNombre());
+                                    $apellido=str_replace(" ","&nbsp;",$e->getApellido());
+                                    $direccion=str_replace(" ","&nbsp;",$e->getDireccion());
                                     $dui=$e->getDui();
                                     $nit=$e->getNit();
                                     $numLicencia=$e->getNumLicencia();

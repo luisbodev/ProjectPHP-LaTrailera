@@ -33,8 +33,14 @@
 				$g=$e->getNumLicencia();
 
 				$para->execute();
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al insertar datos de Motorista: ".$this->con->error."\");
+					</script>");
+				}
 			}catch(Exception $ex){
-				return $ex;
+				echo $ex->getMessage();
 			}finally{
 				$para->close();
 			}
@@ -53,8 +59,15 @@
 				$f=$e->getNit();
 				$g=$e->getIdMotorista();
 				$para->execute();
+
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al modificar datos de Motorista: ".$this->con->error."\");
+					</script>");
+				}
 			}catch(Exception $ex){
-				return $ex;
+				echo $ex->getMessage();
 			}finally{
 				$para->close();
 			}
@@ -66,8 +79,15 @@
 				$para->bind_param('s',$a);
 				$a=$e->getIdMotorista();
 				$para->execute();
+
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al eliminar Motorista: ".$this->con->error."\");
+					</script>");
+				}
 			}catch(Exception $ex){
-				return $ex;
+				echo $ex->getMessage();
 			}finally{
 				$para->close();
 			}

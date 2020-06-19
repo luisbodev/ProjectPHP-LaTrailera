@@ -90,11 +90,10 @@
                             <span class="font-bold text-xl">Usuario Empleado que tomo Envio</span>
                             <div class='relative'>
                             <select name="usuarioEmp" id="usuarioEmp" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required>
-                                    <option value=""></option>
                                     <?php
-                                        foreach ($datosUsuarioEmpe as $u) {
-                                            echo "<option value=".$u['idUsuarioEmp'].">".$u['usuarioEmp']."</option>";
-                                        }
+                                        
+                                        echo "<option value=".$_SESSION["administrador"].">".$_SESSION["administrador"]."</option>";
+                                        
                                     ?>
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
