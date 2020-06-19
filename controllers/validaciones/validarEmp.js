@@ -46,6 +46,13 @@ function validar(){
            title: "Todos los campos son requeridos"
         });
 		return false;
+
+		}else if(direccion.length>200) {
+		Swal.fire({
+           title: "Direccion Demasiado Larga"
+        });
+		return false;
+
 	}else if(dui.length>10) {
 		Swal.fire({
            title: "Campo DUI no valido"

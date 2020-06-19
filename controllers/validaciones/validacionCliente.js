@@ -23,7 +23,7 @@ function validar(){
 		return false;
 	}
 
-	else if(direccion.length>40 || direccion==="") {
+	else if(direccion.length>200 || direccion==="") {
 		Swal.fire({
            title: "Direccion Demasiado Larga"
         });
