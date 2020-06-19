@@ -136,7 +136,8 @@
                 foreach ($vehi as $v) {
                   $idVehiculo=$v->getIdVehiculo();
                   $marca=$v->getMarca();
-                  echo "<option value='$idVehiculo'>$marca</option>";
+                  $placa=$v->getPlaca();
+                  echo "<option value='$idVehiculo'>".$marca." ".$placa."</option>";
                 }
               ?>
             </select>
