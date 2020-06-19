@@ -101,9 +101,9 @@
                                 <?php  
                                     foreach ($datos as $e) {
                                         $idVehiculo=$e->getIdVehiculo();
-                                        $marca=$e->getMarca();
-                                        $placa=$e->getPlaca();
-                                        $modelo=$e->getModelo();
+                                        $marca=str_replace(" ","&nbsp;",$e->getMarca());
+                                        $placa=str_replace(" ","&nbsp;",$e->getPlaca());
+                                        $modelo=str_replace(" ","&nbsp;",$e->getModelo());
                                         $tazaCombustible=$e->getTazaCombustible();
                                         $capacidadCombustible=$e->getCapacidadCombustible();
                                         $kmRecorridos=$e->getKmRecorridos();
