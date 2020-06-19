@@ -1,5 +1,5 @@
 function validar() {
-    var marca, placa, modelo, tazaCombustible, capacidadCombustible, kmRecorridos;
+    var marca, placa, modelo, tazaCombustible, capacidadCombustible;
 
     marca = document.getElementById('marca').value;
     placa = document.getElementById('placa').value;
