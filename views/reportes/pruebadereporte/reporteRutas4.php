@@ -1,6 +1,9 @@
 <?php
-
+    $id=$_REQUEST['id']; 
     $id2=$_REQUEST['id2'];
+    $f1=$_REQUEST['f1'];
+    $f2=$_REQUEST['f2'];
+
     require('../pdf/fpdf.php');
 
 
@@ -41,11 +44,13 @@
             $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
         }
     }
-    
 
     require '../conex.php';
-    $consulta2 = "select R.idRuta, R.descripcion, R.kilometraje, M.idMotorista, M.nombre, M.apellido, E.idEnvio, E.fechaRealizacion, E.fechaEntrega, C.idCliente, C.nombre, C.apellido From ruta as R inner JOIN motorista as M on M.idMotorista=R.idMotorista INNER JOIN envio as E INNER JOIN cliente as C on C.idCliente=E.idCliente where M.idMotorista=$id2 ";
-    $res = $mysqli->query($consulta2);
+    $consulta = "SELECT R.idRuta, R.descripcion, R.kilometraje, M.idMotorista, M.nombre, M.apellido, E.idEnvio, E.fechaRealizacion, E.fechaEntrega, C.idCliente, C.nombre, C.apellido 
+                From ruta as R inner JOIN motorista as M on M.idMotorista=R.idMotorista && M.idMotorista=$id2
+                INNER JOIN envio as E INNER JOIN cliente as C on C.idCliente=E.idCliente && C.idCliente=$id
+                where E.fechaRealizacion BETWEEN '$f1' and '$f2'";
+    $res = $mysqli->query($consulta);
     $pdf = new PDF();
     $pdf->AliasNbPages();
     $pdf->AddPage();
@@ -61,6 +66,6 @@
         $pdf->Cell(30,5,$row['nombre'],1,1,'C',0);
         $pdf->cell(10);
     }
- 
-    $pdf->Output();
+
+   $pdf->Output(); 
 ?>

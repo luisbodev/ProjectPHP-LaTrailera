@@ -1,7 +1,7 @@
 <?php
     $f1=$_REQUEST['f1'];
     $f2=$_REQUEST['f2'];
-    require('pdf/fpdf.php');
+    require('../pdf/fpdf.php');
 
 
     class PDF extends FPDF
@@ -15,7 +15,7 @@
             $this->SetXY(15,20);
           //  $this->Cell(0,40," Filtrado por Cliente, Motorista y Fechas.");
             $this->SetXY(25,10);
-            $this->Image('Logo-LaTrailera.png',140,10,50,50,'PNG');
+            $this->Image('../Logo-LaTrailera.png',140,10,50,50,'PNG');
             $this->Ln();
             $this->Ln();
             $this->setFont('Arial','B','9');
@@ -42,7 +42,7 @@
         }
     }
 
-    require 'conex.php';
+    require '../conex.php';
     $consulta = "select R.idRuta, R.descripcion, R.kilometraje, M.idMotorista, M.nombre, M.apellido, E.idEnvio, E.fechaRealizacion, E.fechaEntrega, C.idCliente, C.nombre, C.apellido From ruta as R inner JOIN motorista as M on M.idMotorista=R.idMotorista INNER JOIN envio as E INNER JOIN cliente as C on C.idCliente=E.idCliente where E.fechaRealizacion BETWEEN '$f1' and '$f2'";
     $res = $mysqli->query($consulta);
     $pdf = new PDF();
