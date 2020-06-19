@@ -38,7 +38,7 @@ function validar(){
            title: "Campo apellido no valido"
         });
 		return false;
-	}else if(direccion.length>200) {
+	}else if(direccion.length>200 ) {
 		Swal.fire({
            title: "Campo direccion no valido"
         });
