@@ -2,7 +2,7 @@
 	require '../db/conexion.php';
 	require 'ruta.php';
 	require 'vehiculo.php';
-	require 'carga.php';
+	// require 'carga.php';
 	require 'rutaVehi.php';
 
 	

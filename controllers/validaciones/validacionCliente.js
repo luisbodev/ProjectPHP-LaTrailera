@@ -7,7 +7,7 @@ function validar(){
 	numContacto=document.getElementById("numContacto").value;
 	correo=document.getElementById("correo").value;
 
-	val = /\w+@\w+\.+[a-z]/;
+	val = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 
 	expresion=/^[a-zA-Z\s]*$/;
 

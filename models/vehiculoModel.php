@@ -34,8 +34,14 @@
 				$g=0;
 				$para->execute();
 
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al insertar datos de Vehículo: ".$this->con->error."\");
+					</script>");
+				}
 			}catch(Exception $ex){
-				return $ex;
+				echo $ex->getMessage();
 			}finally{
 				$para->close();
 			}
@@ -54,8 +60,15 @@
 				$f=$e->getKmRecorridos();
 				$g=$e->getIdVehiculo();
 				$para->execute();
+
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al modificar datos de Vehículo: ".$this->con->error."\");
+					</script>");
+				}
 			}catch(Exception $ex){
-				return $ex;
+				echo $ex->getMessage();
 			}finally{
 				$para->close();
 			}
@@ -67,8 +80,15 @@
 				$para->bind_param('s',$a);
 				$a=$e->getIdVehiculo();
 				$para->execute();
+
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al eliminar datos de Vehículo: ".$this->con->error."\");
+					</script>");
+				}
 			}catch(Exception $ex){
-				return $ex;
+				echo $ex->getMessage();
 			}finally{
 				$para->close();
 			}

@@ -100,7 +100,7 @@
                     <div class='md:flex'>
                         <div class="w-full md:w-1/2 md:ml-2">
                             <label for="correo" class="font-bold text-xl">Correo</label>
-                            <input type="text" name="correo" id="correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required placeholder="@dominio.com" >
+                            <input type="text" name="correo" id="correo" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required placeholder="@dominio.com" >
                         </div>
                         <div class="w-full md:w-1/2 md:ml-2">
                             <label for="direccion" class="font-bold text-xl">Dirección</label>

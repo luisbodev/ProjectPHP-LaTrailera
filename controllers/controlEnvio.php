@@ -21,8 +21,8 @@
 
 	
 	if(isset($_REQUEST["guardar"])) {
-		$e=new Envio('',$_REQUEST['fechaRealizacion'],$_REQUEST['fechaEntrega'],'','','','',$_REQUEST['usuarioCli'],$_REQUEST['usuarioEmp']);
-		$error=$obj->insertarEnvio($e);
+		$e=new Envio('',$_REQUEST['fechaRealizacion'],$_REQUEST['fechaEntrega'],'','','',$_REQUEST['usuarioEmp'],$_REQUEST['usuarioCli'],'');
+		$error=$obj->insertarEnvioEmp($e);
 	}
 	if(isset($_REQUEST["modificar"])) {
             $e=new Envio($_REQUEST['idEnvio'],$_REQUEST['fechaRealizacion'],$_REQUEST['fechaEntrega'],'','','','',$_REQUEST['usuarioCli'],$_REQUEST['usuarioEmp']);
