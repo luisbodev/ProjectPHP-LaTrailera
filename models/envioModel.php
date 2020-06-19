@@ -48,9 +48,15 @@
 				$c=$e->getIdUsuarioCli();
 				$d=$e->getIdUsuarioEmp();
 				
-				$para->execute();				
+				$para->execute();
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al insertar datos de Envio: ".$this->con->error."\");
+					</script>");
+				}				
 			}catch(Exception $ex){
-				return $ex;
+				echo $ex->getMessage();
 			}finally{
 				$para->close();
 			}
@@ -65,10 +71,16 @@
 				$d=$e->getIdUsuarioEmp();
                 $f=$e->getIdEnvio();
 				
-                $para->execute();
+				$para->execute();
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al modificar datos de envio: ".$this->con->error."\");
+					</script>");
+				}
 				
             }catch(Exception $ex) {
-				return $ex;
+				echo $ex->getMessage();
             }finally {
 				$para->close();
             }
@@ -81,8 +93,14 @@
 				
 				
 				$para->execute();
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al eliminar envio: ".$this->con->error."\");
+					</script>");
+				}
 			}catch(Exception $ex){
-				return $ex;
+				echo $ex->getMessage();
 			}finally{
 				$para->close();
 			}
@@ -97,9 +115,15 @@
 				$c=$e->getIdUsuarioCli();
 				$d=$e->getUsuarioEmp();
 				
-				$para->execute();				
+				$para->execute();
+				if(mysqli_error($this->con)){
+					throw new exception("
+					<script>
+						alert(\"Error al insertar envio: ".$this->con->error."\");
+					</script>");
+				}				
 			}catch(Exception $ex){
-				return $ex;
+				echo $ex->getMessage();
 			}finally{
 				$para->close();
 			}
