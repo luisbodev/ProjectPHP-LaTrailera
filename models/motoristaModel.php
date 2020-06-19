@@ -56,7 +56,7 @@
 				$c=$e->getDireccion();
 				$d=$e->getDui();
 				$ee=$e->getNit();
-				$f=$e->getNit();
+				$f=$e->getNumLicencia();
 				$g=$e->getIdMotorista();
 				$para->execute();
 

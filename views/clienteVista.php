@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <div class='md:flex'>
-                        <div class="w-full md:w-1/2 md:ml-2">
+                        <div class="w-full md:w-1/2">
                             <label for="correo" class="font-bold text-xl">Correo</label>
                             <input type="text" name="correo" id="correo" class="bg-white focus:outline-none focus:shadow-outline border-2 border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal font-bold" required placeholder="@dominio.com" >
                         </div>

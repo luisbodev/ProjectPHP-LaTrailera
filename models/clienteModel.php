@@ -101,7 +101,7 @@
                 }
                 else{
                     $para=$this->con->prepare("update cliente set nombre=?, apellido=?, direccion=?, nit=?, numContacto=?, correo=? where idCliente=?");
-                    $para->bind_param('ssssssss',$a,$w,$b,$c,$d,$o,$f);
+                    $para->bind_param('sssssss',$a,$w,$b,$c,$d,$o,$f);
                     $a=$e->getNombre();
                     $w=$e->getApellido();
                     $b=$e->getDireccion();
