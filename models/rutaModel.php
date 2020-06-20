@@ -16,7 +16,7 @@
 		}
 
 		function getRuta(){
-			$res=$this->con->query("SELECT r.idRuta, r.kilometraje, r.latPuntoA, r.lngPuntoA, r.latPuntoB, r.lngPuntoB, r.idMotorista, r.idVehiculo, r.carga, r.descripcion, v.kmRecorridos FROM ruta r INNER JOIN vehiculo v ON r.idVehiculo = v.idVehiculo");
+			$res=$this->con->query("SELECT r.idRuta, r.kilometraje, r.latPuntoA, r.lngPuntoA, r.latPuntoB, r.lngPuntoB, r.idMotorista, r.idVehiculo, r.carga, r.descripcion, v.kmRecorridos FROM ruta r INNER JOIN vehiculo v ON r.idVehiculo = v.idVehiculo order by r.idRuta ASC");
 			$r=array();
 			while($row=$res->fetch_assoc()){
 				$e=new RutaVehi($row["idRuta"],$row["kilometraje"],$row["latPuntoA"],$row["lngPuntoA"],$row["latPuntoB"],$row["lngPuntoB"],$row["idMotorista"],$row["idVehiculo"],$row["carga"],$row["descripcion"],$row["kmRecorridos"]);
