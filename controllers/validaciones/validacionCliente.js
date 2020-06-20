@@ -2,6 +2,7 @@ function validar(){
 	var nombre, direccion, nit, numContacto, correo, expresion, val;
 
 	nombre=document.getElementById("nombre").value;
+	apellido=document.getElementById("apellido").value;
 	direccion=document.getElementById("direccion").value;
 	nit=document.getElementById("nit").value;
 	numContacto=document.getElementById("numContacto").value;
@@ -9,7 +10,9 @@ function validar(){
 
 	val = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 
-	expresion=/^[a-zA-Z\s]*$/;
+	//expresion=/^[a-zA-Z\s]*$/;  valp = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/;
+	//expresion= /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/;
+	expresion=/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
 
 	if (nombre.length>30 || nombre.length<4) {
 		Swal.fire({
@@ -22,6 +25,20 @@ function validar(){
         });
 		return false;
 	}
+else if(apellido.length>30 || apellido.length<4) {
+		Swal.fire({
+           title: "Campo apellido no valido"
+        });
+		return false;
+	}else if(!expresion.test(apellido)){
+		 Swal.fire({
+           title: "Campo apellido no valido"
+        });
+		return false;
+	}
+
+
+
 
 	else if(direccion.length>200 || direccion==="") {
 		Swal.fire({
