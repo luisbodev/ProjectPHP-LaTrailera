@@ -11,6 +11,8 @@
     <script type="text/javascript" src="dependencias/sweetalert2.all.min.js"></script>
     <!-- Tailwind -->
     <link rel="stylesheet" href="dependencias/tailwind.css">
+    <!--Validaciones-->
+    <script src="validaciones/validacionRuta.js"></script>
     <!--CSS-->
     <link rel="stylesheet" href="css/menu.css">
     <!--Logo-->
@@ -80,7 +82,7 @@
     <br>
     <br>
     <div class='container w-11/12'>
-    <form action="#" id="f" method="POST">
+    <form action="#" id="f" method="POST" onsubmit="return validar(this);">
     <div id="d1"></div>
      <br>
         <div class='w-full md:w-1/2'>
