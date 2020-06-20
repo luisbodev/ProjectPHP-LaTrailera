@@ -107,7 +107,7 @@
                 <div class="w-12 md:w-1/2 mt-2">
                 <form action='controlDetalleEnvio.php' method='GET'> 
                         <input type="hidden" name='idEnvioD' id='idEnvioD'>
-                        <input type='submit' class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' name='btnDetalleEnvio' value="Ver Detalle de Envio">
+                        <input type='submit' class='bg-blue-400 text-white mt-2 py-1 px-4 rounded cursor-not-allowed' name='btnDetalleEnvio' id='btnDetalleEnvio' value="Ver Detalle de Envio" disabled='true'>
                 </form>
                 </div>
                 </div>
@@ -149,7 +149,7 @@
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$usuarioCli</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$usuarioEmp</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>
-                                            <button onclick=$('#idEnvio').val('$idEnvio');$('#fechaRealizacion').val('$fechaRealizacion');$('#fechaEntrega').val('$fechaEntrega');$('#usuarioCli').val('$idUsuarioCli');$('#usuarioEmp').val('$usuarioEmp');$('#idEnvioD').val('$idEnvio'); class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' id='editarbtn'>Editar</button>    
+                                            <button onclick=$('#idEnvio').val('$idEnvio');$('#fechaRealizacion').val('$fechaRealizacion');$('#fechaEntrega').val('$fechaEntrega');$('#usuarioCli').val('$idUsuarioCli');$('#usuarioEmp').val('$usuarioEmp');$('#idEnvioD').val('$idEnvio');$('#btnDetalleEnvio').attr('disabled',false);actiBtn(); class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' id='editarbtn'>Editar</button>    
                                             </td>
                                         
                                     </tr>";
@@ -166,8 +166,11 @@
                 var btn = document.getElementById('g');
                 btn.classList.remove('cursor-not-allowed','bg-blue-400');
                 btn.classList.add('bg-blue-700','hover:bg-red-800');
-
-
+            }
+            function actiBtn(){
+                var btn = document.getElementById('btnDetalleEnvio');
+                btn.classList.remove('cursor-not-allowed','bg-blue-400');
+                btn.classList.add('bg-blue-700','hover:bg-red-800');
             }
         </script>
 </body>

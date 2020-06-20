@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-06-2020 a las 20:57:24
+-- Tiempo de generación: 20-06-2020 a las 01:03:23
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bdtrailera`
 --
+CREATE DATABASE IF NOT EXISTS `bdtrailera` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+USE `bdtrailera`;
 
 -- --------------------------------------------------------
 
@@ -66,6 +68,28 @@ CREATE TABLE `detalleenvio` (
   `idRuta` int(11) NOT NULL,
   `idEnvio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `detalleenvio`
+--
+
+INSERT INTO `detalleenvio` (`idDetalleEnvio`, `idRuta`, `idEnvio`) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 3),
+(4, 4, 4),
+(5, 5, 5),
+(6, 6, 6),
+(7, 7, 7),
+(8, 8, 8),
+(9, 9, 9),
+(10, 10, 10),
+(11, 11, 1),
+(12, 12, 2),
+(13, 13, 3),
+(14, 14, 4),
+(15, 15, 5),
+(16, 16, 6);
 
 -- --------------------------------------------------------
 
@@ -113,6 +137,22 @@ CREATE TABLE `envio` (
   `idCliente` int(11) NOT NULL,
   `idEmpleado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `envio`
+--
+
+INSERT INTO `envio` (`idEnvio`, `fechaRealizacion`, `fechaEntrega`, `idCliente`, `idEmpleado`) VALUES
+(1, '2020-06-11', '2020-06-30', 2, 1),
+(2, '2020-06-01', '2020-06-30', 1, 1),
+(3, '2020-06-02', '2020-06-26', 4, 1),
+(4, '2020-06-03', '2020-07-30', 5, 1),
+(5, '2020-06-04', '2020-07-30', 6, 1),
+(6, '2020-04-01', '2020-06-30', 10, 1),
+(7, '2020-04-02', '2020-06-30', 7, 1),
+(8, '2020-06-01', '2020-11-30', 8, 8),
+(9, '2020-06-01', '2020-09-30', 9, 7),
+(10, '2020-11-19', '2020-06-30', 8, 7);
 
 -- --------------------------------------------------------
 
@@ -178,7 +218,13 @@ INSERT INTO `ruta` (`idRuta`, `kilometraje`, `latPuntoA`, `lngPuntoA`, `latPunto
 (7, 334, '13.932512976046262', '-90.46466956406834', '13.497011501121097', '-88.15498317058284', 8, 8, 'Colchones indufoam', 'Desde La Avellana, Guatemala hasta San Miguel El Salvador'),
 (8, 69, '13.335285173483959', '-88.60988141547706', '13.48623556243275', '-88.18416120063331', 10, 10, 'Zapatos escolares', 'Desde Usulutan Hasta San Miguel'),
 (9, 330, '14.043198379413054', '-87.16932418764878', '13.695926518087814', '-89.22744709617837', 9, 9, 'Guineos', 'Desde Tegusigalpa, Guatemala Hasta San Salvador, El Salvador'),
-(10, 390, '15.017772877984921', '-88.24512939970316', '13.953762379042999', '-89.59644775907816', 8, 8, 'Guineos', 'Desde Santa Barbara, Guatemala hasta San Salvador, El Salvador');
+(10, 390, '15.017772877984921', '-88.24512939970316', '13.953762379042999', '-89.59644775907816', 8, 8, 'Guineos', 'Desde Santa Barbara, Guatemala hasta San Salvador, El Salvador'),
+(11, 580, '14.069530982266684', '-87.16938039021295', '14.572264970964369', '-90.71712034529789', 8, 7, 'Laminas Sincalum', 'Desde Tegusigalpa, Honduras hasta Antigua Guatemala, Guatemala'),
+(12, 2.387, '8.17857469474909', '-77.70540069327065', '14.97652162017308', '-91.78205955307263', 7, 8, 'Café por libras', 'Desde Yaviza, Panama hasta San Marcos, Guatemala'),
+(13, 146, '13.322927453484079', '-87.84753197890021', '13.505308282591976', '-88.87237814026146', 7, 6, 'Materiales de contrucción', 'Desde La unión hasta Sacatecoluca'),
+(14, 42.5, '13.656946167072082', '-89.18173322969027', '13.596895896190865', '-89.41534365435442', 4, 4, 'Insumos de custorería', 'Desde San Marcos hasta Talmanique'),
+(15, 132, '13.825374746776857', '-87.25386137532887', '13.344823391238757', '-87.92402739095387', 7, 10, 'Granos basicos ', 'Desde Gabana Grande, Honduras Hasta La Unión, El Salvador'),
+(16, 451, '12.083318347767525', '-86.23002849525079', '14.867052081348769', '-87.14825698060677', 8, 4, 'Materiales de construcción', 'Desde Managua, Nicaragua hasta El Por Venir, Honduras');
 
 -- --------------------------------------------------------
 
@@ -260,13 +306,13 @@ INSERT INTO `vehiculo` (`idVehiculo`, `marca`, `placa`, `modelo`, `tazaCombustib
 (1, 'Scania', 'C002-958', 'Scania RC', 70.35, 25.3, 540),
 (2, 'Daf Trucks', 'C012-890', 'Daf Trucks D300', 66.3, 75.2, 283.5),
 (3, 'Iveco', 'C801-963', 'Iveco Morcha20', 70.7, 50.63, 982),
-(4, 'Volvo', 'C785-002', 'Volvo 400', 70.59, 70.12, 0),
+(4, 'Volvo', 'C785-002', 'Volvo 400', 70.59, 70.12, 493.5),
 (5, 'Renault', 'C789-000', 'Renault Renave', 80.3, 60.6, 2.405),
-(6, 'Isuzu', 'C000-055', 'Isuzu Corpa', 68.2, 54.25, 0),
-(7, 'Isuzu', 'C895-951', 'Isuzu G200', 78.2, 44.2, 0),
-(8, 'Scania', 'C256-256', 'Scania300', 80.36, 96.21, 724),
+(6, 'Isuzu', 'C000-055', 'Isuzu Corpa', 68.2, 54.25, 146),
+(7, 'Isuzu', 'C895-951', 'Isuzu G200', 78.2, 44.2, 580),
+(8, 'Scania', 'C256-256', 'Scania300', 80.36, 96.21, 726.387),
 (9, 'Man ', 'C259-865', 'Man Switch', 26.36, 25.36, 330),
-(10, 'Fuso', 'C002-002', 'Fuso 300', 60.2, 41.25, 69);
+(10, 'Fuso', 'C002-002', 'Fuso 300', 60.2, 41.25, 201);
 
 --
 -- Índices para tablas volcadas
@@ -359,7 +405,7 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de la tabla `detalleenvio`
 --
 ALTER TABLE `detalleenvio`
-  MODIFY `idDetalleEnvio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idDetalleEnvio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -371,7 +417,7 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `envio`
 --
 ALTER TABLE `envio`
-  MODIFY `idEnvio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEnvio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `motorista`
@@ -383,7 +429,7 @@ ALTER TABLE `motorista`
 -- AUTO_INCREMENT de la tabla `ruta`
 --
 ALTER TABLE `ruta`
-  MODIFY `idRuta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idRuta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `usuariocli`
