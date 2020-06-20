@@ -14,7 +14,8 @@
 			INNER JOIN cliente c on e.idCliente = c.idCliente
 			INNER JOIN usuariocli uc on c.idUsuarioCli = uc.idUsuarioCli
 			INNER JOIN empleado emp on e.idEmpleado = emp.idEmpleado
-			INNER JOIN usuarioemp ue on emp.idUsuarioEmp = ue.idUsuarioEmp");
+			INNER JOIN usuarioemp ue on emp.idUsuarioEmp = ue.idUsuarioEmp
+			order by e.idEnvio ASC");
 			$r=array();
 			while($row=$res->fetch_assoc()) {
 				$e= new Envio($row['idEnvio'],$row['fechaRealizacion'],$row['fechaEntrega'],$row['idCliente'],$row['idEmpleado'],$row['usuarioCli'],$row['usuarioEmp'],$row['idUsuarioCli'],$row['idUsuarioEmp']);
