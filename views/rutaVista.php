@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="css/menu.css">
     <!--Logo-->
     <link rel="icon" type="image/png" href="img/logo/Logo-LaTrailera.png">
-    <script src="validaciones/validacionRuta1.js"></script>
      <style>
       /* Tamaño del div del mapa. */
       #map {
