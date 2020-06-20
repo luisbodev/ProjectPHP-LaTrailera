@@ -100,6 +100,7 @@
                             <th class='text-center text-white bg px-4 py-2'>ID Detalle</th>
                             <th class='text-center text-white bg px-4 py-2'>ID Ruta</th>
                             <th class='text-center text-white bg px-4 py-2'>Ruta Descripcion</th>
+                            <th class='text-center text-white bg px-4 py-2'>Carga</th>
                             <th class='text-center text-white bg px-4 py-2'>ID Envio</th>
                             <th class='text-center text-white bg px-4 py-2'>Acción</th>
 
@@ -116,11 +117,13 @@
                                 $lngPuntoA=$e->getLngPuntoA();
                                 $latPuntoB=$e->getLatPuntoB();
                                 $lngPuntoB=$e->getLngPuntoB();
+                                $carga=$e->getCarga();
                                 $desc=str_replace(" ","&nbsp;",$e->getDescripcion());        
                                 echo "<tr>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center font-bold px-4 py-2'>$idDetalleEnvio</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idRuta</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$desc</td>
+                                        <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$carga</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idEnvio</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>
                                             <button onclick=$('#idEnvioDetalle').val('$idDetalleEnvio');$('#desc').val('$desc');$('#idEnvio').val('$idEnvio');$('#my_lat').val('$latPuntoA');$('#my_lng').val('$lngPuntoA');$('#your_lat').val('$latPuntoB');$('#your_lng').val('$lngPuntoB');ruta(); class='bg-blue-700 hover:bg-red-800 text-white py-1 px-4 rounded' type='button'>Ver Ruta</button>

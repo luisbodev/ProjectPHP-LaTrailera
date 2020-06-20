@@ -10,10 +10,10 @@
 			parent:: __construct();
 		}
 		function getDetalleEnvio($e){
-			$res=$this->con->query('SELECT d.idDetalleEnvio, d.idRuta, d.idEnvio, r.latPuntoA, r.lngPuntoA, r.latPuntoB, r.lngPuntoB, r.descripcion  FROM detalleenvio d INNER JOIN ruta r on d.idRuta = r.idRuta where d.idEnvio ='.$e);
+			$res=$this->con->query('SELECT d.idDetalleEnvio, d.idRuta, d.idEnvio, r.latPuntoA, r.lngPuntoA, r.latPuntoB, r.lngPuntoB, r.descripcion, r.carga  FROM detalleenvio d INNER JOIN ruta r on d.idRuta = r.idRuta where d.idEnvio ='.$e);
 			$r=array();
 			while($row=$res->fetch_assoc()) {
-				$d= new EnvioDetalleRuta($row['idDetalleEnvio'],$row['idRuta'],$row['idEnvio'],$row["latPuntoA"],$row["lngPuntoA"],$row["latPuntoB"],$row["lngPuntoB"],$row["descripcion"]);
+				$d= new EnvioDetalleRuta($row['idDetalleEnvio'],$row['idRuta'],$row['idEnvio'],$row["latPuntoA"],$row["lngPuntoA"],$row["latPuntoB"],$row["lngPuntoB"],$row["descripcion"],$row["carga"]);
 				$r[]=$d;
 			}
 			return $r;

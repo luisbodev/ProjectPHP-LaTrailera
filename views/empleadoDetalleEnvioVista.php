@@ -137,6 +137,7 @@
                         <tr>
                             <th class='text-center text-white bg px-4 py-2'>ID Detalle</th>
                             <th class='text-center text-white bg px-4 py-2'>ID Ruta</th>
+                            <th class='text-center text-white bg px-4 py-2'>Carga</th>
                             <th class='text-center text-white bg px-4 py-2'>ID Envio</th>
 
 
@@ -151,10 +152,12 @@
                                 $latPuntoA=$e->getLatPuntoA();
                                 $lngPuntoA=$e->getLngPuntoA();
                                 $latPuntoB=$e->getLatPuntoB();
-                                $lngPuntoB=$e->getLngPuntoB();;           
+                                $lngPuntoB=$e->getLngPuntoB();
+                                $carga=$e->getCarga();          
                                 echo "<tr>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center font-bold px-4 py-2'>$idDetalleEnvio</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idRuta</td>
+                                        <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$carga</td>
                                         <td class='border-b-4 border-gray-600 rounded-lg text-center px-4 py-2'>$idEnvio</td>
                                         </tr>";
                              } 
